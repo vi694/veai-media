@@ -16,6 +16,8 @@
   /* Scarce accents */
   --ember:#ff5a00;
   --orchid-flash:#fe45e2;
+  --accent:#7843FF;
+  --accent-deep:#5b2fd6;
   /* Aliases for legacy class names */
   --purple:var(--obsidian);
   --purple-deep:var(--obsidian);
@@ -51,7 +53,7 @@ a{color:inherit;text-decoration:none}
 .brand{font-size:22px;font-weight:700;letter-spacing:-.5px;color:var(--obsidian);display:inline-flex;align-items:center}
 .brand-logo{display:block;height:52px;width:auto}
 .back{padding:9px 16px;border-radius:var(--radius-pill);font-size:13px;font-weight:600;color:var(--ink);border:1px solid var(--pebble);background:var(--snow)}
-.back:hover{background:var(--mist)}
+.back:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
 
 /* Hero */
 .hero{
@@ -102,7 +104,7 @@ h2{font-size:30px;line-height:1.18;letter-spacing:-.5px;font-weight:700;margin:0
 .src a:hover{text-decoration:underline}
 .source-actions{margin-top:12px;display:flex;flex-wrap:wrap;gap:10px}
 .pdf-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:var(--radius-pill);background:var(--obsidian);color:#fff!important;font-size:13.5px;font-weight:500;text-decoration:none!important}
-.pdf-btn:hover{background:var(--graphite);text-decoration:none!important}
+.pdf-btn:hover{background:var(--accent);text-decoration:none!important}
 
 /* Article figures */
 .paper-figure{margin:24px 0;background:var(--snow);border-radius:var(--radius-compact);padding:18px;box-shadow:var(--shadow-sm)}
