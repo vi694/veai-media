@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Байесовская детекция галлюцинированных импортов пакетов · Перевод arXiv · Veai</title>
+  <meta name="description" content="Русский перевод аннотации научной статьи arXiv:2606.13918 о детекции выдуманных LLM импортов пакетов. Подготовлено Veai.">
+  <link rel="stylesheet" href="article.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-in">
+      <a class="brand" href="https://veai.ru" target="_blank"><img src="../assets/veai-logo.svg" alt="Veai" class="brand-logo"></a>
+      <a class="back" href="../2026-06-16-arxiv-ai-code-quality-weekly.html#proof">← К дайджесту</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">технический перевод</span>
+      <h1>Байесовски-калиброванная детекция галлюцинированных импортов пакетов в коде, написанном с помощью ИИ</h1>
+      <p class="orig">Veai видит реальные зависимости и исходники проекта в JetBrains IDE - и не подсовывает несуществующие пакеты.</p>
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="https://veai.ru/products" target="_blank" rel="noopener">Проверять зависимости в Veai</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="wrap">
+      <div class="kicker">Перевод аннотации</div>
+      <h2>О чём статья</h2>
+      <div class="card-doc">
+        <p>Авторы представляют слой байесовской калибровки для детекторов «slopsquat» - тех, что помечают галлюцинированные импорты пакетов в коде, сгенерированном большими языковыми моделями (LLM). Там, где существующие конвейеры выдают бинарные решения (пометить / не помечать), предложенный слой выдаёт апостериорную вероятность по бета-распределению для каждой находки. Она выводится из эпистемической таксономии трёх категорий, которая явно классифицирует каждое априорное предположение как эмпирически калиброванное, конструктивно обоснованное или основанное на инженерном суждении.</p>
+        <p>Помимо основного канала реестра (ответы 200/404), калиброванный слой использует сигналы метаданных PyPI - возраст пакета, число релизов, описание автора, сводку - чтобы выявлять зарегистрированные, но подозрительные пакеты, которые бинарный детектор реестра пропускает. Это и есть реалистичный режим атаки уже после генерации кода LLM. Полученный примитив, учитывающий риск, напрямую пригоден для CI-гейтов и поддерживает осмысленный выбор порогов для разных правил детекции.</p>
+        <p>Калибровка оценивается на объединённом корпусе из 1 734 Python-фрагментов: стратифицированный срез из 189 промптов BigCodeBench плюс стресс-набор из 100 промптов по нишевым библиотекам, сгенерированных панелью из шести моделей (четыре облачные - Claude-Sonnet-4.6, Mistral-Large, DeepSeek-v4-pro, DeepSeek-R1 - и две локальные открытые кодовые модели Mistral Codestral и Meta CodeLlama). Асимметрию детектора авторы оценивают парным тестом Макнемара, а калибровку - как через Expected Calibration Error на помеченном подмножестве, так и через строго корректную оценку Брайера по полному корпусу.</p>
+      </div>
+
+      <div class="angle-box">
+        <div class="kicker">Экспертное мнение</div>
+        <p><b>Галлюцинация импорта - это не мелкая ошибка, а потенциальная supply-chain атака.</b><br>Когда модель придумывает пакет, разработчик может не заметить подмену или подтянуть подозрительную зависимость. Veai работает из JetBrains IDE и видит реальные зависимости проекта, индексы, исходники и ошибки резолва, поэтому помогает отличать существующий API от выдуманного имени ещё до того, как такой код попадёт в репозиторий.</p>
+      </div>
+
+<a href="https://arxiv.org/abs/2606.13918" target="_blank">arxiv.org/abs/2606.13918</a>.</p>
+      <div class="source-actions"><a class="pdf-btn" href="https://arxiv.org/pdf/2606.13918" target="_blank" rel="noopener">PDF с исходником</a></div>
+    </div>
+  </main>
+
+    <footer>
+    <div class="foot-wrap">
+      <div class="foot-grid">
+        <div>
+          <img src="../assets/veai-logo.svg" alt="Veai" class="footer-logo">
+          <p class="disc">Veai - ИИ-агент для JetBrains IDE, который помогает безопасно разрабатывать, тестировать и отлаживать enterprise-код, опираясь на факты проекта: сборку, тесты, зависимости, покрытие и рантайм.</p>
+          <div class="foot-social">
+            <a href="https://t.me/veai_ru" target="_blank" rel="noopener">Telegram</a>
+            <a href="https://vk.com/veai_ru" target="_blank" rel="noopener">VK</a>
+            <a href="https://rutube.ru/channel/66028054/" target="_blank" rel="noopener">Rutube</a>
+            <a href="https://max.ru/id9718287451_biz" target="_blank" rel="noopener">MAX</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Продукт</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru" target="_blank" rel="noopener">Главная</a>
+            <a href="https://app.veai.ru" target="_blank" rel="noopener">Войти в Veai</a>
+            <a href="https://veai.ru/docs" target="_blank" rel="noopener">Документация</a>
+            <a href="https://veai.ru/docs/get-started" target="_blank" rel="noopener">Начать работу</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Материалы</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru/blog" target="_blank" rel="noopener">Новости</a>
+            <a href="https://veai.ru/events" target="_blank" rel="noopener">Мероприятия</a>
+            <a href="https://veai.ru/docs/knowledge-base" target="_blank" rel="noopener">База знаний</a>
+            <a href="https://arxiv.org" target="_blank" rel="noopener">arXiv.org</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Контакты</h3>
+          <div class="foot-contact">
+            <p>Отдел продаж:<br /> <a href="mailto:sales@veai.ai">sales@veai.ai</a></p>
+            <p>Поддержка:<br /> <a href="mailto:support@veai.ai">support@veai.ai</a></p>
+            <p>Партнёрства и PR:<br /> <a href="mailto:marketing@veai.ai">marketing@veai.ai</a></p>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Компания</h3>
+          <div class="foot-contact">
+            <p><a href="https://veai.ru/about" target="_blank" rel="noopener">О Veai</a></p>
+            <p>ООО «ИИТЕХ»</p>
+            <p>ОГРН 1257700060431<br />ИНН 9701290671</p>
+            <p>ОКВЭД 62.01</p>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© Veai. Материал подготовлен по данным arXiv.org.</span>
+        <a href="https://veai.ru/docs/legal/policy" target="_blank" rel="noopener">Политика и пользовательское соглашение</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

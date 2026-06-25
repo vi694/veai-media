@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Snyk VulnBench JS 1.0: найдут ли LLM одни и те же баги дважды? · Технический перевод · Veai</title>
+  <meta name="description" content="Полный русский перевод исследования Snyk VulnBench JS 1.0 (arXiv:2606.15762): воспроизводимость находок агентного LLM-ревью безопасности и сравнение с детерминированным SAST. Подготовлено Veai.">
+  <link rel="stylesheet" href="article.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-in">
+      <a class="brand" href="https://veai.ru" target="_blank" rel="noopener"><img src="../assets/veai-logo.svg" alt="Veai" class="brand-logo"></a>
+      <a class="back" href="../2026-06-16-arxiv-ai-code-quality-weekly.html#proof">← К дайджесту</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">технический перевод</span>
+      <h1>Snyk VulnBench JS 1.0: найдут ли LLM одни и те же баги дважды?</h1>
+      <p class="orig">Последовательный русский перевод исследования Snyk о воспроизводимости находок агентного LLM-ревью безопасности и его сравнении с детерминированным статическим анализом (SAST).</p>
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="https://veai.ru/products" target="_blank" rel="noopener">Воспроизводимое SAST-ревью (статический анализ безопасности) в Veai</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section" id="translation">
+    <div class="wrap">
+      <div class="kicker">Технический перевод</div>
+
+      <figure class="paper-figure">
+        <img src="assets/2606.15762/fig-01-f1-variance.svg" alt="Snyk-reference F1 против стандартного отклонения для SAST и конфигураций LLM">
+        <figcaption><b>Рисунок 1.</b> Воспроизводимость против точности: по оси Y - согласие с эталоном Snyk Code (Snyk-reference F1), по оси X - стандартное отклонение между пятью идентичными повторами. Детерминированный SAST занимает верхний левый угол (100% F1, 0% разброса), а конфигурации LLM уступают и по точности, и по стабильности.</figcaption>
+      </figure>
+
+      <h2>Аннотация</h2>
+      <div class="card-doc">
+        <p>Авторы прогнали 300 повторных сканов на поиск уязвимостей, чтобы измерить, насколько воспроизводимо агентное ревью безопасности на основе LLM на одном и том же JavaScript-коде, промпте и тестовой «обвязке» бенчмарка. Главный результат: находки LLM по безопасности воспроизводимы неравномерно. Находки, совпадающие с эталоном, были стабильными, а вот «дополнительные» отчёты модели сильно варьировались от прогона к прогону.</p>
+        <p>В 250 прогонах модели 80 из 161 уникальной несовпавшей находки появились лишь в одной из пяти идентичных повторений, и только 22 - во всех пяти. Напротив, когда Claude совпадал с эталонной находкой Snyk Code, поведение было гораздо стабильнее: 134 из 158 уникальных совпавших с эталоном находок появлялись во всех пяти повторениях.</p>
+        <p>Бенчмарк также демонстрирует взаимодополняемость подходов. Модели стабильно находили знакомые, «громкие» паттерны эксплуатации, а в одном случае выявили вероятный пробел в продукте Snyk Code. При этом статический анализ безопасности (SAST) Snyk Code был детерминированным и лучше систематически перечислял повторяющиеся приёмники потоков данных (data-flow sinks). Результаты поддерживают комбинирование агентного LLM-ревью с детерминированным SAST, а не рассмотрение одной техники как замены другой.</p>
+      </div>
+
+      <h2>1. Введение</h2>
+      <div class="card-doc">
+        <p>Агентные кодовые системы уже стали частью повседневной разработки: они пишут код, редактируют pull request'ы, объясняют изменения и проводят ревью безопасности ещё до того, как код увидит человек. Поэтому надёжность становится ключевым продуктовым вопросом: если агент дважды видит один и тот же уязвимый код, найдёт ли он одни и те же уязвимости?</p>
+        <p>SAST-инструменты детерминированы - на одинаковом коде они дают одинаковый результат. LLM, напротив, способны понимать незнакомый код, объяснять риски и находить то, что пропускает статический анализ, но при этом выдают разные результаты между запусками, могут «шуметь» и иногда замечают лишь один пример из повторяющегося паттерна. Snyk VulnBench JS 1.0 создан, чтобы измерить это в контролируемых условиях.</p>
+      </div>
+
+      <h2>Ключевые результаты</h2>
+      <div class="card-doc">
+        <ul>
+          <li>Лучший LLM нашёл только <b>81% эталонных уязвимостей</b>.</li>
+          <li>Лучший показатель F1 - <b>75.4%</b> (отставание от SAST на 24.6 процентного пункта).</li>
+          <li>Почти <b>50% находок LLM вне эталона</b> появляются только в одном запуске из пяти.</li>
+          <li>Самый «полный» LLM оказался и самым шумным: <b>41% его находок - вне эталона</b>.</li>
+          <li>На крупном приложении лучший LLM показал всего <b>40% F1</b> и регулярно пропускал path traversal (обход каталога) и ограничения ресурсов (resource limits).</li>
+        </ul>
+      </div>
+
+      <h2>2. Методология</h2>
+      <div class="card-doc">
+        <h3>2.1. Бенчмарк</h3>
+        <p>10 JavaScript-проектов на фреймворке Express, 44 эталонные уязвимости Snyk Code, 6 конфигураций (SAST и разные версии Claude), по 5 повторов каждого задания - всего 300 запусков. Все модели получают одинаковый промпт, возвращают ответ в формате JSON и не видят эталонный файл.</p>
+        <h3>2.2. Оценка</h3>
+        <p>Основная метрика - Snyk-reference F1. Важная деталь: совпадение засчитывается по типу уязвимости и не требует совпадения файла, строки, severity (критичности) или потока данных (data-flow). Это метрика согласия с эталоном, а не абсолютной точности.</p>
+      </div>
+
+      <h2>3. Результаты</h2>
+      <div class="card-doc">
+        <h3>3.1. Воспроизводимость LLM зависит от конфигурации</h3>
+        <p>SAST даёт 100% F1 при нулевой вариации. У LLM наблюдается разброс и по точности, и по стабильности; лучшая конфигурация - Claude Opus 4.6 Medium с 75.4% F1 и низкой вариативностью (рис.1). Ключевой паттерн: «истинные» уязвимости находятся стабильно, а дополнительные находки нестабильны. Так, 80 из 161 уникальной «лишней» находки появляются лишь однажды.</p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption>Таблица 1. Согласие с эталоном Snyk Code и стабильность между пятью идентичными повторами по конфигурациям.</caption>
+          <thead>
+            <tr>
+              <th>Конфигурация</th>
+              <th class="num">Snyk-reference F1</th>
+              <th class="num">Стандартное отклонение</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Snyk Code (SAST)</td><td class="num">100.0%</td><td class="num">0.0%</td></tr>
+            <tr><td>Claude Opus 4.6 Medium</td><td class="num">75.4%</td><td class="num">0.2%</td></tr>
+            <tr><td>Claude Opus 4.6 High</td><td class="num">75.2%</td><td class="num">0.3%</td></tr>
+            <tr><td>Claude Opus 4.7 Max</td><td class="num">68.8%</td><td class="num">2.2%</td></tr>
+            <tr><td>Claude Sonnet 4.6 Medium</td><td class="num">67.4%</td><td class="num">0.9%</td></tr>
+            <tr><td>Claude Sonnet 4.6 High</td><td class="num">64.9%</td><td class="num">3.5%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card-doc">
+        <h3>3.2. Взаимодополняемость LLM и SAST</h3>
+        <p>LLM хорошо находят command injection (внедрение команд), SQL injection (SQL-инъекции), hardcoded credentials (захардкоженные учётные данные), SSRF (подделку запросов на стороне сервера), XSS (межсайтовый скриптинг) и open redirect (открытые перенаправления). Слабее даются ограничения ресурсов, санитизация ввода, проверка типов, небезопасный транспорт и path traversal (обход каталога), особенно повторяющийся.</p>
+        <p>Пример ошибки: модель сообщает о «SQL-инъекции» там, где нет реального приёмника исполнения (execution sink), - это ложноположительный результат. Пример полезного сигнала: LLM нашли SQL-инъекцию вне эталона, что указывает на вероятный пробел в Snyk Code.</p>
+
+        <h3>3.3. Проблема повторяемости</h3>
+        <p>Около 50% уникальных находок LLM появляются только в одном запуске и лишь 14% - во всех пяти. Практический эффект: разработчик получает разный результат анализа при каждом запуске.</p>
+
+        <h3>3.4. Стоимость не равна качеству</h3>
+        <p>Claude Opus 4.7 Max обходится в 5.7 раза дороже и тратит в 1.9 раза больше токенов, но показывает результат хуже, чем Opus 4.6 Medium.</p>
+      </div>
+
+      <h2>4. Обсуждение</h2>
+      <div class="card-doc">
+        <p>Ограничения работы: эталоном выступает Snyk Code (а не абсолютная истина), проекты упрощены, полной эталонной разметки (ground truth) нет, а схема подсчёта совпадений упрощена.</p>
+      </div>
+
+      <h2>5. Вывод</h2>
+      <div class="card-doc">
+        <p>LLM полезны для ревью безопасности, но не являются воспроизводимыми. Ключевой инсайт: совпадающие с эталоном уязвимости стабильны, а дополнительные находки шумны и непредсказуемы.</p>
+        <p>Главный вывод - LLM и SAST нужно использовать вместе, потому что они находят разные классы проблем и имеют разные слепые зоны.</p>
+      </div>
+
+      <div class="angle-box">
+        <div class="kicker">Комментарий Veai</div>
+        <p><b>Один и тот же LLM-ревьюер может найти разные баги в одном и том же коде.</b><br>Это неприятная правда для команд, которые заменяют инженерную проверку текстовым ответом модели. Veai снижает такую случайность: агент использует детерминированные факты JetBrains IDE - дерево проекта, зависимости, статанализ, сборку и тесты, - поэтому ревью становится воспроизводимым процессом, а не лотереей промптов.</p>
+      </div>
+
+      <p class="src">Перевод подготовлен технической командой Veai на основе arXiv:2606.15762. Первоисточник (англ.): <a href="https://arxiv.org/abs/2606.15762" target="_blank" rel="noopener">arxiv.org/abs/2606.15762</a>.</p>
+      <div class="source-actions"><a class="pdf-btn" href="https://arxiv.org/pdf/2606.15762" target="_blank" rel="noopener">PDF с исходником</a></div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="foot-wrap">
+      <div class="foot-grid">
+        <div>
+          <img src="../assets/veai-logo.svg" alt="Veai" class="footer-logo">
+          <p class="disc">Veai - ИИ-агент для JetBrains IDE, который помогает безопасно разрабатывать, тестировать и отлаживать enterprise-код, опираясь на факты проекта: сборку, тесты, зависимости, покрытие и рантайм.</p>
+          <div class="foot-social">
+            <a href="https://t.me/veai_ru" target="_blank" rel="noopener">Telegram</a>
+            <a href="https://vk.com/veai_ru" target="_blank" rel="noopener">VK</a>
+            <a href="https://rutube.ru/channel/66028054/" target="_blank" rel="noopener">Rutube</a>
+            <a href="https://max.ru/id9718287451_biz" target="_blank" rel="noopener">MAX</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Продукт</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru" target="_blank" rel="noopener">Главная</a>
+            <a href="https://app.veai.ru" target="_blank" rel="noopener">Войти в Veai</a>
+            <a href="https://veai.ru/docs" target="_blank" rel="noopener">Документация</a>
+            <a href="https://veai.ru/docs/get-started" target="_blank" rel="noopener">Начать работу</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Материалы</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru/blog" target="_blank" rel="noopener">Новости</a>
+            <a href="https://veai.ru/events" target="_blank" rel="noopener">Мероприятия</a>
+            <a href="https://veai.ru/docs/knowledge-base" target="_blank" rel="noopener">База знаний</a>
+            <a href="https://arxiv.org" target="_blank" rel="noopener">arXiv.org</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Контакты</h3>
+          <div class="foot-contact">
+            <p>Отдел продаж:<br /> <a href="mailto:sales@veai.ai">sales@veai.ai</a></p>
+            <p>Поддержка:<br /> <a href="mailto:support@veai.ai">support@veai.ai</a></p>
+            <p>Партнёрства и PR:<br /> <a href="mailto:marketing@veai.ai">marketing@veai.ai</a></p>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Компания</h3>
+          <div class="foot-contact">
+            <p><a href="https://veai.ru/about" target="_blank" rel="noopener">О Veai</a></p>
+            <p>ООО «ИИТЕХ»</p>
+            <p>ОГРН 1257700060431<br />ИНН 9701290671</p>
+            <p>ОКВЭД 62.01</p>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© Veai. Материал подготовлен по данным arXiv.org.</span>
+        <a href="https://veai.ru/docs/legal/policy" target="_blank" rel="noopener">Политика и пользовательское соглашение</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

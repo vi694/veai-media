@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SEVRA-BENCH: социальная инженерия против ревью-агентов · Перевод arXiv · Veai</title>
+  <meta name="description" content="Русский перевод аннотации научной статьи arXiv:2606.13757 о социальной инженерии против ИИ-ревьюеров pull request. Подготовлено Veai.">
+  <link rel="stylesheet" href="article.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-in">
+      <a class="brand" href="https://veai.ru" target="_blank"><img src="../assets/veai-logo.svg" alt="Veai" class="brand-logo"></a>
+      <a class="back" href="../2026-06-16-arxiv-ai-code-quality-weekly.html#review">← К дайджесту</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">технический перевод</span>
+      <h1>SEVRA-BENCH: социальная инженерия уязвимостей в ревью-агентах</h1>
+      <p class="orig">Veai не обмануть текстом pull request: ревью опирается на факты JetBrains IDE - сборку, тесты и статанализ.</p>
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="https://veai.ru/products" target="_blank" rel="noopener">Ревью PR по фактам в Veai</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="wrap">
+      <div class="kicker">Перевод аннотации</div>
+      <h2>О чём статья</h2>
+      <div class="card-doc">
+        <p>LLM-ревьюеры всё чаще применяются в процессах работы с pull request (PR), где их одобрения помогают решить, какой код будет слит в репозиторий. Это поднимает вопрос, который не охватывают бенчмарки статической детекции уязвимостей или генерации кода: способен ли автоматический ревьюер отклонить вредоносный вклад, когда атакующий контролирует и изменение кода, и сопровождающий текст PR?</p>
+        <p>Авторы представляют SEVRA-BENCH (Social Engineering of Vulnerabilities in Review Agents) - бенчмарк, измеряющий, как часто автоматический ревьюер одобряет такие состязательные pull request. Каждый вредоносный PR в SEVRA-BENCH построен на основе реального коммита проекта, который ранее устранял уязвимость из базы CVE. Авторы автоматически «инвертируют» этот фикс, восстанавливая исходный уязвимый код, и подают его как pull request, обёрнутый в одну из 15 социально-инженерных «рамок», варьирующих заявления, подкрепляющие доказательства, передаваемую срочность, сигналы о якобы прошлом одобрении и апелляции к авторитету.</p>
+        <p>SEVRA-BENCH содержит 1 062 вредоносных PR, построенных на связанных с CVE фиксах из топ-10 записей CWE Top 25 за 2025 год. В реалистичной постановке авторы оценивают 8 современных LLM как агентов код-ревью на PR, вносящих уязвимости, ранее описанные в публичных раскрытиях. Результаты выявляют резкий разрыв в возможностях безопасности между закрытыми и открытыми моделями. Авторы надеются, что SEVRA-BENCH станет ценным ресурсом для развития открытых моделей и сокращения этого разрыва.</p>
+      </div>
+
+      <div class="angle-box">
+        <div class="kicker">Экспертное мнение</div>
+        <p><b>Вредоносный PR может быть написан так убедительно, что LLM-ревьюер его одобрит.</b><br>SEVRA-BENCH показывает слабое место агентного ревью: если агент верит описанию pull request, атакующий управляет не только кодом, но и нарративом. Veai строит защиту иначе - проверяет изменение через факты JetBrains IDE: сборку, тесты, статический анализ, зависимости и реальные связи в коде, а не через доверие к красивому описанию.</p>
+      </div>
+
+<a href="https://arxiv.org/abs/2606.13757" target="_blank">arxiv.org/abs/2606.13757</a>.</p>
+      <div class="source-actions"><a class="pdf-btn" href="https://arxiv.org/pdf/2606.13757" target="_blank" rel="noopener">PDF с исходником</a></div>
+    </div>
+  </main>
+
+    <footer>
+    <div class="foot-wrap">
+      <div class="foot-grid">
+        <div>
+          <img src="../assets/veai-logo.svg" alt="Veai" class="footer-logo">
+          <p class="disc">Veai - ИИ-агент для JetBrains IDE, который помогает безопасно разрабатывать, тестировать и отлаживать enterprise-код, опираясь на факты проекта: сборку, тесты, зависимости, покрытие и рантайм.</p>
+          <div class="foot-social">
+            <a href="https://t.me/veai_ru" target="_blank" rel="noopener">Telegram</a>
+            <a href="https://vk.com/veai_ru" target="_blank" rel="noopener">VK</a>
+            <a href="https://rutube.ru/channel/66028054/" target="_blank" rel="noopener">Rutube</a>
+            <a href="https://max.ru/id9718287451_biz" target="_blank" rel="noopener">MAX</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Продукт</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru" target="_blank" rel="noopener">Главная</a>
+            <a href="https://app.veai.ru" target="_blank" rel="noopener">Войти в Veai</a>
+            <a href="https://veai.ru/docs" target="_blank" rel="noopener">Документация</a>
+            <a href="https://veai.ru/docs/get-started" target="_blank" rel="noopener">Начать работу</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Материалы</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru/blog" target="_blank" rel="noopener">Новости</a>
+            <a href="https://veai.ru/events" target="_blank" rel="noopener">Мероприятия</a>
+            <a href="https://veai.ru/docs/knowledge-base" target="_blank" rel="noopener">База знаний</a>
+            <a href="https://arxiv.org" target="_blank" rel="noopener">arXiv.org</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Контакты</h3>
+          <div class="foot-contact">
+            <p>Отдел продаж:<br /> <a href="mailto:sales@veai.ai">sales@veai.ai</a></p>
+            <p>Поддержка:<br /> <a href="mailto:support@veai.ai">support@veai.ai</a></p>
+            <p>Партнёрства и PR:<br /> <a href="mailto:marketing@veai.ai">marketing@veai.ai</a></p>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Компания</h3>
+          <div class="foot-contact">
+            <p><a href="https://veai.ru/about" target="_blank" rel="noopener">О Veai</a></p>
+            <p>ООО «ИИТЕХ»</p>
+            <p>ОГРН 1257700060431<br />ИНН 9701290671</p>
+            <p>ОКВЭД 62.01</p>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© Veai. Материал подготовлен по данным arXiv.org.</span>
+        <a href="https://veai.ru/docs/legal/policy" target="_blank" rel="noopener">Политика и пользовательское соглашение</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

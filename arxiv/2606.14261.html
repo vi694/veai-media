@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Безопасность внутри воркфлоу: ролевые агентные архитектуры · Перевод arXiv · Veai</title>
+  <meta name="description" content="Русский перевод аннотации научной статьи arXiv:2606.14261 о ролевых агентных архитектурах для работы с уязвимостями. Подготовлено Veai.">
+  <link rel="stylesheet" href="article.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-in">
+      <a class="brand" href="https://veai.ru" target="_blank"><img src="../assets/veai-logo.svg" alt="Veai" class="brand-logo"></a>
+      <a class="back" href="../2026-06-16-arxiv-ai-code-quality-weekly.html#review">← К дайджесту</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">технический перевод</span>
+      <h1>Безопасность внутри воркфлоу: исследование ролевых агентных архитектур для работы с уязвимостями</h1>
+      <p class="orig">Veai - это агент плюс инструменты проверки JetBrains IDE: анализ, запуск и верификация, а не только LLM.</p>
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="https://veai.ru/products" target="_blank" rel="noopener">Security workflow (процесс безопасности) в Veai</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="wrap">
+      <div class="kicker">Перевод аннотации</div>
+      <h2>О чём статья</h2>
+      <div class="card-doc">
+        <p>Безопасная инженерия ПО на практике - это многоэтапный воркфлоу, включающий анализ уязвимостей, их устранение и верификацию исправлений. Однако нынешние подходы к безопасности ПО на основе LLM часто фокусируются на изолированных задачах - например, детекции или генерации патчей - уделяя мало внимания агентным архитектурам, отражающим промышленный воркфлоу. Это создаёт разрыв между существующими методами работы с уязвимостями на базе LLM и реальной практикой.</p>
+        <p>В этой работе авторы изучают ролевой агентный воркфлоу для анализа и смягчения уязвимостей, состоящий из ролей Planner, Analyzer, Fixer и Verifier. Чтобы исследовать влияние инструмента статического анализа, агент-аналитик в одном из вариантов воркфлоу был интегрирован с CodeQL. Использованные модели: nemotron-cascade-2:30b, qwen3-coder-next и gpt-oss:120b.</p>
+        <p>Оценка проводится на 25 реальных уязвимостях C/C++. Исследование сообщает о 44% точности детекции уязвимостей (сопоставимо с GPT 5.5) и 19% точности исправлений. Авторы также перечисляют выводы из исследования в контексте практиков безопасности ПО.</p>
+      </div>
+
+      <div class="angle-box">
+        <div class="kicker">Экспертное мнение</div>
+        <p><b>Один LLM-агент без инструментов - это не security workflow, а чат с уверенностью.</b><br>Ролевой пайплайн Planner / Analyzer / Fixer / Verifier показывает, что безопасная работа с уязвимостями требует разделения ролей и инструментальной проверки. Veai работает ровно в этой логике: агент использует возможности JetBrains IDE - статанализ, сборку, тесты и навигацию по коду - чтобы исправление было проверяемым, а не просто убедительно описанным.</p>
+      </div>
+
+      <p class="src">Перевод подготовлен технической командой Veai.</p>
+      <div class="source-actions"><a class="pdf-btn" href="https://arxiv.org/pdf/2606.14261" target="_blank" rel="noopener">PDF с исходником</a></div>
+    </div>
+  </main>
+
+    <footer>
+    <div class="foot-wrap">
+      <div class="foot-grid">
+        <div>
+          <img src="../assets/veai-logo.svg" alt="Veai" class="footer-logo">
+          <p class="disc">Veai - ИИ-агент для JetBrains IDE, который помогает безопасно разрабатывать, тестировать и отлаживать enterprise-код, опираясь на факты проекта: сборку, тесты, зависимости, покрытие и рантайм.</p>
+          <div class="foot-social">
+            <a href="https://t.me/veai_ru" target="_blank" rel="noopener">Telegram</a>
+            <a href="https://vk.com/veai_ru" target="_blank" rel="noopener">VK</a>
+            <a href="https://rutube.ru/channel/66028054/" target="_blank" rel="noopener">Rutube</a>
+            <a href="https://max.ru/id9718287451_biz" target="_blank" rel="noopener">MAX</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Продукт</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru" target="_blank" rel="noopener">Главная</a>
+            <a href="https://app.veai.ru" target="_blank" rel="noopener">Войти в Veai</a>
+            <a href="https://veai.ru/docs" target="_blank" rel="noopener">Документация</a>
+            <a href="https://veai.ru/docs/get-started" target="_blank" rel="noopener">Начать работу</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Материалы</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru/blog" target="_blank" rel="noopener">Новости</a>
+            <a href="https://veai.ru/events" target="_blank" rel="noopener">Мероприятия</a>
+            <a href="https://veai.ru/docs/knowledge-base" target="_blank" rel="noopener">База знаний</a>
+            <a href="https://arxiv.org" target="_blank" rel="noopener">arXiv.org</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Контакты</h3>
+          <div class="foot-contact">
+            <p>Отдел продаж:<br /> <a href="mailto:sales@veai.ai">sales@veai.ai</a></p>
+            <p>Поддержка:<br /> <a href="mailto:support@veai.ai">support@veai.ai</a></p>
+            <p>Партнёрства и PR:<br /> <a href="mailto:marketing@veai.ai">marketing@veai.ai</a></p>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Компания</h3>
+          <div class="foot-contact">
+            <p><a href="https://veai.ru/about" target="_blank" rel="noopener">О Veai</a></p>
+            <p>ООО «ИИТЕХ»</p>
+            <p>ОГРН 1257700060431<br />ИНН 9701290671</p>
+            <p>ОКВЭД 62.01</p>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© Veai. Материал подготовлен по данным arXiv.org.</span>
+        <a href="https://veai.ru/docs/legal/policy" target="_blank" rel="noopener">Политика и пользовательское соглашение</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ватты и долги агентных фреймворков · Перевод arXiv · Veai</title>
+  <meta name="description" content="Русский перевод аннотации научной статьи arXiv:2606.10702 о связи технического долга и энергопотребления агентных фреймворков. Подготовлено Veai.">
+  <link rel="stylesheet" href="article.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-in">
+      <a class="brand" href="https://veai.ru" target="_blank"><img src="../assets/veai-logo.svg" alt="Veai" class="brand-logo"></a>
+      <a class="back" href="../2026-06-16-arxiv-ai-code-quality-weekly.html#review">← К дайджесту</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">технический перевод</span>
+      <h1>Ватты и долги агентных фреймворков: эмпирическое исследование (зарегистрированный отчёт)</h1>
+      <p class="orig">Veai снижает скрытые издержки ИИ-кода: находит техдолг через факты и анализ в JetBrains IDE.</p>
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="https://veai.ru/products" target="_blank" rel="noopener">Техдолг в IDE с Veai</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="wrap">
+      <div class="kicker">Перевод аннотации</div>
+      <h2>О чём статья</h2>
+      <div class="card-doc">
+        <p><b>Контекст.</b> Любая агентная ИИ-система, выпущенная в продакшен, несёт два скрытых риска: накопленный технический долг (TD) и неотслеживаемые затраты энергии в рантайме. Хотя функциональное бенчмаркирование распространено, эмпирическая связь между внутренним структурным качеством (в частности, техническим долгом) и динамическим энергопотреблением во время исполнения остаётся неизученной - это создаёт «слепое пятно» для практиков и организаций, управляющих устойчивостью и операционными бюджетами в масштабе.</p>
+        <p><b>Цель.</b> Авторы предлагают подтверждающее эмпирическое исследование, коррелирующее самопризнанный технический долг (Self-Admitted Technical Debt, SATD) с энергопотреблением в рантайме на уровне оборудования по разным агентным фреймворкам, чтобы определить, может ли качество кода направлять энергоосознанные проектные решения.</p>
+        <p><b>Метод.</b> Будут оценены пять открытых агентных фреймворков путём выполнения стандартизированного набора задач в строго контролируемой среде. Технический долг будет измеряться автоматическим анализом исходного кода, а энергия в рантайме - на уровне оборудования. Исследование рассмотрит три вопроса: (RQ1) наличие TD в этих фреймворках; (RQ2) разброс энергопотребления в рантайме между архитектурами; (RQ3) статистическую корреляцию между TD фреймворка и его энергопотреблением на уровне задач.</p>
+        <p><b>Заключение.</b> Результаты установят, может ли автоматический анализ исходного кода служить надёжным ранним индикатором для выбора энергоэффективного фреймворка, продвигая тем самым и «зелёную» инженерию ПО, и исследования качества агентного ИИ.</p>
+      </div>
+
+      <div class="angle-box">
+        <div class="kicker">Экспертное мнение</div>
+        <p><b>Плохой агентный код бьёт не только по поддержке, но и по инфраструктурному счёту.</b><br>Если фреймворк тащит технический долг, это может проявиться в лишних вызовах, тяжёлом рантайме и энергопотреблении. Veai помогает находить такие скрытые издержки раньше: через анализ кода, связей, запусков и результатов в JetBrains IDE, пока «дорогая архитектура» не стала постоянной строкой бюджета.</p>
+      </div>
+
+      <p class="src">Перевод подготовлен технической командой Veai.</p>
+      <div class="source-actions"><a class="pdf-btn" href="https://arxiv.org/pdf/2606.10702" target="_blank" rel="noopener">PDF с исходником</a></div>
+    </div>
+  </main>
+
+    <footer>
+    <div class="foot-wrap">
+      <div class="foot-grid">
+        <div>
+          <img src="../assets/veai-logo.svg" alt="Veai" class="footer-logo">
+          <p class="disc">Veai - ИИ-агент для JetBrains IDE, который помогает безопасно разрабатывать, тестировать и отлаживать enterprise-код, опираясь на факты проекта: сборку, тесты, зависимости, покрытие и рантайм.</p>
+          <div class="foot-social">
+            <a href="https://t.me/veai_ru" target="_blank" rel="noopener">Telegram</a>
+            <a href="https://vk.com/veai_ru" target="_blank" rel="noopener">VK</a>
+            <a href="https://rutube.ru/channel/66028054/" target="_blank" rel="noopener">Rutube</a>
+            <a href="https://max.ru/id9718287451_biz" target="_blank" rel="noopener">MAX</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Продукт</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru" target="_blank" rel="noopener">Главная</a>
+            <a href="https://app.veai.ru" target="_blank" rel="noopener">Войти в Veai</a>
+            <a href="https://veai.ru/docs" target="_blank" rel="noopener">Документация</a>
+            <a href="https://veai.ru/docs/get-started" target="_blank" rel="noopener">Начать работу</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Материалы</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru/blog" target="_blank" rel="noopener">Новости</a>
+            <a href="https://veai.ru/events" target="_blank" rel="noopener">Мероприятия</a>
+            <a href="https://veai.ru/docs/knowledge-base" target="_blank" rel="noopener">База знаний</a>
+            <a href="https://arxiv.org" target="_blank" rel="noopener">arXiv.org</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Контакты</h3>
+          <div class="foot-contact">
+            <p>Отдел продаж:<br /> <a href="mailto:sales@veai.ai">sales@veai.ai</a></p>
+            <p>Поддержка:<br /> <a href="mailto:support@veai.ai">support@veai.ai</a></p>
+            <p>Партнёрства и PR:<br /> <a href="mailto:marketing@veai.ai">marketing@veai.ai</a></p>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Компания</h3>
+          <div class="foot-contact">
+            <p><a href="https://veai.ru/about" target="_blank" rel="noopener">О Veai</a></p>
+            <p>ООО «ИИТЕХ»</p>
+            <p>ОГРН 1257700060431<br />ИНН 9701290671</p>
+            <p>ОКВЭД 62.01</p>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© Veai. Материал подготовлен по данным arXiv.org.</span>
+        <a href="https://veai.ru/docs/legal/policy" target="_blank" rel="noopener">Политика и пользовательское соглашение</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Декодирование с грамматическими ограничениями может джейлбрейкнуть LLM · Перевод arXiv · Veai</title>
+  <meta name="description" content="Русский перевод аннотации научной статьи arXiv:2606.11817 о том, как грамматические ограничения декодирования становятся вектором джейлбрейка. Подготовлено Veai.">
+  <link rel="stylesheet" href="article.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-in">
+      <a class="brand" href="https://veai.ru" target="_blank"><img src="../assets/veai-logo.svg" alt="Veai" class="brand-logo"></a>
+      <a class="back" href="../2026-06-16-arxiv-ai-code-quality-weekly.html#security">← К дайджесту</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">технический перевод</span>
+      <h1>Декодирование с грамматическими ограничениями может джейлбрейкнуть LLM на генерацию вредоносного кода</h1>
+      <p class="orig">Veai проверяет реальное поведение кода в JetBrains IDE - «надёжность на словах» для него не аргумент.</p>
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="https://veai.ru/products" target="_blank" rel="noopener">Проверять поведение кода в Veai</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="wrap">
+      <div class="kicker">Перевод аннотации</div>
+      <h2>О чём статья</h2>
+      <div class="card-doc">
+        <p>Большие языковые модели (LLM) всё чаще применяются для генерации кода, что вызывает опасения, что их могут использовать для создания вредоносного кода. При этом декодирование с грамматическими ограничениями (декодирование с грамматическими ограничениями (Grammar-Constrained Decoding, GCD)) широко применяется для повышения надёжности генерируемого LLM кода за счёт обеспечения синтаксической корректности. В этой работе авторы выявляют контринтуитивный риск: эта ориентированная на надёжность техника сама может стать поверхностью атаки.</p>
+        <p>Авторы обнаруживают новую джейлбрейк-атаку, названную CodeSpear, которая эксплуатирует GCD, чтобы вынудить LLM генерировать вредоносный код. Эксперименты показывают, что простое применение безобидного грамматического ограничения на код способно эффективно «взломать» (jailbreak) LLM.</p>
+        <p>Чтобы устранить эту уязвимость, авторы предлагают CodeShield - подход к выравниванию безопасности, который устойчиво сохраняет безопасное поведение даже при контролируемых атакующим грамматических ограничениях. Подход настраивает модель так, чтобы она генерировала «honeypot»-код под GCD: такой код семантически безвреден (не реализует вредоносный запрос) и структурно разнообразен (его трудно подавить ужесточением грамматики). При этом модель сохраняет полезность на безобидных задачах, когда естественный язык доступен. Эксперименты на 10 популярных LLM и 4 бенчмарках показывают, что CodeSpear превосходит репрезентативные джейлбрейк-базлайны и повышает успешность атаки в среднем более чем на 30 процентных пунктов. CodeShield же восстанавливает безопасность под CodeSpear, сохраняя полезность на безобидных задачах. Выводы вскрывают фундаментальный риск GCD и призывают уделять больше внимания его возможным последствиям для безопасности.</p>
+      </div>
+
+      <div class="angle-box">
+        <div class="kicker">Экспертное мнение</div>
+        <p><b>Даже техника, придуманная для надёжности генерации, может стать поверхностью атаки.</b><br>Grammar-constrained decoding выглядит безопасно, потому что заставляет модель писать синтаксически валидный код, но статья показывает: валидный синтаксис не равен безопасному поведению. Поэтому важно проверять результат в JetBrains IDE: запускать, анализировать, смотреть зависимости и эффекты кода, а не верить красивой форме ответа.</p>
+      </div>
+
+      <p class="src">Перевод подготовлен технической командой Veai.</p>
+      <div class="source-actions"><a class="pdf-btn" href="https://arxiv.org/pdf/2606.11817" target="_blank" rel="noopener">PDF с исходником</a></div>
+    </div>
+  </main>
+
+    <footer>
+    <div class="foot-wrap">
+      <div class="foot-grid">
+        <div>
+          <img src="../assets/veai-logo.svg" alt="Veai" class="footer-logo">
+          <p class="disc">Veai - ИИ-агент для JetBrains IDE, который помогает безопасно разрабатывать, тестировать и отлаживать enterprise-код, опираясь на факты проекта: сборку, тесты, зависимости, покрытие и рантайм.</p>
+          <div class="foot-social">
+            <a href="https://t.me/veai_ru" target="_blank" rel="noopener">Telegram</a>
+            <a href="https://vk.com/veai_ru" target="_blank" rel="noopener">VK</a>
+            <a href="https://rutube.ru/channel/66028054/" target="_blank" rel="noopener">Rutube</a>
+            <a href="https://max.ru/id9718287451_biz" target="_blank" rel="noopener">MAX</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Продукт</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru" target="_blank" rel="noopener">Главная</a>
+            <a href="https://app.veai.ru" target="_blank" rel="noopener">Войти в Veai</a>
+            <a href="https://veai.ru/docs" target="_blank" rel="noopener">Документация</a>
+            <a href="https://veai.ru/docs/get-started" target="_blank" rel="noopener">Начать работу</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Материалы</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru/blog" target="_blank" rel="noopener">Новости</a>
+            <a href="https://veai.ru/events" target="_blank" rel="noopener">Мероприятия</a>
+            <a href="https://veai.ru/docs/knowledge-base" target="_blank" rel="noopener">База знаний</a>
+            <a href="https://arxiv.org" target="_blank" rel="noopener">arXiv.org</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Контакты</h3>
+          <div class="foot-contact">
+            <p>Отдел продаж:<br /> <a href="mailto:sales@veai.ai">sales@veai.ai</a></p>
+            <p>Поддержка:<br /> <a href="mailto:support@veai.ai">support@veai.ai</a></p>
+            <p>Партнёрства и PR:<br /> <a href="mailto:marketing@veai.ai">marketing@veai.ai</a></p>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Компания</h3>
+          <div class="foot-contact">
+            <p><a href="https://veai.ru/about" target="_blank" rel="noopener">О Veai</a></p>
+            <p>ООО «ИИТЕХ»</p>
+            <p>ОГРН 1257700060431<br />ИНН 9701290671</p>
+            <p>ОКВЭД 62.01</p>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© Veai. Материал подготовлен по данным arXiv.org.</span>
+        <a href="https://veai.ru/docs/legal/policy" target="_blank" rel="noopener">Политика и пользовательское соглашение</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

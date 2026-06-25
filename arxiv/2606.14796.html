@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Быстрее код, глубже долг? · Полный перевод · Veai</title>
+  <meta name="description" content="Расширенный русский перевод и визуальное резюме статьи arXiv:2606.14796 о техническом долге в LLM-разработке.">
+  <link rel="stylesheet" href="article.css">
+  <style>
+    .toc{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0 0}
+    .toc a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);border-radius:18px;padding:12px 14px;color:#fff;font-weight:800;font-size:13px}
+    .doc-section{margin-top:28px}
+    .quote-card{background:linear-gradient(135deg,#fff,#f2edff);border:1px solid var(--line);border-radius:24px;padding:24px 26px;margin:24px 0;box-shadow:var(--shadow-sm)}
+    .quote-card p{margin:0;color:var(--ink);font-size:17px;line-height:1.62}
+    .visual-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0}
+    .visual-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:var(--shadow-sm)}
+    .visual-card h3{font-size:17px;margin:0 0 14px;color:var(--purple-deep)}
+    .debt-map{min-height:280px;border-radius:20px;background:radial-gradient(circle at center,#ebe7ff 0,#f8f6ff 58%,#fff 100%);padding:20px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+    .debt-center{align-self:center;width:150px;height:150px;border-radius:50%;background:var(--purple);color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:900;line-height:1.15;box-shadow:0 18px 42px rgba(120,67,255,.24)}
+    .debt-pills{display:grid;grid-template-columns:1fr 1fr;gap:12px}.debt-pills .full{grid-column:1/-1;justify-self:center;max-width:300px}
+    .debt-pill{background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px 14px;box-shadow:var(--shadow-sm);font-weight:800;color:var(--purple-deep)}
+    .debt-pill small{display:block;margin-top:3px;font-weight:650;color:var(--muted)}
+    .risk-chart{min-height:280px;border-radius:20px;background:#f8f6ff;border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+    .risk-row{display:grid;grid-template-columns:138px 1fr;gap:14px;align-items:center;font-weight:800;color:var(--ink)}
+    .risk-bar{height:28px;border-radius:999px;background:#ded8f8;overflow:hidden}.risk-bar span{display:block;height:100%;border-radius:999px}.risk-bar.fast span{width:88%;background:#ff7a59}.risk-bar.checked span{width:78%;background:var(--purple)}.risk-bar.hidden span{width:64%;background:#f2b84b}
+    .image-strip{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0}
+    .figure-card{overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow-sm)}
+    .figure-card img{display:block;width:100%;height:220px;object-fit:cover;background:#f8f6ff}
+    .figure-card figcaption{padding:14px 18px;font-size:13.5px;line-height:1.5;color:var(--muted)}
+    .tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .tech-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow-sm)}
+    .tech-card b{display:block;margin-bottom:6px;color:var(--purple-deep)}
+    .tech-card span{font-size:13.5px;line-height:1.5;color:var(--muted)}
+    .note-list{padding-left:20px;margin:8px 0 0}.note-list li{margin:8px 0;color:var(--ink)}
+    @media (max-width:760px){.toc,.visual-grid,.debt-pills,.image-strip,.tech-grid{grid-template-columns:1fr}.risk-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-in">
+      <a class="brand" href="https://veai.ru" target="_blank" rel="noopener"><img src="../assets/veai-logo.svg" alt="Veai" class="brand-logo"></a>
+      <a class="back" href="../2026-06-16-arxiv-ai-code-quality-weekly.html#quality">← К дайджесту</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">технический перевод</span>
+      <h1>Быстрее код, глубже долг?</h1>
+      <p class="orig">Технический разбор того, как LLM-ассистенты ускоряют разработку, но одновременно создают долг быстрой интеграции, долг промптов, долг происхождения решений и новые зоны риска для ревью, тестов и архитектуры.</p>
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="https://veai.ru/products" target="_blank" rel="noopener">Находить техдолг в Veai</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section" id="translation">
+    <div class="wrap">
+      <section class="doc-section" id="abstract">
+        <div class="kicker">Аннотация</div>
+        <h2>Предмет и основной тезис статьи</h2>
+        <div class="card-doc">
+          <p>С быстрым распространением LLM-assisted coding (разработка с помощью больших языковых моделей) управление техническим долгом, который вносят такие системы, становится срочной инженерной задачей. Статья исследует, как разработка с участием LLM способствует накоплению долга и какие стратегии, метрики, инструменты и бенчмарки обсуждаются для его снижения.</p>
+          <p>Основной вывод: LLM усиливают традиционные формы технического долга - прежде всего кодовый, проектный и документационный, - и одновременно создают новые LLM-specific категории: долг быстрой интеграции (fast-integration debt), долг промптов (prompt debt), этический долг (ethical debt), долг данных (data debt) и долг происхождения решений (provenance debt).</p>
+          <p>Для инженерной команды это означает: ИИ-код нельзя принимать только по признаку «собралось и выглядит правдоподобно». Нужен контур верификации, который связывает diff с зависимостями, тестами, покрытием, статическим анализом, конфигурации запуска (run configurations) и рантайм-контекстом проекта.</p>
+        </div>
+        <div class="tech-grid">
+          <div class="tech-card"><b>Fast-integration debt</b><span>Код быстро попадает в проект, но архитектурные последствия и тестовые пробелы проявляются позже.</span></div>
+          <div class="tech-card"><b>Provenance debt</b><span>Команда теряет объяснимость: почему решение принято, какие источники использованы и кто отвечает за риск.</span></div>
+          <div class="tech-card"><b>Prompt debt</b><span>Качество результата начинает зависеть от неформальных промптов, которые сложно ревьюить и воспроизводить.</span></div>
+        </div>
+      </section>
+
+      <div class="image-strip">
+        <figure class="paper-figure">
+          <img src="../webinar-code-quality-ai/images/05-ai-review-pipeline.svg" alt="Пайплайн проверки ИИ-кода">
+          <figcaption><b>рис.1.</b> Проверка вместо слепого доверия. LLM-изменение должно проходить через ревью, тесты, статический анализ и проверку поведения, а не только через текстовое объяснение модели.</figcaption>
+        </figure>
+        <figure class="paper-figure">
+          <img src="../articles/habr/cursor-vs-veai-for-developers/images/veai-inspections.png" alt="Статический анализ Veai в JetBrains IDE">
+          <figcaption><b>рис.2.</b> IDE-факты вместо предположений. Статический анализ, зависимости и результаты запусков помогают находить долг до того, как он станет проблемой в продакшене.</figcaption>
+        </figure>
+      </div>
+
+      <div class="visual-grid">
+        <div class="visual-card">
+          <h3>рис.1. Где быстрый ИИ-код превращается в долг</h3>
+          <div class="debt-map">
+            <div class="debt-center">быстрый merge<br>без проверки</div>
+            <div class="debt-pills">
+              <div class="debt-pill">1. Код приняли быстрее ревью<small>неочевидные дефекты и code smells остаются внутри</small></div>
+              <div class="debt-pill">2. Архитектуру не обсудили<small>границы модулей и ответственность начинают расползаться</small></div>
+              <div class="debt-pill">3. Объяснения не обновили<small>документация и комментарии отстают от нового поведения</small></div>
+              <div class="debt-pill">4. Правила приёмки не задали<small>неясно, какие ИИ-изменения можно мержить</small></div>
+              <div class="debt-pill full">5. Источник решения потеряли<small>команда не понимает, почему код написан именно так и кто за него отвечает</small></div>
+            </div>
+          </div>
+        </div>
+        <div class="visual-card">
+          <h3>рис.2. Скорость без проверки создаёт скрытую стоимость</h3>
+          <div class="risk-chart">
+            <div class="risk-row"><span>Скорость генерации</span><div class="risk-bar fast"><span></span></div></div>
+            <div class="risk-row"><span>Скрытый риск</span><div class="risk-bar hidden"><span></span></div></div>
+            <div class="risk-row"><span>Контроль Veai</span><div class="risk-bar checked"><span></span></div></div>
+            <p class="src">Выигрыш появляется не от генерации самой по себе, а от связки: генерация → проверка → объяснимое принятие изменения.</p>
+      <div class="source-actions"><a class="pdf-btn" href="https://arxiv.org/pdf/2606.14796" target="_blank" rel="noopener">PDF с исходником</a></div>
+          </div>
+        </div>
+      </div>
+
+      <section class="doc-section" id="methodology">
+        <div class="kicker">Методология</div>
+        <h2>Мультивокальный обзор литературы</h2>
+        <div class="card-doc">
+          <p>Авторы проводят мультивокальный обзор литературы (Multivocal Literature Review) по 104 источникам: 31 формальной публикации и 73 материалам из серая литература (grey literature). Такой дизайн нужен, потому что академические публикации отстают от практики внедрения LLM, а индустриальные блоги, отчёты и кейсы быстрее фиксируют ранние признаки долга.</p>
+          <p>Исследование отвечает на пять вопросов: какие виды долга возникают в LLM-generated code; какие стратегии предлагаются для снижения долга; какие инструменты помогают обнаруживать или измерять его; существуют ли бенчмарки; достаточно ли текущих метрик технический долг (technical debt) для LLM-кода.</p>
+          <p>Технически важная деталь: работа разделяет не только традиционные признаки долга (debt smells), но и долги процесса - governance, прослеживаемость (traceability) и воспроизводимость (reproducibility). Поэтому инструмент для AI-разработки должен помогать не просто «сгенерировать код», а сохранить проверяемый путь от задачи до принятого изменения.</p>
+        </div>
+      </section>
+
+      <section class="doc-section" id="results">
+        <div class="kicker">Результаты</div>
+        <h2>Что показывает корпус источников</h2>
+        <div class="card-doc">
+          <p><b>RQ1.</b> LLM чаще всего усиливают кодовый, проектный и документационный долг. Причины - слабое тестирование, неполная проверка, нестабильность генерации, дублирование, галлюцинированные ссылки и неявные предположения в сгенерированном коде.</p>
+          <p><b>RQ2.</b> Для снижения риска чаще всего упоминаются человек в контуре проверки (human-in-the-loop) практики, инженерия промптов (prompt engineering), контроль качества данных, код-ревью (code review), статический анализ и организационные правила принятия ИИ-кода.</p>
+          <p><b>RQ3-RQ5.</b> Практики в основном используют общие инструменты вроде SonarQube и code-smell detectors. При этом стандартизированных LLM-specific метрик, датасетов и бенчмарков для оценки долга пока нет.</p>
+          <p><b>Практический вывод для Veai.</b> Продуктовая ценность не в том, чтобы заменить ревью ещё одним чат-ответом, а в том, чтобы подключить агента к JetBrains IDE и дать ему проверяемые сигналы: компиляцию, тесты, coverage, PSI-структуру, зависимости, конфигурации запуска и runtime-данные.</p>
+        </div>
+      </section>
+
+      <div class="image-strip">
+        <figure class="paper-figure">
+          <img src="../articles/habr/cursor-vs-veai-for-developers/images/ide-build-tests.svg" alt="Сборка и тесты в IDE-контуре Veai">
+          <figcaption><b>рис.3.</b> Сборка и тесты как антипаттерн к долг быстрой интеграции (fast-integration debt). Быстрый merge безопасен только тогда, когда агент умеет сам запускать релевантные проверки и опираться на их вывод.</figcaption>
+        </figure>
+        <figure class="paper-figure">
+          <img src="../webinar-code-quality-ai/images/04-quality-layers.svg" alt="Слои качества ИИ-кода">
+          <figcaption><b>рис.4.</b> Многоуровневый контроль качества. LLM-specific debt требует сочетать статический анализ, ревью архитектуры, тесты, проверку зависимостей и объяснимость принятия изменений.</figcaption>
+        </figure>
+      </div>
+
+      <section class="doc-section" id="discussion">
+        <div class="kicker">Обсуждение и ограничения</div>
+        <h2>Почему быстрый код требует отдельного контроля</h2>
+        <div class="card-doc">
+          <p>Авторы подчёркивают, что долг быстрой интеграции (fast-integration debt) опасен именно потому, что выглядит как продуктивность: код появляется быстрее, но команда может позже заплатить за слабую архитектуру, неясное происхождение решений, нехватку тестов и управленческие пробелы.</p>
+          <p>Ограничение исследования - зависимость от доступных источников и качества серая литература (grey literature). Тем не менее именно сочетание формальных и индустриальных материалов позволяет увидеть ранние сигналы долга до того, как они полностью оформятся в академические метрики.</p>
+        </div>
+      </section>
+
+      <div class="quote-card">
+        <p><b>Экспертное мнение Veai:</b> самая дорогая ошибка ИИ-разработки - принять скорость за качество. Veai работает внутри JetBrains IDE и сверяет изменения с фактами проекта - сборкой, тестами, зависимостями, статическим анализом, покрытием и рантайм-контекстом. Это помогает не просто быстрее писать код, а раньше видеть долг, который иначе проявится уже в продакшене.</p>
+      </div>
+
+      <div class="card-doc">
+        <h3>Коротко для CTO и тимлидов</h3>
+        <ul class="note-list">
+          <li>LLM ускоряют разработку, но без проверки могут ускорять накопление технический долг (technical debt).</li>
+          <li>Fast-integration debt опасен тем, что выглядит как продуктивность на короткой дистанции.</li>
+          <li>Классическое ревью нужно дополнять фактами IDE: сборкой, тестами, зависимостями, покрытием и анализом.</li>
+          <li>Ключевой KPI ИИ-инструмента - не только скорость генерации, но и способность снижать риск изменений.</li>
+        </ul>
+      </div>
+
+      <p class="src">Перевод подготовлен технической командой Veai на основе arXiv:2606.14796.</p>
+    </div>
+  </main>
+
+    <footer>
+    <div class="foot-wrap">
+      <div class="foot-grid">
+        <div>
+          <img src="../assets/veai-logo.svg" alt="Veai" class="footer-logo">
+          <p class="disc">Veai - ИИ-агент для JetBrains IDE, который помогает безопасно разрабатывать, тестировать и отлаживать enterprise-код, опираясь на факты проекта: сборку, тесты, зависимости, покрытие и рантайм.</p>
+          <div class="foot-social">
+            <a href="https://t.me/veai_ru" target="_blank" rel="noopener">Telegram</a>
+            <a href="https://vk.com/veai_ru" target="_blank" rel="noopener">VK</a>
+            <a href="https://rutube.ru/channel/66028054/" target="_blank" rel="noopener">Rutube</a>
+            <a href="https://max.ru/id9718287451_biz" target="_blank" rel="noopener">MAX</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Продукт</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru" target="_blank" rel="noopener">Главная</a>
+            <a href="https://app.veai.ru" target="_blank" rel="noopener">Войти в Veai</a>
+            <a href="https://veai.ru/docs" target="_blank" rel="noopener">Документация</a>
+            <a href="https://veai.ru/docs/get-started" target="_blank" rel="noopener">Начать работу</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Материалы</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru/blog" target="_blank" rel="noopener">Новости</a>
+            <a href="https://veai.ru/events" target="_blank" rel="noopener">Мероприятия</a>
+            <a href="https://veai.ru/docs/knowledge-base" target="_blank" rel="noopener">База знаний</a>
+            <a href="https://arxiv.org" target="_blank" rel="noopener">arXiv.org</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Контакты</h3>
+          <div class="foot-contact">
+            <p>Отдел продаж:<br /> <a href="mailto:sales@veai.ai">sales@veai.ai</a></p>
+            <p>Поддержка:<br /> <a href="mailto:support@veai.ai">support@veai.ai</a></p>
+            <p>Партнёрства и PR:<br /> <a href="mailto:marketing@veai.ai">marketing@veai.ai</a></p>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Компания</h3>
+          <div class="foot-contact">
+            <p><a href="https://veai.ru/about" target="_blank" rel="noopener">О Veai</a></p>
+            <p>ООО «ИИТЕХ»</p>
+            <p>ОГРН 1257700060431<br />ИНН 9701290671</p>
+            <p>ОКВЭД 62.01</p>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© Veai. Материал подготовлен по данным arXiv.org.</span>
+        <a href="https://veai.ru/docs/legal/policy" target="_blank" rel="noopener">Политика и пользовательское соглашение</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

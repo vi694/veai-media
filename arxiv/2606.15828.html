@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Конфигурационные «запахи» в файлах AGENTS.md · Перевод arXiv · Veai</title>
+  <meta name="description" content="Русский перевод аннотации научной статьи arXiv:2606.15828 о типичных ошибках конфигурации кодинг-агентов в AGENTS.md. Подготовлено Veai.">
+  <link rel="stylesheet" href="article.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-in">
+      <a class="brand" href="https://veai.ru" target="_blank"><img src="../assets/veai-logo.svg" alt="Veai" class="brand-logo"></a>
+      <a class="back" href="../2026-06-16-arxiv-ai-code-quality-weekly.html#ainative">← К дайджесту</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">технический перевод</span>
+      <h1>Конфигурационные «запахи» в файлах AGENTS.md: типичные ошибки в настройке кодинг-агентов</h1>
+      <p class="orig">Veai тоже настраивается через AGENTS.md - но опирается на факты JetBrains IDE, а не только на инструкции в конфиге.</p>
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="https://veai.ru/products" target="_blank" rel="noopener">Настраивать агентов в Veai</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="wrap">
+      <div class="kicker">Перевод аннотации</div>
+      <h2>О чём статья</h2>
+      <div class="card-doc">
+        <p>Кодинг-агенты всё чаще применяются для автоматизации задач инженерии ПО. Чтобы направлять их поведение, эти агенты обычно опираются на конфигурационные файлы - как правило, с именами «AGENTS.md» или «CLAUDE.md», - которые дают инструкции об архитектуре, воркфлоу, конвенциях кодирования и практиках тестирования. Несмотря на их растущую важность, мало известно о типичных проблемах, затрагивающих определение и сопровождение таких файлов.</p>
+        <p>В этой работе авторы представляют первый каталог «запахов» (smells) для конфигурационных файлов кодинг-агентов. Чтобы выявить такие запахи, они сначала провели обзор «серой» литературы и анализ майнинга репозиториев. В результате выделено шесть конфигурационных запахов и предложены автоматические эвристики для их детекции.</p>
+        <p>Чтобы оценить распространённость предложенных запахов, авторы проанализировали 100 популярных open-source-репозиториев, содержащих файл «AGENTS.md» или «CLAUDE.md». Результаты показывают, что конфигурационные запахи широко распространены. Самым частым оказался Lint Leakage (утечка lint), затронувший 62% файлов, за ним следуют Context Bloat (раздувание контекста, 42%) и Skill Leakage (утечка навыков, 35%). Авторы также показывают, что несколько запахов часто встречаются совместно - в особенности Context Bloat, Skill Leakage и Conflicting Instructions (противоречивые инструкции).</p>
+      </div>
+
+      <div class="angle-box">
+        <div class="kicker">Экспертное мнение</div>
+        <p><b>Плохой AGENTS.md может сделать агента хуже, даже если модель сильная.</b><br>Раздутый контекст, утечки правил и противоречивые инструкции превращают конфиг в источник ошибок. Подход Veai другой: агент должен учитывать инструкции, но опираться на проверяемые факты JetBrains IDE - структуру проекта, реальные файлы, зависимости, сборку и тесты. Конфиг направляет, IDE подтверждает.</p>
+      </div>
+
+      <p class="src">Перевод подготовлен технической командой Veai.</p>
+      <div class="source-actions"><a class="pdf-btn" href="https://arxiv.org/pdf/2606.15828" target="_blank" rel="noopener">PDF с исходником</a></div>
+    </div>
+  </main>
+
+    <footer>
+    <div class="foot-wrap">
+      <div class="foot-grid">
+        <div>
+          <img src="../assets/veai-logo.svg" alt="Veai" class="footer-logo">
+          <p class="disc">Veai - ИИ-агент для JetBrains IDE, который помогает безопасно разрабатывать, тестировать и отлаживать enterprise-код, опираясь на факты проекта: сборку, тесты, зависимости, покрытие и рантайм.</p>
+          <div class="foot-social">
+            <a href="https://t.me/veai_ru" target="_blank" rel="noopener">Telegram</a>
+            <a href="https://vk.com/veai_ru" target="_blank" rel="noopener">VK</a>
+            <a href="https://rutube.ru/channel/66028054/" target="_blank" rel="noopener">Rutube</a>
+            <a href="https://max.ru/id9718287451_biz" target="_blank" rel="noopener">MAX</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Продукт</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru" target="_blank" rel="noopener">Главная</a>
+            <a href="https://app.veai.ru" target="_blank" rel="noopener">Войти в Veai</a>
+            <a href="https://veai.ru/docs" target="_blank" rel="noopener">Документация</a>
+            <a href="https://veai.ru/docs/get-started" target="_blank" rel="noopener">Начать работу</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Материалы</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru/blog" target="_blank" rel="noopener">Новости</a>
+            <a href="https://veai.ru/events" target="_blank" rel="noopener">Мероприятия</a>
+            <a href="https://veai.ru/docs/knowledge-base" target="_blank" rel="noopener">База знаний</a>
+            <a href="https://arxiv.org" target="_blank" rel="noopener">arXiv.org</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Контакты</h3>
+          <div class="foot-contact">
+            <p>Отдел продаж:<br /> <a href="mailto:sales@veai.ai">sales@veai.ai</a></p>
+            <p>Поддержка:<br /> <a href="mailto:support@veai.ai">support@veai.ai</a></p>
+            <p>Партнёрства и PR:<br /> <a href="mailto:marketing@veai.ai">marketing@veai.ai</a></p>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Компания</h3>
+          <div class="foot-contact">
+            <p><a href="https://veai.ru/about" target="_blank" rel="noopener">О Veai</a></p>
+            <p>ООО «ИИТЕХ»</p>
+            <p>ОГРН 1257700060431<br />ИНН 9701290671</p>
+            <p>ОКВЭД 62.01</p>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© Veai. Материал подготовлен по данным arXiv.org.</span>
+        <a href="https://veai.ru/docs/legal/policy" target="_blank" rel="noopener">Политика и пользовательское соглашение</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

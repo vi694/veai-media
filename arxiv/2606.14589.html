@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Когда ошибки становятся нарративами: тихие сбои в проде LLM-агента · Перевод arXiv · Veai</title>
+  <meta name="description" content="Русский перевод аннотации научной статьи arXiv:2606.14589 о тихих сбоях в продакшен-рантайме LLM-агента. Подготовлено Veai.">
+  <link rel="stylesheet" href="article.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-in">
+      <a class="brand" href="https://veai.ru" target="_blank"><img src="../assets/veai-logo.svg" alt="Veai" class="brand-logo"></a>
+      <a class="back" href="../2026-06-16-arxiv-ai-code-quality-weekly.html#ainative">← К дайджесту</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">технический перевод</span>
+      <h1>Когда ошибки становятся нарративами: лонгитюдная таксономия тихих сбоев в продакшен-рантайме LLM-агента</h1>
+      <p class="orig">Veai делает сбои видимыми: отладчик, логи и покрытие JetBrains IDE не дают ошибке «затеряться».</p>
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="https://veai.ru/products" target="_blank" rel="noopener">Отлаживать runtime-сбои в Veai</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="wrap">
+      <div class="kicker">Перевод аннотации</div>
+      <h2>О чём статья</h2>
+      <div class="card-doc">
+        <p>Системы LLM-агентов всё чаще работают как долгоживущие автономные рантаймы: планируют задания, вызывают инструменты, поддерживают память и доставляют результаты людям. Авторы представляют лонгитюдное исследование тихих сбоев в одной такой системе - рантайме персонального ассистента-агента, непрерывно работающем в продакшене с марта 2026 года, с примерно 40 запланированными заданиями, 8 провайдерами LLM, прокси для управления инструментами и плоскостью памяти базы знаний, защищённой 4 286 модульными тестами и 827 проверками governance.</p>
+        <p>За восемь недель задокументировано 22 инцидента с полными разборами первопричин, среди которых один мета-паттерн - сбой, чей сигнал об ошибке так и не доходит до человека в пригодной для действия форме, - проявился не менее 28 раз. Авторы выводят пятиклассовую, ориентированную на механизмы таксономию: (A) причуды окружения и платформы, (B) несоответствия проектных допущений, (C) «проглатывание» и размывание ошибок, (D) цепная галлюцинация и фабрикация, (E) операционные упущения и «слепые зоны» для расследования. Класс D уникален для LLM-систем и наиболее опасен: система не просто не сообщает об ошибке - LLM превращает её в гладкий, правдоподобный нарратив, доставляемый пользователю. Авторы называют это «fail-plausible»: дифференциальная наблюдаемость «серого сбоя» обостряется - наблюдатель не просто слеп, его убедительно обманывает сам сбой.</p>
+        <p>Три вывода: около 70% тихих сбоев были пойманы наблюдением со стороны пользователя-человека, а не тестами или аудитами; ретроспективный аудит 15 инцидентов показал 0% предотвращения «до факта», но 87% блокирования регрессий - аудиты являются движками регрессий, а не предсказаний; задержка инцидента (от 13 часов до 60 дней) определяется механизмом сбоя, а не сложностью кода - дольше всего живут сбои в «швах» между компонентами, где не выполняется ни один тест. Авторы описывают итоговую защитную рамку и формулируют принципы проектирования агентных систем, чьи сбои «громкие, атрибутируемые и скучные». Все постмортемы и артефакты опубликованы.</p>
+      </div>
+
+      <div class="angle-box">
+        <div class="kicker">Экспертное мнение</div>
+        <p><b>Самый опасный сбой LLM-агента - тот, который выглядит как нормальный ответ.</b><br>Тихие ошибки превращаются в правдоподобный нарратив, если у команды нет наблюдаемости: логов, трассировки, покрытия, отладчика и понятного сигнала до человека. Veai делает такие сбои видимыми через JetBrains IDE: агент может опираться на реальные ошибки, стек, запуск и покрытие, а не на самоуверенное объяснение модели.</p>
+      </div>
+
+      <p class="src">Перевод подготовлен технической командой Veai.</p>
+      <div class="source-actions"><a class="pdf-btn" href="https://arxiv.org/pdf/2606.14589" target="_blank" rel="noopener">PDF с исходником</a></div>
+    </div>
+  </main>
+
+    <footer>
+    <div class="foot-wrap">
+      <div class="foot-grid">
+        <div>
+          <img src="../assets/veai-logo.svg" alt="Veai" class="footer-logo">
+          <p class="disc">Veai - ИИ-агент для JetBrains IDE, который помогает безопасно разрабатывать, тестировать и отлаживать enterprise-код, опираясь на факты проекта: сборку, тесты, зависимости, покрытие и рантайм.</p>
+          <div class="foot-social">
+            <a href="https://t.me/veai_ru" target="_blank" rel="noopener">Telegram</a>
+            <a href="https://vk.com/veai_ru" target="_blank" rel="noopener">VK</a>
+            <a href="https://rutube.ru/channel/66028054/" target="_blank" rel="noopener">Rutube</a>
+            <a href="https://max.ru/id9718287451_biz" target="_blank" rel="noopener">MAX</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Продукт</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru" target="_blank" rel="noopener">Главная</a>
+            <a href="https://app.veai.ru" target="_blank" rel="noopener">Войти в Veai</a>
+            <a href="https://veai.ru/docs" target="_blank" rel="noopener">Документация</a>
+            <a href="https://veai.ru/docs/get-started" target="_blank" rel="noopener">Начать работу</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Материалы</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru/blog" target="_blank" rel="noopener">Новости</a>
+            <a href="https://veai.ru/events" target="_blank" rel="noopener">Мероприятия</a>
+            <a href="https://veai.ru/docs/knowledge-base" target="_blank" rel="noopener">База знаний</a>
+            <a href="https://arxiv.org" target="_blank" rel="noopener">arXiv.org</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Контакты</h3>
+          <div class="foot-contact">
+            <p>Отдел продаж:<br /> <a href="mailto:sales@veai.ai">sales@veai.ai</a></p>
+            <p>Поддержка:<br /> <a href="mailto:support@veai.ai">support@veai.ai</a></p>
+            <p>Партнёрства и PR:<br /> <a href="mailto:marketing@veai.ai">marketing@veai.ai</a></p>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Компания</h3>
+          <div class="foot-contact">
+            <p><a href="https://veai.ru/about" target="_blank" rel="noopener">О Veai</a></p>
+            <p>ООО «ИИТЕХ»</p>
+            <p>ОГРН 1257700060431<br />ИНН 9701290671</p>
+            <p>ОКВЭД 62.01</p>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© Veai. Материал подготовлен по данным arXiv.org.</span>
+        <a href="https://veai.ru/docs/legal/policy" target="_blank" rel="noopener">Политика и пользовательское соглашение</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

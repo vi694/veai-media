@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>arXiv-дайджест · Риски и качество ИИ-кода · 09–16 июня 2026 · Veai</title>
+  <meta name="description" content="Научные статьи arXiv за неделю 09–16 июня 2026 о рисках и качестве ИИ-генерируемого кода. Кураторская подборка Veai с углом под каждую работу.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <style>
+    /* === Awesomic-inspired design system === */
+    :root{
+      /* Neutral scale */
+      --obsidian:#09090b;
+      --ink:#18181b;
+      --graphite:#3f3f46;
+      --slate:#52525b;
+      --steel:#71717a;
+      --ash:#a1a1aa;
+      --pebble:#d4d4d8;
+      --fog:#ececee;
+      --mist:#f4f4f5;
+      --snow:#ffffff;
+      /* Scarce accents — used almost nowhere */
+      --ember:#ff5a00;
+      --orchid-flash:#fe45e2;
+      /* Aliases for legacy class names */
+      --muted:var(--steel);
+      --line:var(--fog);
+      --white:var(--snow);
+      --cream:var(--mist);
+      /* Shape & elevation */
+      --radius:36px;
+      --radius-compact:28px;
+      --radius-badge:12px;
+      --radius-input:14px;
+      --radius-pill:10000px;
+      --shadow:rgba(0,0,0,.04) 0px 4px 12px 0px;
+      --shadow-sm:rgb(228,228,231) 0px 1px 0px 0px inset;
+      --shadow-pill:rgba(255,255,255,.5) 0px .5px 0px 0px inset,rgba(117,123,133,.4) 0px 9px 14px -5px inset,rgb(44,46,52) 0px 0px 0px 1.5px,rgba(0,0,0,.14) 0px 4px 6px 0px;
+      --font:'DM Sans',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;background:var(--mist);color:var(--ink);
+      font-family:var(--font);
+      line-height:1.56;-webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+    .section{padding:80px 0}
+
+    /* Nav */
+    .nav{position:sticky;top:0;z-index:20;background:rgba(244,244,245,.82);backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--fog)}
+    .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{font-size:22px;font-weight:700;letter-spacing:-.5px;color:var(--obsidian);display:inline-flex;align-items:center}
+    .brand-logo{display:block;height:52px;width:auto}
+    .nav-links{display:flex;gap:8px;flex-wrap:wrap}
+    .nav-links a{padding:9px 16px;border-radius:var(--radius-pill);font-size:13px;font-weight:600;color:var(--ink);border:1px solid var(--pebble);background:var(--snow)}
+    .nav-links a:hover{background:var(--mist)}
+
+    /* Hero */
+    .hero{
+      color:var(--snow);border-radius:0 0 48px 48px;overflow:hidden;
+      background:var(--obsidian);
+    }
+    .hero .wrap{padding-top:80px;padding-bottom:84px}
+    .eyebrow{display:inline-block;font-size:12px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--ash);
+      padding:0;margin-bottom:24px}
+    h1{font-size:64px;line-height:1.02;letter-spacing:-1px;font-weight:700;margin:0 0 24px}
+    h1 .soft{color:var(--ash);font-weight:300}
+    .lede{font-size:19px;line-height:1.55;color:rgba(255,255,255,.88);max-width:760px;margin:0 0 28px;font-weight:300}
+    .lede-why{font-size:16px;line-height:1.6;color:#fff;max-width:760px;margin:0 0 32px;padding:20px 24px;border-radius:var(--radius-compact);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-weight:400}
+    .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+    .chip{font-size:13px;font-weight:500;color:#fff;padding:9px 0}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{display:inline-block;font-weight:500;font-size:15px;border-radius:var(--radius-pill)}
+    .btn-primary{background:var(--snow);color:var(--obsidian);padding:14px 24px}
+    .btn-primary:hover{background:var(--mist)}
+    .btn-ghost{border:1px solid rgba(255,255,255,.3);color:#fff;padding:13px 23px}
+    .btn-ghost:hover{background:rgba(255,255,255,.08)}
+
+    /* Stats */
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:-46px;position:relative;z-index:5}
+    .stat{background:var(--snow);border-radius:var(--radius-compact);padding:28px;box-shadow:var(--shadow-sm)}
+    .stat .num{font-size:40px;font-weight:700;letter-spacing:-1px;color:var(--obsidian)}
+    .stat .lbl{font-size:13.5px;color:var(--steel);margin-top:4px;font-weight:400}
+    .stats-caption{font-size:13px;color:var(--steel);margin:14px 2px 0;font-style:italic}
+    .stats-veai{margin-top:28px}
+    .stats-veai .stats{margin-top:0;z-index:auto}
+    .stats-veai-head{display:flex;align-items:center;gap:10px;margin:0 2px 16px;flex-wrap:wrap}
+    .stats-veai-head .tag{font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--snow);background:var(--graphite);border-radius:var(--radius-badge);padding:5px 12px}
+    .stats-veai-head .txt{font-size:14px;font-weight:500;color:var(--ink)}
+    .stat-veai{background:var(--obsidian);border-radius:var(--radius-compact);padding:28px;position:relative;overflow:hidden}
+    .stat-veai .num{font-size:40px;font-weight:700;letter-spacing:-1px;color:var(--snow)}
+    .stat-veai .lbl{font-size:13.5px;color:var(--ash);margin-top:4px;font-weight:400}
+
+    /* Section titles */
+    .sec-head{margin-bottom:32px}
+    .kicker{font-size:12px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--steel);margin-bottom:10px}
+    h2{font-size:40px;line-height:1.15;letter-spacing:-.6px;font-weight:700;margin:0 0 8px;color:var(--obsidian)}
+    .sec-sub{color:var(--steel);font-size:16px;max-width:720px;margin:0;font-weight:400}
+
+    /* TL;DR */
+    .tldr{background:var(--obsidian);color:#fff;border-radius:var(--radius)}
+    .tldr .kicker{color:var(--ash)}
+    .tldr h2{color:#fff}
+    .tldr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+    .tl{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-compact);padding:24px}
+    .tl .n{flex:0 0 auto;width:36px;height:36px;border-radius:var(--radius-badge);background:var(--graphite);display:grid;place-items:center;font-weight:600;font-size:15px;color:#fff}
+    .tl p{margin:0;font-size:15px;line-height:1.5;color:rgba(255,255,255,.85);font-weight:300}
+    .tl b{color:#fff;font-weight:600}
+
+    /* Cluster cards */
+    .cluster{margin-bottom:14px}
+    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .card{background:var(--snow);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;transition:transform .2s ease;box-shadow:var(--shadow-sm)}
+    .card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+    .card .top{display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+    .card .meta{font-size:13px;font-weight:500;color:var(--steel);letter-spacing:0;text-transform:none}
+    .tag{font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;padding:5px 10px;border-radius:var(--radius-badge);background:var(--graphite);color:var(--snow)}
+    .tag.date{background:var(--fog);color:var(--steel)}
+    .card h3{font-size:20px;line-height:1.3;font-weight:600;margin:0 0 10px;color:var(--obsidian)}
+    .card h3 a:hover{color:var(--graphite)}
+    .card .desc{font-size:14.5px;color:var(--steel);margin:0 0 16px;font-weight:400}
+    .angle{font-size:14px;line-height:1.5;background:var(--mist);border-radius:var(--radius-compact);padding:16px 18px;margin:0 0 16px;color:var(--ink);font-weight:400}
+    .angle b{color:var(--obsidian);font-weight:600}
+    .card .link{margin-top:auto;font-size:13.5px;font-weight:600;color:var(--obsidian)}
+    .card .link:hover{text-decoration:underline}
+    .quote{color:var(--ink);font-style:italic}
+
+    /* Ideas / Subscribe */
+    .ideas{background:var(--snow);border-radius:var(--radius)}
+    .idea-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:24px}
+    .idea{background:var(--mist);border-radius:var(--radius-compact);padding:24px}
+    .idea .h{font-weight:600;font-size:16px;margin:0 0 6px;color:var(--obsidian)}
+    .idea p{margin:0;font-size:14.5px;color:var(--steel)}
+
+    /* Footer */
+    footer{background:var(--obsidian);color:var(--ash);padding:64px 0;border-radius:48px 48px 0 0;margin-top:20px}
+    .foot-grid{display:grid;grid-template-columns:1.35fr repeat(4,1fr);gap:28px;align-items:start}
+    .disc{max-width:360px;font-size:13px;line-height:1.6;margin:12px 0 18px;color:var(--steel);font-weight:400}
+    footer .brand{color:#fff;margin-bottom:10px}
+    .footer-logo{height:44px;width:auto;display:block;filter:brightness(0) invert(1)}
+    .foot-title{font-size:13px;font-weight:600;letter-spacing:.7px;text-transform:uppercase;color:#fff;margin:0 0 12px}
+    .foot-links{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+    .foot-links a,.foot-contact a{font-size:13.5px;font-weight:500;color:var(--ash)}
+    .foot-links a:hover,.foot-contact a:hover{color:#fff;text-decoration:underline}
+    .foot-social{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .foot-social a{padding:9px 14px;border-radius:var(--radius-pill);border:1px solid rgba(255,255,255,.22);font-size:13px;font-weight:500;color:#fff}
+    .foot-social a:hover{background:rgba(255,255,255,.08)}
+    .foot-contact{font-size:13px;line-height:1.55;color:var(--steel);font-weight:400}
+    .foot-contact p{margin:0 0 8px}
+    .foot-bottom{border-top:1px solid rgba(255,255,255,.14);margin-top:32px;padding-top:18px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--slate)}
+    .foot-bottom a{color:var(--ash);font-weight:500}
+    .foot-bottom a:hover{color:#fff;text-decoration:underline}
+
+    @media (max-width:880px){
+      h1{font-size:40px}
+      .stats{grid-template-columns:repeat(2,1fr);margin-top:24px}
+      .tldr-grid,.cards,.idea-grid{grid-template-columns:1fr}
+      .section{padding:56px 0}
+      .nav-links{display:none}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="wrap nav-in">
+      <a class="brand" href="https://veai.ru" target="_blank"><img src="assets/veai-logo.svg" alt="Veai" class="brand-logo"></a>
+      <div class="nav-links">
+        <a href="#tldr">Главное</a>
+        <a href="#quality">Качество и долг</a>
+        <a href="#proof">Проверка</a>
+        <a href="#review">ИИ-ревью</a>
+        <a href="#security">Безопасность</a>
+        <a href="#ideas">Идеи для контента</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">дайджест · неделя 09–16 июня 2026</span>
+      <h1><span class="soft">Риски и качество</span><br>ИИ-генерируемого кода</h1>
+      <p class="lede">Свежие научные работы за неделю - и почему они подтверждают наш тезис: ИИ помогает получать код быстрее, но если всё отдать модели, гарантий качества нет - «зелёные тесты» этого не закрывают. Veai заземляет ИИ-код на проверяемые факты JetBrains IDE: реальные запуски, безопасные рефакторинги и детерминированные линтеры, а не текст модели.</p>
+      <p class="lede-why"><b>Мы прочитали 132 научные работы за неделю и отобрали 16 самых точных - те, что отвечают на вопросы от «как ускорить свои процессы с помощью ИИ» до «как защитить данные внутри ИИ-агентов». Это не реклама, а сверка нашего подхода с независимой наукой: где модель ошибается и почему опора на факты IDE важнее «зелёных тестов».</b></p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#tldr">Смотреть подборку</a>
+        <a class="btn btn-ghost" href="https://veai.ru" target="_blank">Подробнее о Veai →</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- STATS -->
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><div class="num">10.7×</div><div class="lbl">в сгенерированном ИИ коде уязвимостей больше под вредоносным контекстом (3.5%→37.4%)</div></div>
+      <div class="stat"><div class="num">+12–60%</div><div class="lbl">прирост бенчмарк-метрик у ИИ-эволюции систем - но с регрессиями на новой нагрузке</div></div>
+      <div class="stat"><div class="num">80 / 161</div><div class="lbl">находок ИИ-ревью всплыли лишь в 1 из 5 идентичных прогонов</div></div>
+      <div class="stat"><div class="num">104</div><div class="lbl">источника в обзоре техдолга LLM-разработки</div></div>
+    </div>
+    <p class="stats-caption">Цифры недели - из научных работ об индустрии ИИ-разработки, а не показатели Veai.</p>
+
+    <div class="stats-veai">
+      <div class="stats-veai-head">
+        <span class="tag">А это уже Veai</span>
+        <span class="txt">Наши собственные показатели - что даёт опора на факты JetBrains IDE</span>
+      </div>
+      <div class="stats">
+        <div class="stat-veai"><div class="num">100%</div><div class="lbl">Macro TPR на OWASP BenchmarkJava v1.2 (2 740 тестов, 11 категорий CWE) - выше CodeQL (78.7%) и Semgrep Pro (84.6%)</div></div>
+        <div class="stat-veai"><div class="num">+34%</div><div class="lbl">прирост доли запускаемых тестов, которые генерирует Veai (runnable tests)</div></div>
+        <div class="stat-veai"><div class="num">+26%</div><div class="lbl">рост тестового покрытия за счёт coverage-feedback loop до quality gate</div></div>
+        <div class="stat-veai"><div class="num">+24%</div><div class="lbl">прирост компилируемости сгенерированного кода (compilability)</div></div>
+      </div>
+      <p class="stats-caption">Показатели Veai: SAST-движок - публичный бенчмарк OWASP BenchmarkJava v1.2; метрики агента - внутренние замеры на фиксированном наборе задач.</p>
+    </div>
+  </div>
+
+  <!-- TL;DR -->
+  <section class="section" id="tldr">
+    <div class="wrap">
+      <div class="tldr section" style="padding:46px 40px">
+        <div class="sec-head">
+          <h2>Что говорит наука за эту неделю</h2>
+        </div>
+        <div class="tldr-grid">
+          <a class="tl" href="#quality"><div class="n">1</div><p>Обзор подтверждает главный тезис: ИИ плодит <b>«долг быстрой интеграции»</b> - скорость в ущерб качеству с эффектом домино.</p></a>
+          <a class="tl" href="#proof"><div class="n">2</div><p><b>Зелёные тесты ≠ доказательство:</b> ИИ-код проходит проверки, но проседает на незнакомой нагрузке и масштабе.</p></a>
+          <a class="tl" href="#review"><div class="n">3</div><p><b>Повторяемость ИИ-ревью низкая:</b> один и тот же скан находит разные баги от прогона к прогону.</p></a>
+          <a class="tl" href="#security"><div class="n">4</div><p><b>Безопасность:</b> в сгенерированном ИИ-коде уязвимостей больше <b>в 10.7 раза</b>.</p></a>
+          <a class="tl" href="#ainative"><div class="n">5</div><p><b>Темп растёт - качество держат факты:</b> обзоры AI-native разработки и управления ИИ-вкладом говорят, что важнее проверять результат, а не успевать за скоростью.</p></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. QUALITY -->
+  <section class="section" id="quality">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Кластер 1</div>
+        <h2>Качество и технический долг ИИ-кода</h2>
+        <p class="sec-sub">Ядро нарратива: ускорение есть, но у него измеримая скрытая цена.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="top"><span class="meta">11 июня 2026 • 2 мин чтения</span></div>
+          <h3><a href="arxiv/2606.14796.html">Быстрее код, глубже долг? Технический долг в LLM-разработке</a></h3>
+          <p class="desc">ИИ ускоряет разработку, но усиливает технический долг. Больше всего растут риски в коде, архитектуре, документации, данных и происхождении решений.</p>
+          <p class="angle"><b>Экспертное мнение:</b><br>
+            Когда код пишется быстро и без контроля, технический долг копится незаметно. В Veai тут помогает встроенная проверка кода: статический анализ проходит по каждой строке изменения и подсвечивает антипаттерны и потенциальные ошибки прямо во время правки. Так проблему можно заметить сразу, а не спустя полгода в продакшене.
+          </p>
+          <a class="link" href="arxiv/2606.14796.html">Читать перевод →</a>
+        </article>
+
+        <article class="card">
+          <div class="top"><span class="meta">14 июня 2026 • 2 мин чтения</span></div>
+          <h3><a href="arxiv/2606.15834.html">Автоматический поиск скрытых слабостей в системах, эволюционированных ИИ</a></h3>
+          <p class="desc">ИИ-переписанные программы дают +12–60% по метрикам, но «могут работать хуже на невиданных нагрузках и демонстрировать регрессии масштабируемости».</p>
+          <p class="angle"><b>Экспертное мнение:</b><br>
+            Бенчмарк может вырасти, а под реальной нагрузкой система при этом просядет. Veai собирает факты о работе кода прямо во время выполнения - без правок в самом коде - и помогает пройти проблемные места отладчиком. Регрессию тогда видно на запуске, а не только по цифрам бенчмарка.
+          </p>
+          <a class="link" href="arxiv/2606.15834.html">Читать перевод →</a>
+        </article>
+
+        <article class="card">
+          <div class="top"><span class="meta">12 июня 2026 • 2 мин чтения</span></div>
+          <h3><a href="arxiv/2606.14948.html">За пределами корректности: архитектурное понимание в кодовых LLM</a></h3>
+          <p class="desc">«Архитектурное понимание невозможно проверить одними тестами» - нужны отдельные судьи качества и соответствия конвенциям репозитория.</p>
+          <p class="angle"><b>Экспертное мнение:</b><br>
+            То, что тесты прошли, ещё не значит, что правка уместна архитектурно. Veai работает внутри IDE и строит карту проекта - классы, методы, зависимости и границы модулей. Это помогает смотреть на изменение не только с точки зрения локальной корректности, но и с точки зрения того, вписывается ли оно в архитектуру и конвенции репозитория.
+          </p>
+          <a class="link" href="arxiv/2606.14948.html">Читать перевод →</a>
+        </article>
+
+        <article class="card">
+          <div class="top"><span class="meta">13 июня 2026 • 2 мин чтения</span></div>
+          <h3><a href="arxiv/2606.15283.html">Разработка ПО на основе ИИ: путь к агентным процессам</a></h3>
+          <p class="desc">Продуктивность растёт, но зависит от типа задачи и опыта; ИИ-артефакты требуют дополнительного контроля и governance.</p>
+          <p class="angle"><b>Экспертное мнение:</b><br>
+            Просто дать команде чат с моделью - ещё не ИИ-трансформация. Агенту нужна обвязка: ограниченная зона записи, запуск проверок и подтверждение человеком. В Veai это уже есть - прикреплённый список файлов (Edit Scope) держит правки агента в заданных границах, а тесты и сборка запускаются прямо из IDE с нужным окружением.
+          </p>
+          <a class="link" href="arxiv/2606.15283.html">Читать перевод →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. PROOF -->
+  <section class="section" id="proof">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Кластер 2</div>
+        <h2>«Зелёные тесты ≠ доказательство»</h2>
+        <p class="sec-sub">Опора на факты, проверка и галлюцинации: правдоподобного текста модели недостаточно.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="top"><span class="meta">13 июня 2026 • 2 мин чтения</span></div>
+          <h3><a href="arxiv/2606.15122.html">Анализ программ с LLM: почему выводы модели нужно подтверждать формально</a></h3>
+          <p class="desc">«Правдоподобного объяснения модели недостаточно, чтобы снять предупреждение об ошибке» - рассуждения о поведении кода должны опираться на формальный анализ.</p>
+          <p class="angle"><b>Экспертное мнение:</b><br>
+            Если модель убедительно объяснила, почему ошибки нет, это пока только объяснение, а не доказательство. Вывод агента в Veai можно подтвердить проверяемым результатом: запустить тест из IDE с нужным окружением и пройти подозрительный путь выполнения отладчиком, заходя даже в скомпилированные библиотеки. Проверкой служит запуск, а не уверенный текст модели.
+          </p>
+          <a class="link" href="arxiv/2606.15122.html">Читать перевод →</a>
+        </article>
+
+        <article class="card">
+          <div class="top"><span class="meta">14 июня 2026 • 2 мин чтения</span></div>
+          <h3><a href="arxiv/2606.15762.html">Snyk VulnBench JS: найдут ли LLM одни и те же баги дважды?</a></h3>
+          <p class="desc">300 повторных сканов: находки ИИ-ревью плохо воспроизводимы - 80 из 161 уникальных появились лишь в 1 из 5 прогонов, и только 22 - во всех пяти.</p>
+          <p class="angle"><b>Экспертное мнение:</b><br>
+            Один и тот же ревьюер на основе модели может найти разные баги в одном и том же коде от прогона к прогону. Veai снижает эту случайность за счёт повторяемых сигналов: статический анализ проходит по коду одинаково от запуска к запуску, а встроенная проверка на уязвимости работает на собственном движке, а не зависит от ответа модели.
+          </p>
+          <a class="link" href="arxiv/2606.15762.html">Читать перевод →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. REVIEW -->
+  <section class="section" id="review">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Кластер 3</div>
+        <h2>ИИ-ревью кода</h2>
+        <p class="sec-sub">Наш сюжет про конвейер ревьюеров - и почему ревью «по тексту» обманывается.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="top"><span class="meta">11 июня 2026 • 2 мин чтения</span></div>
+          <h3><a href="arxiv/2606.13175.html">Конец код-ревью: кодинг-агенты вытесняют человеческую проверку</a></h3>
+          <p class="desc">Провокация Monperrus: агенты «перешли порог», и человеческое ревью больше не обязательный элемент пайплайна качества.</p>
+          <p class="angle"><b>Экспертное мнение:</b><br>
+            Код-ревью меняется, но заменять человека ещё одним комментарием модели - сомнительный размен. Veai опирает ревью на проверяемые данные: статический анализ проходит по каждой строке изменения, а сборка и тесты запускаются прямо из IDE. В отчёте оказывается не мнение модели, а конкретика - что собралось, что упало, какая зависимость сломалась.
+          </p>
+          <a class="link" href="arxiv/2606.13175.html">Читать перевод →</a>
+        </article>
+
+        <article class="card">
+          <div class="top"><span class="meta">11 июня 2026 • 2 мин чтения</span></div>
+          <h3><a href="arxiv/2606.13757.html">SEVRA-BENCH: социальная инженерия против ревью-агентов</a></h3>
+          <p class="desc">Меряет, как часто авто-ревьюер одобряет вредоносный PR, когда атакующий контролирует и код, и текст pull request.</p>
+          <p class="angle"><b>Экспертное мнение:</b><br>
+            Вредоносный pull request можно описать так убедительно, что ревьюер-модель его одобрит. Veai смотрит не на описание, а на сам код: встроенный поиск слабых мест в безопасности на собственном движке ловит подозрительные места, в том числе попытку протащить скрытую закладку через подложенную документацию библиотеки. Повлиять на решение одним лишь убедительным текстом не получится.
+          </p>
+          <a class="link" href="arxiv/2606.13757.html">Читать перевод →</a>
+        </article>
+
+        <article class="card">
+          <div class="top"><span class="meta">12 июня 2026 • 2 мин чтения</span></div>
+          <h3><a href="arxiv/2606.14261.html">Безопасность внутри воркфлоу: ролевые агентные архитектуры</a></h3>
+          <p class="desc">Роли Planner / Analyzer / Fixer / Verifier; аналитик интегрирован со статическим анализом (CodeQL) - ревью опирается на инструменты, а не только на LLM.</p>
+          <p class="angle"><b>Экспертное мнение:</b><br>
+Повторяемый статический анализ и встроенная проверка на уязвимости дают аналитику конкретные данные вместо предположений модели, и решение принимается уже на их основе.
+          </p>
+          <a class="link" href="arxiv/2606.14261.html">Читать перевод →</a>
+        </article>
+
+        <article class="card">
+          <div class="top"><span class="meta">9 июня 2026 • 2 мин чтения</span></div>
+          <h3><a href="arxiv/2606.10702.html">Ватты и долги агентных фреймворков</a></h3>
+          <p class="desc">Связывает self-admitted technical debt с энергопотреблением агентных фреймворков в рантайме - «скрытая цена» плохого кода измерима.</p>
+          <p class="angle"><b>Экспертное мнение:</b><br>
+            Плохой агентный код бьёт не только по поддержке, но и по счёту за инфраструктуру. Лишние вызовы и тяжёлое выполнение видно не в тексте изменения, а на запуске. Veai собирает факты о работе кода во время выполнения и помогает пройти горячие места отладчиком, так что перерасход заметен раньше, чем он превратится в реальные расходы.
+          </p>
+          <a class="link" href="arxiv/2606.10702.html">Читать перевод →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SECURITY -->
+  <section class="section" id="security">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Кластер 4</div>
+        <h2>Безопасность ИИ-генерируемого кода</h2>
+        <p class="sec-sub">Сильные цифры-хуки для риск-постов о слепом доверии генерации.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="top"><span class="meta">9 июня 2026 • 2 мин чтения</span></div>
+          <h3><a href="arxiv/2606.10945.html">Контекстные состязательные атаки на ИИ-генераторы кода</a></h3>
+          <p class="desc">2800 экспериментов: вредоносный контекст повышает генерацию уязвимого кода в 10.7 раза (с 3.5% до 37.4%), прямые инструкции - до 100% успеха.</p>
+          <p class="angle"><b>Экспертное мнение:</b><br>
+            По данным статьи, контекст способен заставить модель писать уязвимый код в 10,7 раза чаще. Опасность прячется не только в самом запросе, но и в комментариях, документации и именах переменных. Veai проверяет результат на фактах - встроенным поиском слабых мест в безопасности и реальными зависимостями проекта, а не доверяет подсунутому контексту.
+          </p>
+          <a class="link" href="arxiv/2606.10945.html">Читать перевод →</a>
+        </article>
+
+        <article class="card">
+          <div class="top"><span class="meta">10 июня 2026 • 2 мин чтения</span></div>
+          <h3><a href="arxiv/2606.11817.html">Декодирование с грамматическими ограничениями может джейлбрейкнуть LLM</a></h3>
+          <p class="desc">Техника повышения «надёжности» генерации (грамматические ограничения) сама становится вектором джейлбрейка в вредоносный код.</p>
+          <p class="angle"><b>Экспертное мнение:</b><br>
+            Даже приём, придуманный ради надёжности генерации, может обернуться лазейкой для атаки. Синтаксически правильный код - это ещё не безопасное поведение. Veai смотрит не на форму ответа, а на то, как код реально ведёт себя на запуске: через отладчик и сбор фактов о выполнении в контексте проекта.
+          </p>
+          <a class="link" href="arxiv/2606.11817.html">Читать перевод →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. AI-NATIVE -->
+  <section class="section" id="ainative">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Кластер 5</div>
+        <h2>AI-native разработка: успеваю ли я за темпом</h2>
+        <p class="sec-sub">Темп растёт - но обзоры подчёркивают: качество держат проверяемые факты, а не ручные перепроверки и не скорость.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="top"><span class="meta">11 июня 2026 • 2 мин чтения</span></div>
+          <h3><a href="arxiv/2606.12986.html">Подъём AI-native разработки ПО</a></h3>
+          <p class="desc">Систематический обзор 48 работ (2016–2026): GenAI/LLM/agentic меняют процессы, роли и компетенции инженеров.</p>
+          <p class="angle"><b>Экспертное мнение:</b><br>
+            AI-native разработка ускоряет команды, но цена инженерного суждения при этом только растёт. Главным навыком становится умение проверить намерение, результат и побочные эффекты, а не написать ещё больше кода. Veai помогает с этим: запускает тесты и приложение из IDE, дописывает тесты до реального покрытия и даёт отладчик, чтобы поймать побочные эффекты.
+          </p>
+          <a class="link" href="arxiv/2606.12986.html">Читать перевод →</a>
+        </article>
+
+        <article class="card">
+          <div class="top"><span class="meta">12 июня 2026 • 2 мин чтения</span></div>
+          <h3><a href="arxiv/2606.14594.html">Регулирование машинного контрибьютора: governance в open source</a></h3>
+          <p class="desc">Автономные ИИ-контрибьюторы ломают процессы, рассчитанные на человека: «инциденты 2025–2026, шум ИИ-генерации, отключения на уровне платформ».</p>
+          <p class="angle"><b>Экспертное мнение:</b><br>
+            ИИ-контрибьютор без управления оставляет изменения, у которых нет понятного владельца риска. Для enterprise важен проверяемый след, и Veai его оставляет: зона записи агента ограничена прикреплённым списком файлов (Edit Scope), изменения видны явно, а тесты и сборка запускаются из IDE - понятно, что агент изменил и что проверил.
+          </p>
+          <a class="link" href="arxiv/2606.14594.html">Читать перевод →</a>
+        </article>
+
+        <article class="card">
+          <div class="top"><span class="meta">14 июня 2026 • 2 мин чтения</span></div>
+          <h3><a href="arxiv/2606.15828.html">Конфигурационные «запахи» в файлах AGENTS.md</a></h3>
+          <p class="desc">Первый каталог «запахов» в конфиг-файлах кодинг-агентов (AGENTS.md / CLAUDE.md) с авто-эвристиками их детекции.</p>
+          <p class="angle"><b>Экспертное мнение:</b><br>
+            Неудачные инструкции в AGENTS.md могут испортить работу агента даже при сильной модели. Veai учитывает такие правила, но действия подтверждает фактами проекта - реальной картой классов и методов, зависимостями, запуском сборки и тестов из IDE. Инструкция задаёт намерение, а проверку проходит уже результат.
+          </p>
+          <a class="link" href="arxiv/2606.15828.html">Читать перевод →</a>
+        </article>
+
+        <article class="card">
+          <div class="top"><span class="meta">12 июня 2026 • 2 мин чтения</span></div>
+          <h3><a href="arxiv/2606.14589.html">Когда ошибки становятся нарративами: тихие сбои в проде LLM-агента</a></h3>
+          <p class="desc">Лонгитюд: 22 инцидента, мета-паттерн «тихий сбой, чей сигнал об ошибке не доходит до человека», проявился ≥28 раз.</p>
+          <p class="angle"><b>Экспертное мнение:</b><br>
+            Опаснее всего сбой агента, который выглядит как обычный нормальный ответ. Если за работой кода никто не наблюдает, тихие ошибки складываются в правдоподобный рассказ. Veai делает их заметными: запуск из IDE, отладчик, сбор фактов о выполнении и реальное покрытие тестами показывают сбой, который иначе остался бы незамеченным.
+          </p>
+          <a class="link" href="arxiv/2606.14589.html">Читать перевод →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBSCRIBE -->
+  <section class="section" id="subscribe">
+    <div class="wrap">
+      <div class="ideas section" style="padding:46px 40px">
+        <div class="sec-head">
+          <div class="kicker">Сообщество Veai</div>
+          <h2>Подписаться и стать автором</h2>
+          <p class="sec-sub">Следите за новыми дайджестами, кейсами и разбором исследований - или предложите свой материал о разработке с ИИ-агентами.</p>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://t.me/Veaicode" target="_blank">Подписаться в Telegram</a>
+          <a class="btn btn-ghost" href="mailto:hello@veai.ru?subject=Хочу%20стать%20автором%20Veai">Стать автором</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a class="brand" href="https://veai.ru" target="_blank"><img class="footer-logo" src="assets/veai-logo.svg" alt="Veai"></a>
+          <p class="disc">AI-решения для корпоративной разработки: ускорение создания ПО при соблюдении требований качества и безопасности.</p>
+          <div class="foot-social">
+            <a href="https://t.me/veaicode" target="_blank">Telegram</a>
+            <a href="https://max.ru/id9718287451_biz" target="_blank">MAX</a>
+            <a href="https://habr.com/ru/companies/veai/" target="_blank">Habr</a>
+            <a href="https://rutube.ru/channel/44657779/" target="_blank">RuTube</a>
+          </div>
+        </div>
+
+        <div>
+          <p class="foot-title">Продукт</p>
+          <div class="foot-links">
+            <a href="https://veai.ru" target="_blank">Главная</a>
+            <a href="https://app.veai.ru" target="_blank">Войти в Veai</a>
+            <a href="https://veai.ru/docs/category/veai" target="_blank">Документация Veai</a>
+
+          </div>
+        </div>
+
+        <div>
+          <p class="foot-title">Материалы</p>
+          <div class="foot-links">
+            <a href="https://veai.ru/blog" target="_blank">Новости</a>
+            <a href="https://veai.ru/events" target="_blank">Мероприятия</a>
+            <a href="https://veai.ru/docs/ru/" target="_blank">База знаний</a>
+            <a href="https://arxiv.org" target="_blank">arXiv.org</a>
+          </div>
+        </div>
+
+        <div>
+          <p class="foot-title">Контакты</p>
+          <div class="foot-contact">
+            <p>Отдел продаж:<br />
+              <a href="mailto:sales@veai.ru">sales@veai.ru</a></p>
+            <p>Служба поддержки:<br />
+              <a href="mailto:support@veai.ru">support@veai.ru</a></p>
+            <p>Партнерства и PR:<br />
+              <a href="mailto:pr@veai.ru">pr@veai.ru</a></p>
+          </div>
+        </div>
+
+        <div>
+          <p class="foot-title">Компания</p>
+          <div class="foot-contact">
+            <p>ООО «ИИТЕХ»<br>ОГРН 1257700447894<br>ИНН 9718287451</p>
+            <p>Основной код ОКВЭД: 62.01 - разработка компьютерного программного обеспечения.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot-bottom">
+        <span>© 2026 Veai. Материал подготовлен технической командой компании Veai.</span>
+        <span><a href="https://veai.ru/docs/legal/policy" target="_blank">Политика и пользовательское соглашение</a></span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

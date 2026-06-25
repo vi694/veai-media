@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Регулирование машинного контрибьютора: governance в open source · Перевод arXiv · Veai</title>
+  <meta name="description" content="Русский перевод аннотации научной статьи arXiv:2606.14594 о governance автономных ИИ-контрибьюторов в open source. Подготовлено Veai.">
+  <link rel="stylesheet" href="article.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-in">
+      <a class="brand" href="https://veai.ru" target="_blank"><img src="../assets/veai-logo.svg" alt="Veai" class="brand-logo"></a>
+      <a class="back" href="../2026-06-16-arxiv-ai-code-quality-weekly.html#ainative">← К дайджесту</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">технический перевод</span>
+      <h1>Регулирование машинного контрибьютора: governance и согласование политик в open source</h1>
+      <p class="orig">Veai делает ИИ-вклад управляемым и проверяемым: каждый шаг подкреплён фактами JetBrains IDE.</p>
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="https://veai.ru/products" target="_blank" rel="noopener">Управлять AI-вкладом в Veai</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="wrap">
+      <div class="kicker">Перевод аннотации</div>
+      <h2>О чём статья</h2>
+      <div class="card-doc">
+        <p>Разработка ПО с участием ИИ перешла от автодополнения на уровне строк к агентам, которые могут планировать изменения, редактировать файлы и подавать pull request при ограниченном надзоре человека. Однако open-source-софт эволюционирует через процесс, спроектированный для людей: соглашения контрибьюторов, кодексы поведения и нормы ревью - все они предполагают юридически ответственное лицо, которое может подтвердить происхождение кода и ответить на вопросы ревьюера. Автономные и полуавтономные ИИ-контрибьюторы напрягают эти допущения, и хроника 2025-2026 годов - инциденты с участием агентов, объём ИИ-сгенерированного «шума» и отключения на уровне платформ - показывает, что разрыв имеет операционные последствия.</p>
+        <p>Несколько open-source-организаций ответили политиками для контрибьюции, но результат фрагментирован, и его согласованность с формирующимися рамками регулирования ИИ (EU AI Act, NIST AI RMF с профилем UC Berkeley Agentic AI, ISO/IEC 42001 и 23894) на уровне вклада не картирована. Авторы сравнивают политики шести организаций (SymPy, LLVM, matplotlib, OpenInfra, Apache Software Foundation и Linux Foundation), применяя дизайн «наиболее схожих систем» с кодированием по индикаторам и трассировкой процессов для SymPy и LLVM.</p>
+        <p>Из этого выводятся: таксономия из шести измерений (раскрытие, ответственность, надзор человека, лицензирование, принуждение к исполнению, нагрузка на мейнтейнеров), порядковый Policy Maturity Score и сопоставление задокументированных инцидентов с участием агентов с теми измерениями, которые каждая политика не покрывает. Согласование измерений с упомянутыми регуляторными рамками выявляет перекрывающиеся пробелы, которые ни одна из сторон сейчас не закрывает; в завершение авторы набрасывают контуры гармонизированной многоуровневой рамки и эмпирическую оценку, нужную для её калибровки.</p>
+      </div>
+
+      <div class="angle-box">
+        <div class="kicker">Экспертное мнение</div>
+        <p><b>ИИ-контрибьютор без governance - это PR без понятного владельца риска.</b><br>Open source уже сталкивается с шумом, спорным происхождением кода и нагрузкой на мейнтейнеров. Для enterprise это означает одно: агент должен оставлять проверяемый след - что изменил, как проверил, какие тесты и ошибки увидел. Veai работает внутри JetBrains IDE и превращает ИИ-вклад в управляемый процесс, а не в поток неподконтрольных патчей.</p>
+      </div>
+
+      <p class="src">Перевод подготовлен технической командой Veai.</p>
+      <div class="source-actions"><a class="pdf-btn" href="https://arxiv.org/pdf/2606.14594" target="_blank" rel="noopener">PDF с исходником</a></div>
+    </div>
+  </main>
+
+    <footer>
+    <div class="foot-wrap">
+      <div class="foot-grid">
+        <div>
+          <img src="../assets/veai-logo.svg" alt="Veai" class="footer-logo">
+          <p class="disc">Veai - ИИ-агент для JetBrains IDE, который помогает безопасно разрабатывать, тестировать и отлаживать enterprise-код, опираясь на факты проекта: сборку, тесты, зависимости, покрытие и рантайм.</p>
+          <div class="foot-social">
+            <a href="https://t.me/veai_ru" target="_blank" rel="noopener">Telegram</a>
+            <a href="https://vk.com/veai_ru" target="_blank" rel="noopener">VK</a>
+            <a href="https://rutube.ru/channel/66028054/" target="_blank" rel="noopener">Rutube</a>
+            <a href="https://max.ru/id9718287451_biz" target="_blank" rel="noopener">MAX</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Продукт</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru" target="_blank" rel="noopener">Главная</a>
+            <a href="https://app.veai.ru" target="_blank" rel="noopener">Войти в Veai</a>
+            <a href="https://veai.ru/docs" target="_blank" rel="noopener">Документация</a>
+            <a href="https://veai.ru/docs/get-started" target="_blank" rel="noopener">Начать работу</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Материалы</h3>
+          <div class="foot-links">
+            <a href="https://veai.ru/blog" target="_blank" rel="noopener">Новости</a>
+            <a href="https://veai.ru/events" target="_blank" rel="noopener">Мероприятия</a>
+            <a href="https://veai.ru/docs/knowledge-base" target="_blank" rel="noopener">База знаний</a>
+            <a href="https://arxiv.org" target="_blank" rel="noopener">arXiv.org</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Контакты</h3>
+          <div class="foot-contact">
+            <p>Отдел продаж:<br /> <a href="mailto:sales@veai.ai">sales@veai.ai</a></p>
+            <p>Поддержка:<br /> <a href="mailto:support@veai.ai">support@veai.ai</a></p>
+            <p>Партнёрства и PR:<br /> <a href="mailto:marketing@veai.ai">marketing@veai.ai</a></p>
+          </div>
+        </div>
+        <div>
+          <h3 class="foot-title">Компания</h3>
+          <div class="foot-contact">
+            <p><a href="https://veai.ru/about" target="_blank" rel="noopener">О Veai</a></p>
+            <p>ООО «ИИТЕХ»</p>
+            <p>ОГРН 1257700060431<br />ИНН 9701290671</p>
+            <p>ОКВЭД 62.01</p>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© Veai. Материал подготовлен по данным arXiv.org.</span>
+        <a href="https://veai.ru/docs/legal/policy" target="_blank" rel="noopener">Политика и пользовательское соглашение</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
