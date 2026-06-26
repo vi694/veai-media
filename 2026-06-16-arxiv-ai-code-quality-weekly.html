@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>arXiv-дайджест · Риски и качество ИИ-кода · 09–16 июня 2026 · Veai</title>
-  <meta name="description" content="Научные статьи arXiv за неделю 09–16 июня 2026 о рисках и качестве ИИ-генерируемого кода. Кураторская подборка Veai с углом под каждую работу.">
+  <title>arXiv-дайджест · Риски и качество ИИ-кода · 29 июня–04 июля 2026 · Veai</title>
+  <meta name="description" content="Научные статьи arXiv за неделю 29 июня–04 июля 2026 о рисках и качестве ИИ-генерируемого кода. Кураторская подборка Veai с углом под каждую работу.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
@@ -33,11 +33,11 @@
       --white:var(--snow);
       --cream:var(--mist);
       /* Shape & elevation */
-      --radius:36px;
-      --radius-compact:28px;
+      --radius:16px;
+      --radius-compact:16px;
       --radius-badge:12px;
       --radius-input:14px;
-      --radius-pill:10000px;
+      --radius-pill:16px;
       --shadow:rgba(0,0,0,.04) 0px 4px 12px 0px;
       --shadow-sm:rgb(228,228,231) 0px 1px 0px 0px inset;
       --shadow-pill:rgba(255,255,255,.5) 0px .5px 0px 0px inset,rgba(117,123,133,.4) 0px 9px 14px -5px inset,rgb(44,46,52) 0px 0px 0px 1.5px,rgba(0,0,0,.14) 0px 4px 6px 0px;
@@ -59,9 +59,11 @@
     .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{font-size:22px;font-weight:700;letter-spacing:-.5px;color:var(--obsidian);display:inline-flex;align-items:center}
     .brand-logo{display:block;height:52px;width:auto}
-    .nav-links{display:flex;gap:8px;flex-wrap:wrap}
-    .nav-links a{padding:9px 16px;border-radius:var(--radius-pill);font-size:13px;font-weight:600;color:var(--ink);border:1px solid var(--pebble);background:var(--snow)}
-    .nav-links a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .nav-links{display:flex;gap:26px;flex-wrap:wrap;align-items:center}
+    .nav-links a{position:relative;padding:6px 0;font-size:13.5px;font-weight:500;color:var(--slate);transition:color .18s ease}
+    .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;border-radius:2px;background:var(--accent);transition:width .22s ease}
+    .nav-links a:hover{color:var(--obsidian)}
+    .nav-links a:hover::after{width:100%}
 
     /* Hero */
     .hero{
@@ -74,7 +76,7 @@
     h1{font-size:64px;line-height:1.02;letter-spacing:-1px;font-weight:700;margin:0 0 24px}
     h1 .soft{color:var(--ash);font-weight:300}
     .lede{font-size:19px;line-height:1.55;color:rgba(255,255,255,.88);max-width:760px;margin:0 0 28px;font-weight:300}
-    .lede-why{font-size:16px;line-height:1.6;color:#fff;max-width:760px;margin:0 0 32px;padding:20px 24px;border-radius:var(--radius-compact);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-weight:400}
+    .lede-why{font-size:16px;line-height:1.6;color:#fff;max-width:760px;margin:0 0 32px;font-weight:400}
     .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
     .chip{font-size:13px;font-weight:500;color:#fff;padding:9px 0}
     .cta-row{display:flex;flex-wrap:wrap;gap:12px}
@@ -188,10 +190,10 @@
   <!-- HERO -->
   <header class="hero">
     <div class="wrap">
-      <span class="eyebrow">дайджест · неделя 09–16 июня 2026</span>
+      <span class="eyebrow">дайджест · неделя 29–04 июля 2026</span>
       <h1><span class="soft">Риски и качество</span><br>ИИ-генерируемого кода</h1>
 
-      <p class="lede-why"><b>Мы изучили свежие научные работы о рисках и качестве ИИ-кода, отобрали 16 ключевых, перевели их и показали на реальных процессах, как Veai помогает ускорить разработку без потери качества.</b></p>
+      <p class="lede-why"><b>Наша техническая команда разобрала три ключевых направления — формальные методы, искусственный интеллект и современные практики программирования — и на их основе собрала для вас самую свежую подборку научных исследований.</b></p>
 
       <div class="cta-row">
         <a class="btn btn-primary" href="#tldr">Смотреть подборку</a>
@@ -252,7 +254,7 @@
       </div>
       <div class="cards">
         <article class="card">
-          <div class="top"><span class="meta">11 июня 2026 • 4 мин чтения</span></div>
+<span class="meta">1 июля 2026 • 4 мин чтения</span>
           <h3><a href="arxiv/2606.14796.html">Код быстрее, долг глубже? Технический долг в LLM-разработке</a></h3>
           <p class="desc">ИИ ускоряет разработку, но усиливает технический долг. Больше всего растут риски в коде, архитектуре, документации, данных и происхождении решений.</p>
           <p class="angle"><b>Экспертное мнение:</b><br>
@@ -262,7 +264,7 @@
         </article>
 
         <article class="card">
-          <div class="top"><span class="meta">14 июня 2026 • 7 мин чтения</span></div>
+<span class="meta">4 июля 2026 • 7 мин чтения</span>
           <h3><a href="arxiv/2606.15834.html">Автоматический поиск скрытых слабостей в системах, переписанных ИИ</a></h3>
           <p class="desc">ИИ-переписанные программы дают +12–60% по метрикам, но «могут работать хуже на невиданных нагрузках и демонстрировать регрессии масштабируемости».</p>
           <p class="angle"><b>Экспертное мнение:</b><br>
@@ -272,7 +274,7 @@
         </article>
 
         <article class="card">
-          <div class="top"><span class="meta">12 июня 2026 • 6 мин чтения</span></div>
+<span class="meta">2 июля 2026 • 6 мин чтения</span>
           <h3><a href="arxiv/2606.14948.html">За пределами корректности: архитектурные рассуждения в кодовых LLM</a></h3>
           <p class="desc">«Архитектурное понимание невозможно проверить одними тестами» - нужны отдельные судьи качества и соответствия конвенциям репозитория.</p>
           <p class="angle"><b>Экспертное мнение:</b><br>
@@ -282,7 +284,7 @@
         </article>
 
         <article class="card">
-          <div class="top"><span class="meta">13 июня 2026 • 3 мин чтения</span></div>
+<span class="meta">3 июля 2026 • 3 мин чтения</span>
           <h3><a href="arxiv/2606.15283.html">Разработка ПО на основе ИИ: путь к агентным процессам</a></h3>
           <p class="desc">Продуктивность растёт, но зависит от типа задачи и опыта; ИИ-артефакты требуют дополнительного контроля и governance.</p>
           <p class="angle"><b>Экспертное мнение:</b><br>
@@ -304,7 +306,7 @@
       </div>
       <div class="cards">
         <article class="card">
-          <div class="top"><span class="meta">13 июня 2026 • 5 мин чтения</span></div>
+<span class="meta">3 июля 2026 • 5 мин чтения</span>
           <h3><a href="arxiv/2606.15122.html">Анализ программ с LLM: почему выводы модели нужно подтверждать формально</a></h3>
           <p class="desc">«Правдоподобного объяснения модели недостаточно, чтобы снять предупреждение об ошибке» - рассуждения о поведении кода должны опираться на формальный анализ.</p>
           <p class="angle"><b>Экспертное мнение:</b><br>
@@ -314,7 +316,7 @@
         </article>
 
         <article class="card">
-          <div class="top"><span class="meta">14 июня 2026 • 4 мин чтения</span></div>
+<span class="meta">4 июля 2026 • 4 мин чтения</span>
           <h3><a href="arxiv/2606.15762.html">Snyk VulnBench JS: найдут ли LLM одни и те же баги дважды?</a></h3>
           <p class="desc">300 повторных сканов: находки ИИ-ревью плохо воспроизводимы - 80 из 161 уникальных появились лишь в 1 из 5 прогонов, и только 22 - во всех пяти.</p>
           <p class="angle"><b>Экспертное мнение:</b><br>
@@ -337,7 +339,7 @@
       </div>
       <div class="cards">
         <article class="card">
-          <div class="top"><span class="meta">11 июня 2026 • 6 мин чтения</span></div>
+<span class="meta">1 июля 2026 • 6 мин чтения</span>
           <h3><a href="arxiv/2606.13757.html">SEVRA-BENCH: социальная инженерия против ревью-агентов</a></h3>
           <p class="desc">Меряет, как часто авто-ревьюер одобряет вредоносный PR, когда атакующий контролирует и код, и текст pull request.</p>
           <p class="angle"><b>Экспертное мнение:</b><br>
@@ -347,7 +349,7 @@
         </article>
 
         <article class="card">
-          <div class="top"><span class="meta">12 июня 2026 • 5 мин чтения</span></div>
+<span class="meta">2 июля 2026 • 5 мин чтения</span>
           <h3><a href="arxiv/2606.14261.html">Безопасность внутри воркфлоу: ролевые агентные архитектуры</a></h3>
           <p class="desc">Роли Planner / Analyzer / Fixer / Verifier; аналитик интегрирован со статическим анализом (CodeQL) - ревью опирается на инструменты, а не только на LLM.</p>
           <p class="angle"><b>Экспертное мнение:</b><br>
@@ -357,7 +359,7 @@
         </article>
 
         <article class="card">
-          <div class="top"><span class="meta">9 июня 2026 • 4 мин чтения</span></div>
+<span class="meta">29 июня 2026 • 4 мин чтения</span>
           <h3><a href="arxiv/2606.10702.html">Ватты и долги агентных фреймворков</a></h3>
           <p class="desc">Связывает self-admitted technical debt с энергопотреблением агентных фреймворков в рантайме - «скрытая цена» плохого кода измерима.</p>
           <p class="angle"><b>Экспертное мнение:</b><br>
@@ -379,7 +381,7 @@
       </div>
       <div class="cards">
         <article class="card">
-          <div class="top"><span class="meta">9 июня 2026 • 7 мин чтения</span></div>
+<span class="meta">29 июня 2026 • 7 мин чтения</span>
           <h3><a href="arxiv/2606.10945.html">Контекстные состязательные атаки на ИИ-генераторы кода</a></h3>
           <p class="desc">2800 экспериментов: вредоносный контекст повышает генерацию уязвимого кода в 10.7 раза (с 3.5% до 37.4%), прямые инструкции - до 100% успеха.</p>
           <p class="angle"><b>Экспертное мнение:</b><br>
@@ -389,7 +391,7 @@
         </article>
 
         <article class="card">
-          <div class="top"><span class="meta">10 июня 2026 • 3 мин чтения</span></div>
+<span class="meta">30 июня 2026 • 3 мин чтения</span>
           <h3><a href="arxiv/2606.11817.html">Декодирование с грамматическими ограничениями может джейлбрейкнуть LLM</a></h3>
           <p class="desc">Техника повышения «надёжности» генерации (грамматические ограничения) сама становится вектором джейлбрейка в вредоносный код.</p>
           <p class="angle"><b>Экспертное мнение:</b><br>
@@ -411,7 +413,7 @@
       </div>
       <div class="cards">
         <article class="card">
-          <div class="top"><span class="meta">11 июня 2026 • 5 мин чтения</span></div>
+<span class="meta">1 июля 2026 • 5 мин чтения</span>
           <h3><a href="arxiv/2606.12986.html">Подъём AI-native разработки ПО</a></h3>
           <p class="desc">Систематический обзор 48 работ (2016–2026): GenAI/LLM/agentic меняют процессы, роли и компетенции инженеров.</p>
           <p class="angle"><b>Экспертное мнение:</b><br>
@@ -421,7 +423,7 @@
         </article>
 
         <article class="card">
-          <div class="top"><span class="meta">12 июня 2026 • 4 мин чтения</span></div>
+<span class="meta">2 июля 2026 • 4 мин чтения</span>
           <h3><a href="arxiv/2606.14594.html">Регулирование машинного контрибьютора: governance в open source</a></h3>
           <p class="desc">Автономные ИИ-контрибьюторы ломают процессы, рассчитанные на человека: «инциденты 2025–2026, шум ИИ-генерации, отключения на уровне платформ».</p>
           <p class="angle"><b>Экспертное мнение:</b><br>
@@ -431,7 +433,7 @@
         </article>
 
         <article class="card">
-          <div class="top"><span class="meta">14 июня 2026 • 6 мин чтения</span></div>
+<span class="meta">4 июля 2026 • 6 мин чтения</span>
           <h3><a href="arxiv/2606.15828.html">Конфигурационные «запахи» в файлах AGENTS.md</a></h3>
           <p class="desc">Первый каталог «запахов» в конфиг-файлах кодинг-агентов (AGENTS.md / CLAUDE.md) с авто-эвристиками их детекции.</p>
           <p class="angle"><b>Экспертное мнение:</b><br>
@@ -441,7 +443,7 @@
         </article>
 
         <article class="card">
-          <div class="top"><span class="meta">12 июня 2026 • 3 мин чтения</span></div>
+<span class="meta">2 июля 2026 • 3 мин чтения</span>
           <h3><a href="arxiv/2606.14589.html">Когда ошибки становятся нарративами: тихие сбои в проде LLM-агента</a></h3>
           <p class="desc">Лонгитюд: 22 инцидента, мета-паттерн «тихий сбой, чей сигнал об ошибке не доходит до человека», проявился ≥28 раз.</p>
           <p class="angle"><b>Экспертное мнение:</b><br>
