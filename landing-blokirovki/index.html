@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Аккаунт Anthropic заблокировали? Подписка Veai продолжает работать в Claude Code, Codex CLI и Cursor</title>
+<meta name="description" content="Волна блокировок аккаунтов Claude: письмо Safeguards Team, апелляции отклоняют. Ключ подписки Veai встаёт в Claude Code, Codex CLI и Cursor вместо ключа Anthropic: Opus 5.5 и Sonnet 5.5 те же, оплата в рублях, минуты не сгорают. В октябре −30% новым и −25% с аккаунтом Veai.">
+<style>
+:root{--main:#7560E1;--main-dark:#5445A0;--main-24:rgba(117,96,225,.24);--main-10:rgba(117,96,225,.1);--ink:#141414;--grey-dark:#777F86;--grey-prodark:#54545C;--grey-light:#E0E0E0;--grey-ultra:#F2F2F2;--red:#E53B02;--red-8:rgba(229,59,2,.08);--green:#2DA45F;--green-8:rgba(53,193,112,.08);--orange:#FF8C00;--orange-8:rgba(255,140,0,.08);--radius:16px}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--main-dark)}
+.wrap{width:min(960px,calc(100% - 32px));margin:0 auto}
+.draft{background:var(--orange-8);border-bottom:1px solid #f3d3a0;color:#7a4a00;font-size:13px;padding:8px 0}
+header.hero{padding:56px 0 40px;background:linear-gradient(180deg,var(--main-10),#fff)}
+.eyebrow{margin:0 0 10px;color:var(--main);font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+h1{margin:0;font-size:clamp(30px,4.6vw,46px);line-height:1.08;letter-spacing:-.025em}
+.lede{max-width:760px;margin:18px 0 0;font-size:18px;color:var(--grey-prodark)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-block;padding:13px 22px;border-radius:12px;font-weight:700;text-decoration:none;border:1px solid var(--main)}
+.btn.primary{background:var(--main);color:#fff}.btn.primary:hover{background:var(--main-dark);border-color:var(--main-dark)}
+.btn.ghost{background:#fff;color:var(--main-dark)}.btn.ghost:hover{background:var(--main-10)}
+section{padding:40px 0;border-top:1px solid var(--grey-light)}
+h2{margin:0 0 14px;font-size:26px;letter-spacing:-.02em}
+h3{margin:0 0 6px;font-size:17px}
+p{margin:0 0 12px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.card{padding:18px;border:1px solid var(--grey-light);border-radius:var(--radius);background:#fff}
+.card p{font-size:14px;color:var(--grey-prodark);margin:0}
+.facts{background:var(--grey-ultra);border-radius:var(--radius);padding:18px 20px;margin-top:14px}
+.facts ul{margin:0;padding-left:20px}
+.facts li{margin-bottom:6px}
+.src{font-size:13px;color:var(--grey-dark)}
+.steps{counter-reset:s;display:grid;gap:12px;margin-top:16px}
+.step{position:relative;padding:16px 18px 16px 58px;border:1px solid var(--grey-light);border-radius:var(--radius)}
+.step::before{counter-increment:s;content:counter(s);position:absolute;left:16px;top:14px;width:30px;height:30px;border-radius:50%;background:var(--main);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+pre{margin:10px 0 0;padding:14px 16px;border-radius:12px;background:#1d1b2a;color:#efeafe;font-size:13px;line-height:1.5;overflow:auto}
+.price{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.plan{padding:20px;border:2px solid var(--main-24);border-radius:var(--radius)}
+.plan .name{font-weight:800;color:var(--main-dark)}
+.plan .old{color:var(--grey-dark);text-decoration:line-through;font-size:15px}
+.plan .new{font-size:34px;font-weight:820;line-height:1.1;margin:4px 0}
+.plan .per{font-size:13px;color:var(--grey-dark)}
+.badge{display:inline-block;padding:3px 10px;border-radius:999px;background:var(--green-8);color:var(--green);font-size:12px;font-weight:800;margin-left:8px;vertical-align:middle}
+.callout{padding:14px 16px;border-radius:12px;background:var(--red-8);border:1px solid #f1c3b4;color:#6b2a10;font-size:14px}
+.callout b{display:block;margin-bottom:2px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+footer{padding:30px 0 50px;border-top:1px solid var(--grey-light);font-size:14px;color:var(--grey-dark)}
+@media(max-width:760px){.grid,.price,.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="draft"><div class="wrap">Временная заготовка лендинга, не опубликована. Рабочая версия для утверждения с Ю и Мишей; до публикации заменить на страницу veai.ru.</div></div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Veai · октябрь 2026</p>
+    <h1>Аккаунт Anthropic заблокировали, а работа на Claude Code осталась? Подписка Veai продолжает работать</h1>
+    <p class="lede">Ключ подписки Veai встаёт в Claude Code, Codex CLI и Cursor вместо ключа Anthropic. Opus 5.5 и Sonnet 5.5 те же, рядом GPT, Gemini, GLM и DeepSeek. Оплата в рублях, минуты не сгорают. Аккаунт Anthropic для работы через ключ не нужен.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://app.veai.ru/" target="_blank" rel="noopener">Открыть личный кабинет</a>
+      <a class="btn ghost" href="https://veai.ru/docs/veai/connect/claude-code" target="_blank" rel="noopener">Инструкция для Claude Code</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Что происходит</h2>
+    <p>С конца сентября пользователи Claude получают письма от Safeguards Team: «internal investigation of suspicious signals… revoked your access». Апелляции отклоняют. Среди пострадавших — аккаунты Max 20x со стажем от пяти месяцев до двух лет.</p>
+    <div class="facts">
+      <ul>
+        <li>Самый частый названный триггер — VPN: NordVPN, Proton, швейцарский Exoscale.</li>
+        <li>Есть блокировки без VPN: macOS, статический IP, два аккаунта на одну карту.</li>
+        <li>Прошедшие верификацию документов тоже попали под блокировку.</li>
+        <li>В мае 2026 уже была волна по аккаунтам из России, деньги за подписку тогда возвращали.</li>
+      </ul>
+    </div>
+    <p class="src" style="margin-top:10px">Источники: треды r/ClaudeCode и r/Anthropic 30 сентября — 1 октября 2026; хроника блокировок на <a href="https://www.tadviser.ru/index.php/Продукт:Claude" target="_blank" rel="noopener">TAdviser, «Продукт: Claude»</a>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Почему с подпиской Veai блокировать нечего</h2>
+    <div class="grid">
+      <div class="card"><h3>Ключ вместо аккаунта</h3><p>Claude Code и Codex CLI получают модель через ключ Veai. Входить в аккаунт Anthropic не нужно, значит и терять нечего.</p></div>
+      <div class="card"><h3>Те же модели</h3><p>Opus 5.5 и Sonnet 5.5 в подписке, рядом GPT 6 Sol, Gemini 3.1 Pro, GLM 5.3, DeepSeek, MiniMax M3, Kimi K3, Qwen 3.8. Один провайдер отключился — продолжаете на другом в той же подписке.</p></div>
+      <div class="card"><h3>Оплата в рублях</h3><p>Российская карта, личный кабинет, без посредников и комиссий. Минута любой модели стоит одинаково внутри тарифа.</p></div>
+      <div class="card"><h3>Минуты не сгорают</h3><p>Неиспользованные минуты остаются на счёте, а не обнуляются в конце месяца.</p></div>
+      <div class="card"><h3>Скиллы и контекст на месте</h3><p>Меняются две строки в настройках. Проект, MCP-серверы и скиллы Claude Code остаются как были.</p></div>
+      <div class="card"><h3>Для команд — свой шлюз</h3><p>В Veai Корпоративный адрес и ключ выдаёт администратор, запросы идут через шлюз в контуре компании. Блокировка личного аккаунта сотрудника не останавливает задачу.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Как подключить Claude Code за три шага</h2>
+    <div class="steps">
+      <div class="step"><h3>Оформите подписку в личном кабинете</h3><p>На <a href="https://app.veai.ru/" target="_blank" rel="noopener">app.veai.ru</a> выберите тариф. В октябре скидка применяется автоматически при оплате, промокод не нужен.</p></div>
+      <div class="step"><h3>Скопируйте адрес API и ключ</h3><p>В кабинете есть блок «Подключение к Veai»: адрес шлюза и ваш личный ключ.</p></div>
+      <div class="step"><h3>Вставьте две строки в настройки Claude Code</h3><p>Файл <code>~/.claude/settings.json</code>:</p>
+<pre>{
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://api.veai.ru/openai/api",
+    "ANTHROPIC_API_KEY": "&lt;ваш ключ Veai&gt;"
+  }
+}</pre>
+      <p style="margin-top:10px">Полные инструкции: <a href="https://veai.ru/docs/veai/connect/claude-code" target="_blank" rel="noopener">Claude Code</a>, <a href="https://veai.ru/docs/veai/connect/codex-cli" target="_blank" rel="noopener">Codex CLI</a>, <a href="https://veai.ru/docs/veai/connect/cursor" target="_blank" rel="noopener">Cursor</a>, <a href="https://veai.ru/docs/veai/connect" target="_blank" rel="noopener">весь список инструментов</a>.</p></div>
+    </div>
+    <div class="callout" style="margin-top:16px"><b>Оговорка про Cursor</b>Claude Code и Codex CLI — бесплатные клиенты, платят в них только за модель, и ключ Veai закрывает это полностью. Cursor проксирует запросы через свои серверы, поэтому для внешнего шлюза нужны подписка Cursor Pro и VPN — это особенность Cursor, а не требование Veai. Ключ Veai оплачивает модели внутри Cursor, но не саму подписку Cursor.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Тарифы и скидка на весь октябрь</h2>
+    <p>Новым пользователям −30% на все подписки, пользователям с аккаунтом Veai −25%. Применяется автоматически в личном кабинете.</p>
+    <div class="price">
+      <div class="plan"><div class="name">Персональный <span class="badge">−30% новым</span></div><div class="old">2 800 ₽</div><div class="new">1 960 ₽</div><div class="per">в месяц · 200 минут</div></div>
+      <div class="plan"><div class="name">Профессиональный <span class="badge">−30% новым</span></div><div class="old">10 000 ₽</div><div class="new">7 000 ₽</div><div class="per">в месяц · 1 000 минут</div></div>
+    </div>
+    <p class="src" style="margin-top:12px">Ультра на 6 000 минут и эксклюзивные модели Fable 5.1 и GPT 6 Astra — на <a href="https://veai.ru/tarifs" target="_blank" rel="noopener">странице тарифов</a>. Подробный разбор акции и подключения: <a href="https://veai.ru/blog/company/veai-october-2026-discount" target="_blank" rel="noopener">статья в блоге Veai</a>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Что передаётся через ключ, а что остаётся в плагине</h2>
+    <div class="two">
+      <div class="card"><h3>Через ключ — модель</h3><p>Claude Code, Cursor и Codex CLI получают Opus, Sonnet, GPT и остальные за минуты подписки.</p></div>
+      <div class="card"><h3>В плагине — инструменты IDE</h3><p>Отладчик, запуск тестов, рефакторинги и индекс проекта работают в плагине Veai для JetBrains IDE и OpenIDE. Во внешних клиентах их нет. <a href="https://veai.ru/download" target="_blank" rel="noopener">Скачать плагин</a>.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Нужна помощь с переездом?</h2>
+    <p>Пишите в чат <a href="https://t.me/veai_devs_chat" target="_blank" rel="noopener">t.me/veai_devs_chat</a> — разберём вместе. Новости и инструкции — в канале <a href="https://t.me/veai_devs" target="_blank" rel="noopener">t.me/veai_devs</a>. Для команд: <a href="https://veai.ru/docs/enterprise/connect" target="_blank" rel="noopener">подключение через корпоративный шлюз</a>.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://app.veai.ru/" target="_blank" rel="noopener">Оформить подписку со скидкой</a>
+      <a class="btn ghost" href="https://veai.ru/blog/company/veai-october-2026-discount" target="_blank" rel="noopener">Читать разбор</a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">Заготовка от 05.10.2026. Факты: статья <a href="https://veai.ru/blog/company/veai-october-2026-discount" target="_blank" rel="noopener">veai-october-2026-discount</a>, документация <a href="https://veai.ru/docs/veai/connect" target="_blank" rel="noopener">«Подключение инструментов»</a>. Не публиковать до утверждения.</div></footer>
+
+</body>
+</html>
