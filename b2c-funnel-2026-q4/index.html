@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Veai B2C: план роста воронки +30 % в месяц</title>
+<style>
+:root{--bg:#f4f6f8;--surface:#fff;--ink:#172033;--muted:#5c667a;--line:#dce2ea;--veai:#3157d5;--veai-soft:#e9edff;--ok:#009778;--ok-soft:#dff7f1;--warn:#a75b00;--warn-soft:#fff3d7;--bad:#c0392b;--bad-soft:#fdecea;--shadow:0 10px 30px rgba(31,43,68,.07);--radius:18px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+.shell{width:min(1280px,calc(100% - 32px));margin:0 auto;padding:30px 0 60px}
+.eyebrow{margin:0 0 8px;color:var(--veai);font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.title{margin:0;font-size:clamp(28px,4.4vw,46px);line-height:1.06;letter-spacing:-.03em}
+.lede{max-width:860px;margin:14px 0 0;color:var(--muted);font-size:16px}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:start}
+.hero-kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.section{margin-top:20px;padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow)}
+.section h2{margin:0 0 4px;font-size:22px;letter-spacing:-.02em}
+.section .note{margin:0 0 16px;color:var(--muted);font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kpi{padding:16px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(145deg,#fff,#fafbfc)}
+.kpi-label{color:var(--muted);font-size:12px;font-weight:700}
+.kpi-value{margin-top:10px;font-size:clamp(24px,3vw,34px);font-weight:820;line-height:1;font-variant-numeric:tabular-nums}
+.kpi-detail{margin-top:8px;color:var(--muted);font-size:11px}
+.kpi.accent{border-color:var(--veai);background:var(--veai-soft)}
+.kpi.violet{border-color:#7c5cff;background:#f1edff}.kpi.violet .kpi-label{color:#5b3fd6}.kpi-table{margin-top:10px;font-size:13px}.kpi-table td{padding:6px 0;border-bottom:1px solid #e0d8ff}.kpi-table tr:last-child td{border-bottom:0}.kpi-table td.num{font-weight:800;color:#3b2aa0}
+.kpi.good{border-color:#9fdcc9;background:var(--ok-soft)}
+.kpi.bad{border-color:#f3b9b2;background:var(--bad-soft)}
+.funnel{display:grid;gap:8px}
+.stage{display:grid;grid-template-columns:210px 1fr 120px 120px;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.stage:last-child{border-bottom:0}
+.stage-name{font-weight:700;font-size:14px}
+.stage-bar-track{height:26px;border-radius:8px;background:#edf0f4;overflow:hidden}
+.stage-bar{height:100%;border-radius:8px;background:var(--c,var(--veai));display:flex;align-items:center;padding:0 10px;color:#fff;font-size:12px;font-weight:700;white-space:nowrap}
+.stage-value{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.stage-conv{text-align:right;color:var(--muted);font-size:12px}
+.c-veai{--c:#3157d5}.c-ok{--c:#009778}.c-warn{--c:#a75b00}.c-bad{--c:#c0392b}.c-grey{--c:#8a94a6}
+.group-label{margin:18px 0 6px;font-size:13px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.callout{padding:14px 16px;border:1px solid #f0cd86;border-radius:12px;background:var(--warn-soft);color:#6d4408;font-size:13px}
+.callout strong{display:block;margin-bottom:3px;color:#623800}
+.callout.ok{border-color:#9fdcc9;background:var(--ok-soft);color:#0b5a46}.callout.ok strong{color:#064033}
+.callout.bad{border-color:#f3b9b2;background:var(--bad-soft);color:#7a221a}.callout.bad strong{color:#5c150e}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--veai-soft);color:var(--veai);font-size:11px;font-weight:800;margin-left:8px;vertical-align:middle}
+tr.row-violet td{background:#f1edff}
+.tag.ok{background:var(--ok-soft);color:var(--ok)}.tag.warn{background:var(--warn-soft);color:var(--warn)}.tag.bad{background:var(--bad-soft);color:var(--bad)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.03em;font-weight:800}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.total td{font-weight:800;border-top:2px solid var(--ink)}
+.card{padding:18px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.card h3{margin:0 0 6px;font-size:16px}
+.card .meta{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.card .meta span{padding:3px 8px;border-radius:999px;background:#f0f2f5;font-size:11px;font-weight:700;color:var(--muted)}
+.card .fc{display:flex;gap:10px;margin-top:10px}
+.card .fc div{flex:1;padding:8px 10px;border-radius:10px;background:#f6f7f9;text-align:center}
+.card .fc b{display:block;font-size:20px;font-variant-numeric:tabular-nums}
+.card .fc small{color:var(--muted);font-size:11px}
+.chart{width:100%;height:auto;display:block}
+.legend{display:flex;gap:16px;font-size:12px;color:var(--muted);margin-top:6px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.chain{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.chain .step{padding:14px;border-radius:12px;border:1px solid var(--line);background:#fafbfc;position:relative}
+.chain .step h4{margin:0 0 6px;font-size:13px}
+.chain .step .from{color:var(--muted);font-size:12px}
+.chain .step .to{font-size:22px;font-weight:820;color:var(--veai)}
+.chain .step p{margin:8px 0 0;font-size:12px;color:var(--muted)}
+.chain .step::after{content:"→";position:absolute;right:-13px;top:40%;color:#b7bfcc;font-size:18px}
+.chain .step:last-child::after{content:""}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.month{padding:14px;border-radius:12px;border:1px solid var(--line);background:#fafbfc}
+.month h4{margin:0 0 8px;font-size:14px;display:flex;justify-content:space-between}
+.month h4 b{color:var(--veai)}
+.month ul{margin:0;padding-left:16px;font-size:12px;color:var(--ink)}
+.month li{margin-bottom:4px}
+.month .measure{margin-top:10px;padding-top:8px;border-top:1px dashed var(--line);font-size:11px;color:var(--muted)}
+.footer{margin-top:24px;color:var(--muted);font-size:12px;text-align:center}
+code{background:#f0f2f5;padding:1px 5px;border-radius:5px;font-size:12px}
+@media(max-width:960px){.hero,.two-col{grid-template-columns:1fr}.three-col,.chain,.timeline{grid-template-columns:1fr 1fr}.kpis{grid-template-columns:repeat(2,1fr)}.stage{grid-template-columns:130px 1fr 90px 90px}}
+@media(max-width:600px){.three-col,.chain,.timeline{grid-template-columns:1fr}.chain .step::after{content:""}}
+.notice{display:flex;gap:16px;align-items:center;justify-content:space-between;margin-top:20px;padding:14px 18px;border:1px solid #f0cd86;border-radius:14px;background:var(--warn-soft);color:#6d4408;font-size:13px}
+.notice button{flex:none;padding:8px 14px;border:1px solid #c98a1a;border-radius:10px;background:#fff;color:#6d4408;font:inherit;font-weight:700;cursor:pointer}
+.notice button:hover{background:#fff8e8}
+body.show-draft .section.draft[hidden]{display:block}
+body.show-draft .draft-block[hidden]{display:block}
+.draft-block{position:relative;padding-top:26px}
+.kpi.draft-block{padding-top:16px}
+.kpi.draft-block::before{top:auto;bottom:8px;right:10px;left:auto}
+.kpi-detail.draft-block,.lede.draft-block,.footer.draft-block{padding-top:0}
+.kpi-detail.draft-block::before,.lede.draft-block::before,.footer.draft-block::before{content:none}
+.draft-block::before{content:"скрыто до проверки";position:absolute;top:0;left:0;padding:3px 9px;border-radius:999px;background:var(--bad-soft);color:var(--bad);font-size:11px;font-weight:800}
+.section.draft{position:relative;opacity:.92}
+.section.draft::before{content:"скрыто до перепроверки";position:absolute;top:14px;right:18px;padding:3px 9px;border-radius:999px;background:var(--bad-soft);color:var(--bad);font-size:11px;font-weight:800}
+@media(max-width:600px){.notice{flex-direction:column;align-items:stretch}}
+.month .budget{margin-top:10px;padding-top:8px;border-top:1px dashed var(--line);font-size:12px}
+.month .budget-title{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+.month .budget ol{margin:0;padding-left:16px}
+.month .budget li{display:flex;justify-content:space-between;gap:8px;margin-bottom:2px}
+.month .budget li::marker{color:var(--muted)}
+.month .budget b{font-variant-numeric:tabular-nums;white-space:nowrap}
+.month .budget-total{display:flex;justify-content:space-between;margin-top:6px;padding-top:6px;border-top:1px solid var(--line);font-weight:800}
+</style>
+</head>
+<body>
+<main class="shell">
+
+<header class="hero">
+  <div>
+    <p class="eyebrow">Veai · B2C · факт февраль — сентябрь, прогноз октябрь 2026 — январь 2027 · рабочая версия, данные на 02.10.2026</p>
+    <h1 class="title">Воронка B2C Veai: выручка по месяцам и план роста на 30 %</h1>
+    <p class="lede draft-block" hidden>Факт выручки по эквайрингу (ОСВ 57.03) с февраля по август, предварительный сентябрь и прогноз на октябрь — январь по трём сценариям против цели +30 % в месяц. Ниже — дорожная карта на те же четыре месяца. Разделы с разбором воронки, инициатив и запусков скрыты до перепроверки цифр.</p>
+  </div>
+  <div class="hero-kpis">
+    <div class="kpi draft-block" hidden><div class="kpi-label">Факт · август 2026</div><div class="kpi-value">0,76 млн ₽</div><div class="kpi-detail">оборот по счёту 57.03, ОСВ; 34 новых покупателя</div></div>
+    <div class="kpi accent"><div class="kpi-label">Сентябрь · предварительно</div><div class="kpi-value">1,10 млн ₽</div><div class="kpi-detail draft-block" hidden>со слов, ОСВ не закрыта; 38 новых покупателей; отсюда считается цель</div></div>
+    <div class="kpi good draft-block" hidden><div class="kpi-label">Прогноз · январь 2027</div><div class="kpi-value">1,53 млн ₽</div><div class="kpi-detail">базовый сценарий; 1,87 млн с запуском CLI в декабре; +30 % за квартал (1,43) достигается</div></div>
+    <div class="kpi bad"><div class="kpi-label">Цель +30 %/мес · октябрь</div><div class="kpi-value">1,5 млн ₽</div><div class="kpi-detail draft-block" hidden>разрыв −1,3…−1,6 млн к январю; закрывается только масштабируемым входом (платный трафик)</div></div>
+  </div>
+</header>
+
+<div class="notice" id="draft-notice">
+  <div><b>Показаны два раздела: предварительный прогноз выручки август — январь и дорожная карта.</b> Остальные девять (воронка, IDE, факт по покупателям, инициативы и запуски, рубли, пакет «Команда», цепочка, замеры, допущения) скрыты до перепроверки цифр.</div>
+  <button type="button" id="draft-toggle" onclick="toggleDraft()">Показать скрытые разделы</button>
+</div>
+
+<!-- 1. Текущая воронка -->
+<section class="section draft" hidden>
+  <h2>1. Где воронка теряет людей сегодня<span class="tag">когорты дек–июн, 90 дней</span></h2>
+  <p class="note">6 347 регистраций на veai, из них треть — фермы. Основной слой потерь: 65 % реальных пользователей ни разу не запускают плагин, и среди них платит 0,1 %.</p>
+  <div class="funnel">
+    <div class="stage"><div class="stage-name">Регистрации всего</div><div class="stage-bar-track"><div class="stage-bar c-grey" style="width:100%">6 347</div></div><div class="stage-value">6 347</div><div class="stage-conv">100 %</div></div>
+    <div class="stage"><div class="stage-name">Фермы (отсекаем)</div><div class="stage-bar-track"><div class="stage-bar c-bad" style="width:33%">2 090</div></div><div class="stage-value">2 090</div><div class="stage-conv">33 %</div></div>
+    <div class="stage"><div class="stage-name">Реальные регистрации</div><div class="stage-bar-track"><div class="stage-bar c-veai" style="width:67%">4 257</div></div><div class="stage-value">4 257</div><div class="stage-conv">~600 / мес</div></div>
+    <div class="stage"><div class="stage-name">Не запускали плагин</div><div class="stage-bar-track"><div class="stage-bar c-warn" style="width:44%">2 779</div></div><div class="stage-value">2 779</div><div class="stage-conv">65 % · платят 0,1 %</div></div>
+    <div class="stage"><div class="stage-name">Запустили плагин</div><div class="stage-bar-track"><div class="stage-bar c-veai" style="width:23%">1 478</div></div><div class="stage-value">1 478</div><div class="stage-conv">35 % реальных</div></div>
+    <div class="stage"><div class="stage-name">Заплатили за 90 дней</div><div class="stage-bar-track"><div class="stage-bar c-ok" style="width:2.5%">158</div></div><div class="stage-value">158</div><div class="stage-conv">10,7 % запустивших</div></div>
+  </div>
+  <div class="two-col" style="margin-top:16px">
+    <div class="callout bad"><strong>Главное узкое место: регистрация → первый запуск</strong>Каждый процентный пункт, переведённый из «не запускал» в «запустил», даёт ~10 % конверсии в оплату. Это рычаг с наибольшим плечом и почти нулевой стоимостью.</div>
+    <div class="callout"><strong>Фермы — обязательное условие для купонов</strong>Бесплатные минуты при регистрации — магнит для ферм. Купон выдаётся только после «Логина из IDE» и реального запуска агента, с лимитом на аккаунт и устройство.</div>
+  </div>
+</section>
+
+<!-- 2. Разрез по IDE -->
+<section class="section draft" hidden>
+  <h2>2. Кто платит: разрез по IDE<span class="tag">запустившие плагин, 90 дней</span></h2>
+  <p class="note">Две стратегии: объём на IDEA (2/3 запустивших, средняя конверсия) и маржа на Rider / PhpStorm / GoLand (конверсия в 2–3 раза выше, выборки 40–90 человек).</p>
+  <div class="two-col">
+    <div>
+      <div class="group-label">Доля платящих за 90 дней</div>
+      <div class="funnel">
+        <div class="stage"><div class="stage-name">Rider · 45 чел.</div><div class="stage-bar-track"><div class="stage-bar c-ok" style="width:100%">24 %</div></div><div class="stage-value">5 486 ₽</div><div class="stage-conv">на человека</div></div>
+        <div class="stage"><div class="stage-name">PhpStorm · 91</div><div class="stage-bar-track"><div class="stage-bar c-ok" style="width:83%">20 %</div></div><div class="stage-value">1 303 ₽</div><div class="stage-conv"></div></div>
+        <div class="stage"><div class="stage-name">GoLand · 40</div><div class="stage-bar-track"><div class="stage-bar c-ok" style="width:75%">18 %</div></div><div class="stage-value">1 255 ₽</div><div class="stage-conv"></div></div>
+        <div class="stage"><div class="stage-name">IDEA Ultimate · 297</div><div class="stage-bar-track"><div class="stage-bar c-veai" style="width:50%">12 %</div></div><div class="stage-value">1 022 ₽</div><div class="stage-conv"></div></div>
+        <div class="stage"><div class="stage-name">PyCharm Pro · 148</div><div class="stage-bar-track"><div class="stage-bar c-warn" style="width:40%">9,5 %</div></div><div class="stage-value">443 ₽</div><div class="stage-conv">слабое звено</div></div>
+        <div class="stage"><div class="stage-name">IDEA Community · 689</div><div class="stage-bar-track"><div class="stage-bar c-veai" style="width:32%">7,7 %</div></div><div class="stage-value">1 123 ₽</div><div class="stage-conv">объём</div></div>
+        <div class="stage"><div class="stage-name">WebStorm · 106</div><div class="stage-bar-track"><div class="stage-bar c-veai" style="width:31%">7,5 %</div></div><div class="stage-value">2 655 ₽</div><div class="stage-conv"></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="group-label">Что это значит для плана</div>
+      <div class="kpis" style="grid-template-columns:1fr 1fr">
+        <div class="kpi"><div class="kpi-label">Выручка на платящего</div><div class="kpi-value">~12,5 тыс. ₽</div><div class="kpi-detail">за 90 дней; ~1,84 млн ₽ / ~147 платящих по таблице IDE</div></div>
+        <div class="kpi"><div class="kpi-label">Платящих на 100 реальных регистраций</div><div class="kpi-value">3,7 → 6,3</div><div class="kpi-detail">3,7 в 90-дневном окне когорты; 6,3 по факту всех покупок (38 / ~600). Цель после цепочек: ×1,5</div></div>
+        <div class="kpi"><div class="kpi-label">Лиды среди платящих</div><div class="kpi-value">12 %</div><div class="kpi-detail">против 8 % среди неплатящих: контент для тимлида работает</div></div>
+        <div class="kpi"><div class="kpi-label">Крупные компании среди неплатящих</div><div class="kpi-value">26</div><div class="kpi-detail">200+ сотрудников: готовый список в B2B-воронку</div></div>
+      </div>
+      <div class="callout" style="margin-top:12px"><strong>Вопрос анкеты personal / company не работает</strong>92–96 % выбирают «personal» в обеих группах: это значение по умолчанию. Для сегментации нужно убрать дефолт или заменить формулировку.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Факт: покупатели по месяцам -->
+<section class="section draft" hidden>
+  <h2>3. Факт: новые покупатели по месяцам и время до покупки<span class="tag ok">продуктовая аналитика, 29.09.2026</span></h2>
+  <p class="note">Veai вышел на плато 30–43 новых покупателя в месяц с апреля. Explyt даёт 3–5 в месяц. Это база, от которой считается цель +30 %.</p>
+  <svg class="chart" viewBox="0 0 760 250" role="img" aria-label="Новые покупатели по месяцам, Veai и Explyt">
+    <g stroke="#dce2ea" stroke-width="1">
+      <line x1="50" y1="200" x2="740" y2="200"/><line x1="50" y1="160" x2="740" y2="160"/><line x1="50" y1="120" x2="740" y2="120"/><line x1="50" y1="80" x2="740" y2="80"/><line x1="50" y1="40" x2="740" y2="40"/>
+    </g>
+    <g fill="#5c667a" font-size="11" text-anchor="end">
+      <text x="42" y="204">0</text><text x="42" y="164">10</text><text x="42" y="124">20</text><text x="42" y="84">30</text><text x="42" y="44">40</text>
+    </g>
+    <g font-size="11" text-anchor="middle">
+      <rect x="60" y="180" width="14" height="20" fill="#8a94a6" rx="3"/><rect x="76" y="192" width="30" height="8" fill="#3157d5" rx="3"/><text x="91" y="186" fill="#172033" font-weight="700">2</text><text x="83" y="222" font-size="12" fill="#172033">Янв</text>
+      <rect x="136" y="196" width="14" height="4" fill="#8a94a6" rx="3"/><rect x="152" y="168" width="30" height="32" fill="#3157d5" rx="3"/><text x="167" y="162" fill="#172033" font-weight="700">8</text><text x="159" y="222" font-size="12" fill="#172033">Фев</text>
+      <rect x="212" y="188" width="14" height="12" fill="#8a94a6" rx="3"/><rect x="228" y="128" width="30" height="72" fill="#3157d5" rx="3"/><text x="243" y="122" fill="#172033" font-weight="700">18</text><text x="235" y="222" font-size="12" fill="#172033">Мар</text>
+      <rect x="288" y="188" width="14" height="12" fill="#8a94a6" rx="3"/><rect x="304" y="44" width="30" height="156" fill="#3157d5" rx="3"/><text x="319" y="38" fill="#172033" font-weight="700">39</text><text x="311" y="222" font-size="12" fill="#172033">Апр</text>
+      <rect x="364" y="188" width="14" height="12" fill="#8a94a6" rx="3"/><rect x="380" y="28" width="30" height="172" fill="#3157d5" rx="3"/><text x="395" y="22" fill="#172033" font-weight="700">43</text><text x="387" y="222" font-size="12" fill="#172033">Май</text>
+      <rect x="440" y="184" width="14" height="16" fill="#8a94a6" rx="3"/><rect x="456" y="80" width="30" height="120" fill="#3157d5" rx="3"/><text x="471" y="74" fill="#172033" font-weight="700">30</text><text x="463" y="222" font-size="12" fill="#172033">Июн</text>
+      <rect x="516" y="184" width="14" height="16" fill="#8a94a6" rx="3"/><rect x="532" y="36" width="30" height="164" fill="#3157d5" rx="3"/><text x="547" y="30" fill="#172033" font-weight="700">41</text><text x="539" y="222" font-size="12" fill="#172033">Июл</text>
+      <rect x="608" y="64" width="30" height="136" fill="#3157d5" rx="3"/><text x="623" y="58" fill="#172033" font-weight="700">34</text><text x="615" y="222" font-size="12" fill="#172033">Авг</text>
+      <rect x="668" y="188" width="14" height="12" fill="#8a94a6" rx="3"/><rect x="684" y="48" width="30" height="152" fill="#3157d5" rx="3"/><text x="699" y="42" fill="#172033" font-weight="700">38</text><text x="691" y="222" font-size="12" fill="#172033">Сен</text>
+    </g>
+    <text x="395" y="244" font-size="11" text-anchor="middle" fill="#5c667a">новые покупатели в месяц, 2026 · Explyt за август в источнике отсутствует</text>
+  </svg>
+  <div class="legend"><span><i style="background:#3157d5"></i>Veai</span><span><i style="background:#8a94a6"></i>Explyt</span></div>
+
+  <div class="two-col" style="margin-top:20px">
+    <div>
+      <div class="group-label">Дней от регистрации до первой покупки, Veai</div>
+      <table>
+        <thead><tr><th></th><th class="num">Янв</th><th class="num">Фев</th><th class="num">Мар</th><th class="num">Апр</th><th class="num">Май</th><th class="num">Июн</th><th class="num">Июл</th><th class="num">Авг</th><th class="num">Сен</th></tr></thead>
+        <tbody>
+          <tr><td>Медиана</td><td class="num">22</td><td class="num">1</td><td class="num">11</td><td class="num">13</td><td class="num">26</td><td class="num">30</td><td class="num">24</td><td class="num">31</td><td class="num">31</td></tr>
+          <tr><td>Среднее</td><td class="num">22</td><td class="num">2</td><td class="num">15</td><td class="num">21</td><td class="num">29</td><td class="num">28</td><td class="num">30</td><td class="num">44</td><td class="num">45</td></tr>
+          <tr><td style="color:var(--muted)">Explyt, медиана</td><td class="num" style="color:var(--muted)">60</td><td class="num" style="color:var(--muted)">80</td><td class="num" style="color:var(--muted)">9</td><td class="num" style="color:var(--muted)">7</td><td class="num" style="color:var(--muted)">19</td><td class="num" style="color:var(--muted)">16</td><td class="num" style="color:var(--muted)">39</td><td class="num" style="color:var(--muted)">—</td><td class="num" style="color:var(--muted)">35</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="group-label">Что это меняет в плане</div>
+      <div class="callout ok" style="margin-bottom:10px"><strong>Медиана 24–31 день: половина покупок приходит через месяц после регистрации</strong>Эффект любой инициативы ложится примерно поровну на месяц запуска и следующий. Модель ниже считает вклад с лагом 50/50. Триггеры на 20-й и 25-й день попадают ровно в момент решения.</div>
+      <div class="callout"><strong>Среднее растёт до 44–45 дней</strong>Старые когорты продолжают конвертироваться поздно: окно 90 дней для оценки инициатив оправдано, а накопленная база «зарегистрирован, не купил» остаётся живым ресурсом, не только свежие регистрации.</div>
+      <p class="note" style="margin-top:10px">Две базы не противоречат друг другу: 158 покупателей в когортной таблице — это только покупки в первые 90 дней после регистрации декабрь–июнь; график считает все покупки месяца, включая старые когорты и покупки после 90 дней.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Прогноз выручки авг–янв -->
+<!-- Юнит-метрики: стоимость бесплатного, конверсия, база -->
+<section class="section" id="unit-metrics">
+  <h2>Стоимость привлечения, конверсия и бесплатная база<span class="tag">июль — сентябрь 2026</span></h2>
+  <table>
+    <thead><tr><th>Метрика</th><th class="num">Значение</th><th>Как посчитано</th></tr></thead>
+    <tbody>
+      <tr><td>Средняя стоимость привлечения 1 бесплатного пользователя (активировал триал)</td><td class="num"><b>≈ 800 ₽</b></td><td>Расход июль — сентябрь 320 500 ₽ (блогер 250 000 ₽ + Telegram-продвижение 3 × 23 500 ₽) ÷ 399 активаций триала (193 + 109 + 97). По месяцам: июль 640 ₽ (123 500 ₽ ÷ 193), август 1 130 ₽ (123 500 ₽ ÷ 109), сентябрь 760 ₽ (73 500 ₽ ÷ 97)</td></tr>
+      <tr><td>Конверсия новых в платящих</td><td class="num"><b>≈ 5 % от регистраций · ≈ 19 % от триала</b></td><td>Дозревшие когорты июль — август: 3,5–6,3 % от регистраций, 17–22 % от активировавших триал. Сентябрь пока 3,4 % / 13,5 %, дозреет к концу октября</td></tr>
+      <tr><td>Платящих пользователей за сентябрь</td><td class="num"><b>110</b></td><td>Уникальных клиентов с оплатой в сентябре по уведомлениям Payment Notifier (212 заказов на 1 021 360 ₽; ОСВ 57.03 за сентябрь 1 055 760 ₽). Из них 40 новых (первая оплата), 70 повторных. Август для сравнения: 97 клиентов, 174 заказа, 791 180 ₽</td></tr>
+      <tr><td>Бесплатных пользователей сейчас (активировали триал, не платили)</td><td class="num"><b>3 899</b></td><td>Из них активны за последние 30 дней 209; триал ещё идёт у 71. Всего бесплатных аккаунтов 5 388, платили когда-либо 241</td></tr>
+    </tbody>
+  </table>
+  <p class="note" style="margin-top:10px">Источники: выгрузка аккаунтов на 02.10.2026 без ферм и тестовых (5 629 реальных регистраций с 01.01.2026); расходы на маркетинг со слов, 03.10.2026. Стоимость одного нового платящего за те же три месяца: 320 500 ₽ ÷ 109 первых покупок ≈ 2 940 ₽.</p>
+</section>
+
+<section class="section">
+  <h2>Предварительный прогноз выручки: август — январь</h2>
+  <p class="note">Факт: обороты по счёту 57.03 (эквайринг Альфа-Банк, ОСВ за январь — август 2026). Сентябрь — 1,10 млн ₽ по данным пользователя от 01.10, ОСВ за сентябрь ещё не закрыта. Октябрь — январь: расчёт по модели «база платящих × удержание + новые покупатели × чек». Все три сценария и цель +30 % в месяц на одном графике.</p>
+
+  <svg class="chart" viewBox="0 0 760 300" role="img" aria-label="Выручка по месяцам: факт и прогноз">
+    <g stroke="#dce2ea" stroke-width="1">
+      <line x1="50" y1="220" x2="740" y2="220"/><line x1="50" y1="170" x2="740" y2="170"/><line x1="50" y1="120" x2="740" y2="120"/><line x1="50" y1="70" x2="740" y2="70"/><line x1="50" y1="20" x2="740" y2="20"/>
+    </g>
+    <g fill="#5c667a" font-size="11" text-anchor="end">
+      <text x="42" y="224">0</text><text x="42" y="174">0,8</text><text x="42" y="124">1,6</text><text x="42" y="74">2,4</text><text x="42" y="24">3,2</text>
+    </g>
+    <text x="14" y="130" font-size="10" fill="#5c667a" transform="rotate(-90 14 130)">млн ₽</text>
+    <!-- Авг факт -->
+    <rect x="90" y="172" width="40" height="48" fill="#8a94a6" rx="4"/><text x="110" y="165" font-size="11" text-anchor="middle" fill="#172033" font-weight="700">0,76</text>
+    <text x="110" y="245" font-size="12" text-anchor="middle" fill="#172033">Авг</text><text x="110" y="259" font-size="10" text-anchor="middle" fill="#5c667a">факт ОСВ</text>
+    <!-- Сен факт предв. -->
+    <rect x="200" y="151" width="40" height="69" fill="#8a94a6" rx="4" stroke="#5c667a" stroke-dasharray="4 3"/><text x="220" y="144" font-size="11" text-anchor="middle" fill="#172033" font-weight="700">1,10</text>
+    <text x="220" y="245" font-size="12" text-anchor="middle" fill="#172033">Сен</text><text x="220" y="259" font-size="10" text-anchor="middle" fill="#5c667a">предварительно</text>
+    <!-- Окт -->
+    <rect x="284" y="131" width="28" height="89" fill="#b7c3ee" rx="3"/><text x="298" y="125" font-size="10" text-anchor="middle" fill="#5c667a">1,43</text>
+    <rect x="316" y="149" width="28" height="71" fill="#3157d5" rx="3"/><text x="330" y="143" font-size="10" text-anchor="middle" fill="#172033" font-weight="700">1,13</text>
+    <rect x="348" y="149" width="28" height="71" fill="#009778" rx="3"/><text x="362" y="143" font-size="10" text-anchor="middle" fill="#172033">1,13</text>
+    <text x="330" y="245" font-size="12" text-anchor="middle" fill="#172033">Окт</text>
+    <!-- Ноя -->
+    <rect x="394" y="104" width="28" height="116" fill="#b7c3ee" rx="3"/><text x="408" y="98" font-size="10" text-anchor="middle" fill="#5c667a">1,86</text>
+    <rect x="426" y="142" width="28" height="78" fill="#3157d5" rx="3"/><text x="440" y="136" font-size="10" text-anchor="middle" fill="#172033" font-weight="700">1,24</text>
+    <rect x="458" y="142" width="28" height="78" fill="#009778" rx="3"/><text x="472" y="136" font-size="10" text-anchor="middle" fill="#172033">1,24</text>
+    <text x="440" y="245" font-size="12" text-anchor="middle" fill="#172033">Ноя</text>
+    <!-- Дек -->
+    <rect x="504" y="69" width="28" height="151" fill="#b7c3ee" rx="3"/><text x="518" y="63" font-size="10" text-anchor="middle" fill="#5c667a">2,42</text>
+    <rect x="536" y="135" width="28" height="85" fill="#3157d5" rx="3"/><text x="550" y="129" font-size="10" text-anchor="middle" fill="#172033" font-weight="700">1,36</text>
+    <rect x="568" y="124" width="28" height="96" fill="#009778" rx="3"/><text x="582" y="118" font-size="10" text-anchor="middle" fill="#172033">1,53</text>
+    <text x="550" y="245" font-size="12" text-anchor="middle" fill="#172033">Дек</text>
+    <!-- Янв -->
+    <rect x="614" y="24" width="28" height="196" fill="#b7c3ee" rx="3"/><text x="628" y="18" font-size="10" text-anchor="middle" fill="#5c667a">3,14</text>
+    <rect x="646" y="124" width="28" height="96" fill="#3157d5" rx="3"/><text x="660" y="118" font-size="10" text-anchor="middle" fill="#172033" font-weight="700">1,53</text>
+    <rect x="678" y="103" width="28" height="117" fill="#009778" rx="3"/><text x="692" y="97" font-size="10" text-anchor="middle" fill="#172033">1,87</text>
+    <text x="660" y="245" font-size="12" text-anchor="middle" fill="#172033">Янв</text>
+    <text x="395" y="288" font-size="11" text-anchor="middle" fill="#5c667a">выручка по эквайрингу, млн ₽ в месяц · факт и три линии на октябрь — январь</text>
+  </svg>
+  <div class="legend"><span><i style="background:#8a94a6"></i>Факт (ОСВ 57.03); сентябрь пунктиром — не подтверждён ОСВ</span><span><i style="background:#b7c3ee"></i>Цель +30 %/мес от сентября</span><span><i style="background:#3157d5"></i>База: инициативы 1–7 + пакет «Команда»</span><span><i style="background:#009778"></i>База + запуск CLI в декабре</span></div>
+
+  <div class="draft-block" hidden>
+  <div class="group-label" style="margin-top:22px">Прогноз по сценариям, млн ₽</div>
+  <table>
+    <thead><tr><th>Сценарий</th><th class="num">Авг</th><th class="num">Сен</th><th class="num">Окт</th><th class="num">Ноя</th><th class="num">Дек</th><th class="num">Янв</th><th>Что внутри</th></tr></thead>
+    <tbody>
+      <tr><td>Факт / предварительный факт</td><td class="num">0,76</td><td class="num">1,10</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td>ОСВ 57.03; сентябрь со слов, подтвердить</td></tr>
+      <tr><td>Органика: ничего не запускаем</td><td class="num"></td><td class="num"></td><td class="num">1,12</td><td class="num">1,14</td><td class="num">1,16</td><td class="num">1,17</td><td>38 новых/мес, удержание 87,5 %, чек 4 200 ₽</td></tr>
+      <tr><td>Пессимистичный</td><td class="num"></td><td class="num"></td><td class="num">1,12</td><td class="num">1,15</td><td class="num">1,21</td><td class="num">1,37</td><td>инициативы по нижней границе, без пакета «Команда», CLI сдвинулся на январь (400 регистраций)</td></tr>
+      <tr class="total"><td>База: инициативы 1–7 + пакет «Команда»</td><td class="num"></td><td class="num"></td><td class="num">1,13</td><td class="num">1,24</td><td class="num">1,36</td><td class="num">1,53</td><td>новых 40 / 42 / 57 / 73; команды +0,07 / 0,10 / 0,12</td></tr>
+      <tr><td>База + CLI в декабре</td><td class="num"></td><td class="num"></td><td class="num">1,13</td><td class="num">1,24</td><td class="num">1,53</td><td class="num">1,87</td><td>+27 покупателей в декабре и +31 в январе с чеком 6 300 ₽ (×1,5)</td></tr>
+      <tr><td>Цель +30 % в месяц</td><td class="num"></td><td class="num">1,10</td><td class="num">1,43</td><td class="num">1,86</td><td class="num">2,42</td><td class="num">3,14</td><td>сложный процент от сентября</td></tr>
+      <tr><td>Разрыв базы / с CLI к цели</td><td class="num"></td><td class="num"></td><td class="num" style="color:var(--bad)">−0,30</td><td class="num" style="color:var(--bad)">−0,62</td><td class="num" style="color:var(--bad)">−1,06 / −0,89</td><td class="num" style="color:var(--bad)">−1,61 / −1,27</td><td></td></tr>
+      <tr><td>Цель +30 % за квартал</td><td class="num"></td><td class="num">1,10</td><td class="num">1,20</td><td class="num">1,31</td><td class="num">1,43</td><td class="num">1,56</td><td>≈ +9,2 %/мес; база достигает в январе, с CLI — в декабре</td></tr>
+    </tbody>
+  </table>
+
+  <div class="two-col" style="margin-top:14px">
+    <div>
+      <div class="group-label">Факт по эквайрингу: февраль — август 2026 (ОСВ 57.03)</div>
+      <table>
+        <thead><tr><th>Месяц</th><th class="num">Оборот, ₽</th><th class="num">к прошлому месяцу</th><th class="num">Новых покупателей</th></tr></thead>
+        <tbody>
+          <tr><td>Февраль</td><td class="num">42 130</td><td class="num">—</td><td class="num">8</td></tr>
+          <tr><td>Март</td><td class="num">152 753</td><td class="num">×3,6</td><td class="num">18</td></tr>
+          <tr><td>Апрель</td><td class="num">414 422</td><td class="num">×2,7</td><td class="num">39</td></tr>
+          <tr><td>Май</td><td class="num">607 151</td><td class="num">+47 %</td><td class="num">43</td></tr>
+          <tr><td>Июнь</td><td class="num">544 945</td><td class="num">−10 %</td><td class="num">30</td></tr>
+          <tr><td>Июль</td><td class="num">714 602</td><td class="num">+31 %</td><td class="num">41</td></tr>
+          <tr><td>Август</td><td class="num">764 394</td><td class="num">+7 %</td><td class="num">34</td></tr>
+          <tr><td style="color:var(--muted)">Сентябрь (со слов)</td><td class="num" style="color:var(--muted)">~1 100 000</td><td class="num" style="color:var(--muted)">+44 %</td><td class="num" style="color:var(--muted)">38</td></tr>
+          <tr class="total"><td>Итого янв — авг</td><td class="num">3 240 398</td><td class="num"></td><td class="num"></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="callout ok"><strong>Что показывает ОСВ: выручка росла при плоском притоке покупателей</strong>С апреля по август новых покупателей было 30–43 в месяц, а оборот вырос с 414 до 764 тыс. ₽. Значит, база платящих накапливалась: каждый месяц уходило меньше, чем приходило. Из этого ряда удержание платящих оценивается в ≈ 87–88 % в месяц (а не 85 %, как в скрытом разделе про рубли). Предел такого роста при текущем притоке 38 × 4 200 ₽ ≈ 1,25 млн ₽ в месяц: сентябрьские 1,10 млн уже близко к нему, поэтому без новых рычагов рост заканчивается на 1,15–1,2 млн.</div>
+      <div class="callout bad" style="margin-top:10px"><strong>+30 % в месяц к выручке не достигаются ни одним сценарием</strong>К январю нужно 3,14 млн ₽; база даёт 1,53, с запуском CLI 1,87. Разрыв 1,3–1,6 млн ₽ в месяц, это 300–380 дополнительных платящих. Достижимо: +30 % за квартал (1,43 млн) — база выходит на эту цифру в январе, с CLI уже в декабре. Для сложных 30 % нужен масштабируемый вход с CAC ниже LTV ≈ 34 тыс. ₽ (4 200 / 12,5 % оттока).</div>
+      <div class="callout" style="margin-top:10px"><strong>Оговорки по факту</strong>Счёт 57.03 — валовые поступления по картам до комиссии эквайринга, не прибыль; могут включать оплаты юрлиц картой. Сентябрь внести из ОСВ, когда закроется: от него считается вся цель. Рост +44 % авг → сен при +12 % новых покупателей требует проверки: апселл, разовые флекс-покупки или сдвиг платежей на границе месяца.</div>
+    </div>
+  </div>
+
+  </div>
+  <p class="note" style="margin-top:14px">Таблица прогноза по сценариям и факт по эквайрингу (ОСВ 57.03) скрыты до проверки цифр; раскрываются кнопкой «Показать скрытые разделы».</p>
+
+  <div class="group-label" style="margin-top:22px">Новые покупатели, на которых построен прогноз</div>
+  <table>
+    <thead><tr><th>Новых покупателей в месяц</th><th class="num">Авг</th><th class="num">Сен</th><th class="num">Окт</th><th class="num">Ноя</th><th class="num">Дек</th><th class="num">Янв</th><th>Комментарий</th></tr></thead>
+    <tbody>
+      <tr><td>Факт</td><td class="num">34</td><td class="num">38</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td>график продуктовой аналитики, 29.09</td></tr>
+      <tr><td>База: инициативы 1–7</td><td class="num"></td><td class="num"></td><td class="num">40</td><td class="num">42</td><td class="num">57</td><td class="num">73</td><td>лаг покупки 50/50 между месяцем запуска и следующим</td></tr>
+      <tr><td>База + CLI в декабре</td><td class="num"></td><td class="num"></td><td class="num">40</td><td class="num">42</td><td class="num">84</td><td class="num">104</td><td>1 000 регистраций на запуске × 50 % × 10,7 %</td></tr>
+      <tr><td>Цель +30 %/мес</td><td class="num"></td><td class="num">38</td><td class="num">49</td><td class="num">64</td><td class="num">84</td><td class="num">109</td><td>для роста выручки на 30 % нужно 0,425 × база ≈ 111 / 150 / 200 / 265 новых, см. разрыв выше</td></tr>
+    </tbody>
+  </table>
+  <p class="note" style="margin-top:10px">Вклад по инициативам (цепочки, прогон по 2 779, конференции, реферал, блогеры, вебинары, марафон) и расчёт пакета «Команда» и CLI лежат в скрытых разделах и пересматриваются вместе с ними.</p>
+</section>
+
+<!-- 5. Инициативы и запуски -->
+<section class="section draft" hidden>
+  <h2>5. Инициативы и продуктовые запуски: механика, прогноз, стоимость</h2>
+  <p class="note">Две группы рычагов. Инициативы 1–7 поднимают конверсию существующего потока; прогноз в новых платящих за первый квартал работы, три сценария: пессимистичный / базовый / оптимистичный. Запуски 8–10 открывают новый вход и считаются поверх модели раздела 4.</p>
+  <div class="group-label">Инициативы роста 1–7</div>
+  <div class="three-col">
+    <div class="card">
+      <h3>1а. Разовый прогон по 2 779 не запускавшим</h3>
+      <p style="margin:0;font-size:13px;color:var(--muted)">Три касания (день 0, 3, 7), купон на 100 минут после второй сессии. Когорта холодная: регистрации 4–10 месяцев назад. Статус: 01.10 список email запрошен у продуктовой аналитики; в выгрузке есть поля <code>fraud_verdict</code> и <code>email_verified</code> для отсечения ферм.</p>
+      <div class="meta"><span>разовый</span><span>стоимость: купоны</span><span>уверенность: средняя</span><span>в работе</span></div>
+      <div class="fc"><div><b>5</b><small>пессим.</small></div><div><b>13</b><small>база</small></div><div><b>30</b><small>оптим.</small></div></div>
+    </div>
+    <div class="card">
+      <h3>2. Постоянные триггерные цепочки</h3>
+      <p style="margin:0;font-size:13px;color:var(--muted)">Пять переходов от регистрации до второй оплаты, у каждого свой триггер. Активация 35 → 48 %, доля платящих 10,7 → 12 %.</p>
+      <div class="meta"><span>ступень</span><span>стоимость: ~0 + купоны</span><span>уверенность: высокая</span></div>
+      <div class="fc"><div><b>19</b><small>пессим.</small></div><div><b>25</b><small>база</small></div><div><b>32</b><small>оптим.</small></div></div>
+    </div>
+    <div class="card">
+      <h3>3. Конференции с открытым микрофоном</h3>
+      <p style="margin:0;font-size:13px;color:var(--muted)">~100 регистраций на событие, тёплая когорта: 50 % запуск × 12 % оплата. Плюс лиды в B2B из зала. Одно событие в два месяца.</p>
+      <div class="meta"><span>событие</span><span>стоимость: участие</span><span>уверенность: средняя</span></div>
+      <div class="fc"><div><b>3</b><small>пессим.</small></div><div><b>6</b><small>база</small></div><div><b>9</b><small>оптим.</small></div></div>
+    </div>
+    <div class="card">
+      <h3>4а. Индивидуальный реферал</h3>
+      <p style="margin:0;font-size:13px;color:var(--muted)">Механика уже работает: в аналитике виден платёж 2 660 ₽ — тариф 2 800 ₽ со скидкой реферала 5 %. Ссылка → друг платит со скидкой 5–10 % → 1 % минут рефереру ежемесячно. Допущение: ~300 активных платящих.</p>
+      <div class="meta"><span>растёт с базой</span><span>стоимость: минуты</span><span>уверенность: средняя</span><span>механика живая</span></div>
+      <div class="fc"><div><b>4</b><small>пессим.</small></div><div><b>6</b><small>база</small></div><div><b>8</b><small>оптим.</small></div></div>
+    </div>
+    <div class="card">
+      <h3>4б. Блогеры: 2–3 тестовых слота</h3>
+      <p style="margin:0;font-size:13px;color:var(--muted)">Один слот: охват 20 тыс. → 200 кликов → 50 регистраций → 25 запусков → 2–3 платящих. Масштаб до 4 слотов/мес после проверки CAC против LTV. Ориентир из факта: короткая ссылка новости релиза 5.19 дала 28 переходов и 1 доказанную регистрацию; статья на Habr привела покупателя, который за 9 дней заплатил 1 000 ₽ и затем 10 000 ₽.</p>
+      <div class="meta"><span>масштабируемый</span><span>стоимость: слоты</span><span>уверенность: низкая до теста</span></div>
+      <div class="fc"><div><b>8</b><small>пессим.</small></div><div><b>25</b><small>база</small></div><div><b>50</b><small>оптим.</small></div></div>
+    </div>
+    <div class="card">
+      <h3>5. Марафон под Новый год</h3>
+      <p style="margin:0;font-size:13px;color:var(--muted)">2–3 недели, ежедневная задача с Veai, призы в минутах, скидка 20–30 %. Запуск в январе на данных п. 1–2. Контрольная группа без промокода обязательна.</p>
+      <div class="meta"><span>разовый</span><span>стоимость: скидка + призы</span><span>уверенность: средняя</span></div>
+      <div class="fc"><div><b>8</b><small>пессим.</small></div><div><b>15</b><small>база</small></div><div><b>30</b><small>оптим.</small></div></div>
+    </div>
+    <div class="card">
+      <h3>6. ВШЭ СПб: 50 магистров (МОАД, ВБИБ)</h3>
+      <p style="margin:0;font-size:13px;color:var(--muted)">Анализ данных → PyCharm, самая слабая когорта (9,5 %, 443 ₽). Скидка 50 %. Цель не выручка, а образовательный оффер, кейс и обратная связь по Python-сценариям.</p>
+      <div class="meta"><span>пилот</span><span>отдельная аналитика</span><span>не в B2C-метрике</span></div>
+      <div class="fc"><div><b>2</b><small>пессим.</small></div><div><b>3</b><small>база</small></div><div><b>4</b><small>оптим.</small></div></div>
+    </div>
+    <div class="card">
+      <h3>7. Вебинары</h3>
+      <p style="margin:0;font-size:13px;color:var(--muted)">Ежемесячно с декабря: 80 регистраций → 40 пришли → 20 установили → 3 платящих, рост до 5 с базой подписчиков. Запись работает дальше как контент на сайте и в Telegram.</p>
+      <div class="meta"><span>повторяемый</span><span>стоимость: время спикера</span><span>уверенность: средняя</span></div>
+      <div class="fc"><div><b>6</b><small>пессим.</small></div><div><b>9</b><small>база</small></div><div><b>15</b><small>оптим.</small></div></div>
+    </div>
+  </div>
+
+  <div class="group-label" style="margin-top:26px">Три продуктовых запуска<span class="tag warn">даты от продукта, в модели гипотеза</span></div>
+  <p class="note">Запуски отличаются от инициатив 1–7: они дают всплеск входа и новую категорию пользователей, а не поднимают конверсию существующего потока. Самый сильный из трёх для B2C: CLI-агент. Маркетплейс и плагин работают на удержание и на B2B.</p>
+
+  <div class="three-col">
+    <div class="card" style="border-color:var(--veai);background:var(--veai-soft)">
+      <h3>8. Veai CLI: агент в терминале с фактами из JetBrains IDE</h3>
+      <p style="margin:0 0 8px;font-size:13px">Самостоятельный CLI как Claude Code, но плагин в IDE отдаёт ему индексы, зависимости, run-конфигурации, дебаггер и покрытие. Работает в России: рубли, карты МИР, без VPN.</p>
+      <div class="meta"><span>новый вход в воронку</span><span>аудитория: senior, power users</span><span>чек выше: длинные сессии</span></div>
+      <div class="fc"><div><b>21</b><small>пессим.</small></div><div><b>53</b><small>база</small></div><div><b>107</b><small>оптим.</small></div></div>
+      <p class="note" style="margin:8px 0 0">покупателей за 90 дней от запуска при 400 / 1 000 / 2 000 регистраций запуска; далее +11/мес постоянно</p>
+    </div>
+    <div class="card">
+      <h3>9. Маркетплейс</h3>
+      <p style="margin:0 0 8px;font-size:13px;color:var(--muted)">Если это каталог бандлов MCP + Skills + Rules в один клик (Spring, GitHub, Jira, Figma), то запуск сокращает путь до первой задачи и поднимает долю платящих среди запустивших на 1–3 п.п.</p>
+      <div class="meta"><span>удержание и активация</span><span>внутри подписки</span></div>
+      <div class="fc"><div><b>+5</b><small>всплеск</small></div><div><b>+4/мес</b><small>постоянно</small></div><div><b>?</b><small>Headless MCP</small></div></div>
+      <p class="note" style="margin:8px 0 0">вариант Headless MCP для Claude Code / Codex не считаю: нет решения по монетизации</p>
+    </div>
+    <div class="card">
+      <h3>10. Новый плагин рядом с агентом</h3>
+      <p style="margin:0 0 8px;font-size:13px;color:var(--muted)">Отдельный продукт (SAST, тесты или иное; состав уточняется). Для B2C это бесплатный первый контакт: отчёт о проблемах в проекте ведёт к агенту, который их исправляет. Основной покупатель у такого плагина в B2B.</p>
+      <div class="meta"><span>лид-магнит для агента</span><span>мост в B2B</span></div>
+      <div class="fc"><div><b>+3/мес</b><small>B2C</small></div><div><b>+?</b><small>B2B-лиды</small></div></div>
+      <p class="note" style="margin:8px 0 0">в B2C-модели оставляю скромно; эффект на B2B считать отдельно</p>
+    </div>
+  </div>
+
+  <div class="group-label" style="margin-top:22px">Почему CLI может стать бомбой именно сейчас</div>
+  <div class="two-col">
+    <div class="callout ok"><strong>Три совпадения во времени</strong>1) Терминальные агенты (Claude Code, Codex CLI, Gemini CLI) сейчас самая обсуждаемая категория инструментов у разработчиков. 2) Волна банов Anthropic 30.09–01.10 оставила российских пользователей Claude Code без инструмента (факты по Reddit собраны в <code>.tasks/</code>; формулировки в публичных текстах согласовать). 3) У конкурентов в этой категории нет доступа к IDE: они читают файлы, grep и логи. Один тезис собирает все три: «агент в терминале, который видит то, что видит IDE, и работает в России».</div>
+    <div class="callout"><strong>Что нужно знать от продукта до старта кампании</strong>Дата релиза и название. Поддерживаемые ОС. Работает ли без открытой IDE и как деградирует. Те же минуты подписки или отдельный тариф. Можно ли показать его на закрытой бете 50–100 пользователям за месяц до релиза: цитаты и реальные записи сессий нужны для статьи и ролика. В модели ниже дата запуска принята как декабрь: гипотеза для расчёта, не план.</div>
+  </div>
+
+  <div class="group-label" style="margin-top:22px">Промо-ролик: side-by-side, одна задача, два терминала</div>
+  <div class="two-col">
+    <div>
+      <table>
+        <thead><tr><th>Тайм-код</th><th>Слева: CLI-агент без IDE</th><th>Справа: Veai CLI</th></tr></thead>
+        <tbody>
+          <tr><td class="num">0:00–0:08</td><td colspan="2">Один и тот же промпт в оба терминала: «Тест <code>OrderServiceTest.shouldApplyDiscount</code> падает, найди причину и исправь». Внизу общий таймер и счётчик токенов.</td></tr>
+          <tr><td class="num">0:08–0:35</td><td><code>grep -r discount</code>, <code>cat</code> пяти файлов, запуск всех тестов через Gradle, 400 строк лога, второй grep, гипотеза</td><td>Запрос к IDE: run-конфигурация этого теста, точка останова в <code>applyDiscount</code>, значение <code>customer.tier</code> в рантайме</td></tr>
+          <tr><td class="num">0:35–0:55</td><td>Правка «по смыслу», запуск всех тестов снова, другой тест упал</td><td>Причина найдена по значению переменной, правка одной строки, запуск одного теста из IDE, зелёный</td></tr>
+          <tr><td class="num">0:55–1:15</td><td>Таймер и счётчик замирают: минуты и токены крупно</td><td>Таймер и счётчик замирают рядом: разница читается без слов</td></tr>
+          <tr><td class="num">1:15–1:30</td><td colspan="2">Один титр: тезис кампании. Второй: veai.ru, рубли, МИР, без VPN. Логотип.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:10px"><h3>Правила честности</h3><ul style="margin:0;padding-left:18px;font-size:13px"><li>Реальная запись экрана, без монтажа внутри сессий; ускорение только с индикатором ×N в кадре</li><li>Один промпт, один репозиторий, одна модель с обеих сторон; сценарий и репозиторий кладём в <code>side-by-side/prompts/</code>, чтобы любой мог повторить</li><li>Цифры в кадре (минуты, токены, попытки) берутся из записи, не придумываются заранее; если разница окажется меньше ожидаемой, показываем её как есть</li><li>Конкурента слева называем, если запись сделана на реальном продукте; иначе подпись «CLI-агент без доступа к IDE»</li></ul></div>
+      <div class="card"><h3>Форматы и площадки</h3><ul style="margin:0;padding-left:18px;font-size:13px"><li><b>90 сек, 16:9</b>: мастер для статьи на Habr и VC, RuTube и VK Video (YouTube в РФ замедлен)</li><li><b>30 сек, 9:16</b>: Telegram, VK Клипы, Shorts; только фаза 0:35–1:15</li><li><b>GIF 10 сек</b>: момент, где слева второй grep, а справа значение переменной; для встраивания в статьи и посты</li><li><b>Стоп-кадр</b> с двумя счётчиками: обложка статьи и превью</li><li>Съёмка после закрытой беты: нужна стабильная сборка и «проверенный» баг, который слева реально не находится с первого раза</li></ul></div>
+    </div>
+  </div>
+
+  <div class="group-label" style="margin-top:22px">Последовательность запуска CLI: шесть недель</div>
+  <table>
+    <thead><tr><th>Неделя</th><th>Что выходит</th><th>Куда ведёт</th><th>Что измеряем</th></tr></thead>
+    <tbody>
+      <tr><td>T−4</td><td>Закрытая бета на 50–100 человек: Telegram-подписчики, активные платящие, часть когорты 2 779 с ролью senior/lead. Форма ожидания на лендинге</td><td>лендинг /cli с формой</td><td>записей в лист ожидания; цитаты и записи сессий для статьи</td></tr>
+      <tr><td>T−2</td><td>Ранний доступ 3 блогерам из декабрьских слотов: честные обзоры выходят в день релиза, не раньше</td><td>короткие ссылки с placement</td><td>готовность обзоров</td></tr>
+      <tr><td>T−1</td><td>Тизер в Telegram и VC: 15-секундный фрагмент ролика без названия продукта</td><td>лист ожидания</td><td>прирост листа</td></tr>
+      <tr><td><b>T0</b></td><td>Хабр-лонгрид «как CLI получает факты из IDE» (протокол, что именно отдаёт плагин), VC-версия для CTO, промо-ролик, пост в OpenIDE (прошлый пост дал прирост активных), письмо всей базе 4 257 + пользователям Explyt из РФ, пресс-релиз в CNews / TAdviser / РБК (контакт есть), релиз в docs и What's New</td><td>/cli → регистрация → установка</td><td>регистраций за 72 часа; доля дошедших до первой команды в CLI</td></tr>
+      <tr><td>T+1</td><td>Вебинар № 1 целиком про CLI с живым side-by-side; AMA в Telegram; обзоры блогеров</td><td>запись → сайт</td><td>участников, установок после вебинара</td></tr>
+      <tr><td>T+2</td><td>Разбор первых двух недель с цифрами использования; январский марафон строится вокруг CLI: «задача в день из терминала»</td><td>марафон</td><td>покупки запусковой когорты (медиана 24–31 день)</td></tr>
+    </tbody>
+  </table>
+  <p class="note" style="margin-top:10px">Три варианта заголовка кампании для теста на тизере: «Агент в терминале, который видит то, что видит IDE» · «grep это гипотеза, дебаггер это доказательство. Теперь и в терминале» · «CLI-агент, который работает в России: рубли, МИР, без VPN, и с дебаггером из JetBrains». Выбор по кликам тизера.</p>
+
+  <div class="group-label" style="margin-top:22px">Модель с запусками: новые покупатели по месяцам (база, CLI в декабре)</div>
+  <table>
+    <thead><tr><th></th><th class="num">Ноя</th><th class="num">Дек</th><th class="num">Янв</th><th class="num">Фев</th><th class="num">Мар</th><th class="num">Апр</th></tr></thead>
+    <tbody>
+      <tr><td>Модель раздела 4 (инициативы 1–7)</td><td class="num">42</td><td class="num">57</td><td class="num">73</td><td class="num">75</td><td class="num">71</td><td class="num">74</td></tr>
+      <tr><td>CLI: всплеск запуска (1 000 регистраций × 50 % × 10,7 %, лаг 50/50)</td><td class="num">—</td><td class="num">27</td><td class="num">26</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+      <tr><td>CLI: постоянный вход (+200 регистраций/мес)</td><td class="num">—</td><td class="num">—</td><td class="num">5</td><td class="num">11</td><td class="num">11</td><td class="num">11</td></tr>
+      <tr><td>Маркетплейс: всплеск (март, гипотеза)</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">5</td><td class="num">—</td></tr>
+      <tr><td>Новый плагин: B2C-вклад (с февраля, гипотеза)</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">3</td><td class="num">3</td><td class="num">3</td></tr>
+      <tr class="total"><td>Итого с запусками</td><td class="num">42</td><td class="num">84</td><td class="num">104</td><td class="num">89</td><td class="num">90</td><td class="num">88</td></tr>
+      <tr><td>Цель +30 %/мес</td><td class="num">49</td><td class="num">64</td><td class="num">84</td><td class="num">109</td><td class="num">141</td><td class="num">184</td></tr>
+      <tr><td>Разрыв</td><td class="num" style="color:var(--bad)">−7</td><td class="num" style="color:var(--ok)">+20</td><td class="num" style="color:var(--ok)">+20</td><td class="num" style="color:var(--bad)">−20</td><td class="num" style="color:var(--bad)">−51</td><td class="num" style="color:var(--bad)">−96</td></tr>
+    </tbody>
+  </table>
+  <div class="two-col" style="margin-top:14px">
+    <div class="callout ok"><strong>Запуск CLI перекрывает цель в декабре и январе</strong>Это первый момент в плане, когда модель идёт выше цели с запасом, и единственный способ пройти январь (84) без платного трафика. В рублях эффект сильнее, чем в людях: пользователи терминальных агентов тратят больше минут за сессию, чек у них ближе к «Профессиональному» (10 000 ₽), чем к «Персональному». При чеке ×1,5 запусковая когорта CLI даёт около +0,33 млн ₽ за 90 дней.</div>
+    <div class="callout bad"><strong>Структурный вывод не меняется</strong>Запуски дают всплеск и один новый постоянный вход (+11/мес). Со второго месяца после релиза план снова ниже цели: −20 в феврале, −96 в апреле. Решение по платному трафику с января остаётся; у CLI-кампании есть побочная польза для него: запусковая когорта даст CAC и LTV по сегменту power users, по которым можно считать бюджет точнее.</div>
+  </div>
+</section>
+
+<!-- 6. Проверка в рублях -->
+<section class="section draft" hidden>
+  <h2>6. Проверка в рублях: выручка 1,1 млн ₽ и цель +30 % в месяц<span class="tag warn">расчёт на допущениях</span></h2>
+  <p class="note">Текущая месячная выручка B2C Veai — 1,1 млн ₽ (данные пользователя, 01.10). Выручка = база платящих × чек; база = удержание × прошлая база + новые покупатели. Модель раздела 4 крутит только последний множитель.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="kpi-label">Выручка B2C в месяц</div><div class="kpi-value">1,10 млн ₽</div><div class="kpi-detail">сентябрь 2026, данные пользователя</div></div>
+    <div class="kpi"><div class="kpi-label">Активных платящих</div><div class="kpi-value">≈ 260</div><div class="kpi-detail">1,1 млн / ~4 200 ₽ среднего месячного чека (12,5 тыс. ₽ за 90 дней ÷ 3)</div></div>
+    <div class="kpi"><div class="kpi-label">Удержание платящих</div><div class="kpi-value">≈ 85 %</div><div class="kpi-detail">база на плато с апреля → отток ≈ приток 38 / 260; проверить в DataLens</div></div>
+    <div class="kpi bad"><div class="kpi-label">LTV платящего = потолок CAC</div><div class="kpi-value">≈ 28 тыс. ₽</div><div class="kpi-detail">4 200 ₽ / 15 % оттока; от него считать бюджет СберТаргета</div></div>
+  </div>
+
+  <div class="group-label" style="margin-top:22px">Модель раздела 4 в рублях против цели +30 %</div>
+  <table>
+    <thead><tr><th></th><th class="num">Окт</th><th class="num">Ноя</th><th class="num">Дек</th><th class="num">Янв</th><th class="num">Фев</th><th class="num">Мар</th><th class="num">Апр</th></tr></thead>
+    <tbody>
+      <tr><td>Новых покупателей по модели</td><td class="num">38</td><td class="num">42</td><td class="num">57</td><td class="num">73</td><td class="num">75</td><td class="num">71</td><td class="num">74</td></tr>
+      <tr><td>Нужно новых для +30 % выручки (0,445 × база)</td><td class="num">—</td><td class="num">117</td><td class="num">152</td><td class="num">197</td><td class="num">257</td><td class="num">334</td><td class="num">434</td></tr>
+      <tr><td>Платящих по модели (0,85 × прошлый + новые)</td><td class="num">260</td><td class="num">263</td><td class="num">281</td><td class="num">312</td><td class="num">340</td><td class="num">360</td><td class="num">380</td></tr>
+      <tr class="total"><td>Выручка по модели, млн ₽</td><td class="num">1,10</td><td class="num">1,11</td><td class="num">1,18</td><td class="num">1,31</td><td class="num">1,43</td><td class="num">1,51</td><td class="num">1,60</td></tr>
+      <tr><td>Цель +30 %/мес, млн ₽</td><td class="num">1,10</td><td class="num">1,43</td><td class="num">1,86</td><td class="num">2,42</td><td class="num">3,14</td><td class="num">4,08</td><td class="num">5,31</td></tr>
+      <tr><td>Разрыв, млн ₽</td><td class="num">0</td><td class="num" style="color:var(--bad)">−0,32</td><td class="num" style="color:var(--bad)">−0,68</td><td class="num" style="color:var(--bad)">−1,11</td><td class="num" style="color:var(--bad)">−1,71</td><td class="num" style="color:var(--bad)">−2,57</td><td class="num" style="color:var(--bad)">−3,71</td></tr>
+    </tbody>
+  </table>
+  <div class="callout bad" style="margin-top:14px"><strong>При оттоке 15 % первые ~40 новых покупателей каждого месяца латают дыру, а не растят выручку</strong>Инициативы 1–7 раздела 5 дают +45 % выручки за полгода, около 6,5 % в месяц. Цель ×4,8. Сложные 30 % к выручке шесть месяцев подряд перечисленными инициативами не достигаются. Достижимо: <b>+30 % за квартал</b> — 1,43 млн к январю, если к новым покупателям добавить два других множителя и командный пакет (раздел 7).</div>
+
+  <div class="group-label" style="margin-top:22px">Три рычага вместо одного: что даёт ноябрь</div>
+  <table>
+    <thead><tr><th>Рычаг</th><th>Сценарий</th><th class="num">Эффект в ноябре</th><th>Повторяемость</th></tr></thead>
+    <tbody>
+      <tr><td>Новые покупатели (модель раздела 4)</td><td>42 вместо 38</td><td class="num">+17 тыс. ₽</td><td>растёт каждый месяц</td></tr>
+      <tr><td>Удержание 85 → 90 %</td><td>триггеры 25-го дня, статистика расхода, релизные письма</td><td class="num">+55 тыс. ₽</td><td>накапливается; виден через 1–2 мес</td></tr>
+      <tr><td>Чек: апселл 10 % базы на «Профессиональный»</td><td>триггер «минуты кончились за 20 дней»: 2 800 → 10 000 ₽</td><td class="num">+187 тыс. ₽</td><td>разовый: базу переводишь один раз</td></tr>
+      <tr><td>Пакет «Команда» для компаний до 10 разработчиков</td><td>см. раздел 7: перевод платящих из компаний + 2 новые команды</td><td class="num">+73 тыс. ₽</td><td>новые команды — каждый месяц</td></tr>
+      <tr><td>Годовая предоплата со скидкой 20 %</td><td>5 % базы платят за год: 13 × 26 900 ₽</td><td class="num">+350 тыс. ₽ разово</td><td>минус 13 × 2 800 ₽ в следующие 11 месяцев</td></tr>
+      <tr class="total"><td>Сумма без годовой</td><td></td><td class="num">+332 тыс. ₽ → 1,43 млн</td><td>ноябрь +30 % достижим; декабрь уже нет</td></tr>
+    </tbody>
+  </table>
+  <p class="note" style="margin-top:10px">Декабрь +30 % от 1,43 требует ещё +430 тыс. ₽, а апселл второй раз столько не даст. Чтобы держать 30 % дольше двух месяцев, нужен масштабируемый вход с CAC ниже 28 тыс. ₽ за покупателя.</p>
+</section>
+
+<!-- 7. Пакет Команда -->
+<section class="section draft" hidden id="team-package">
+  <h2>7. Пакет «Команда»: малый бизнес до 10 разработчиков<span class="tag">предложение к согласованию</span></h2>
+  <p class="note">Сейчас между «Персональным» (2 800 ₽, 1 человек) и Enterprise (VPC, SSO, заявка на sales@) пусто. Команда из 5 человек либо покупает 5 личных подписок на личные карты, либо не покупает вовсе. Анкета показывает, что эти люди уже в продукте.</p>
+  <div class="two-col">
+    <div>
+      <div class="group-label">Кто это в данных Veai</div>
+      <table>
+        <thead><tr><th>Размер компании (анкета)</th><th class="num">Платящие</th><th class="num">Неплатящие</th></tr></thead>
+        <tbody>
+          <tr><td>1–10 человек</td><td class="num">3</td><td class="num">15 (21 %)</td></tr>
+          <tr><td>10–50 человек</td><td class="num">5</td><td class="num">18 (25 %)</td></tr>
+          <tr class="total"><td>Целевая зона пакета</td><td class="num">8</td><td class="num">33</td></tr>
+        </tbody>
+      </table>
+      <p class="note" style="margin-top:8px">Вопрос о размере компании задаётся только при ответе «company», который выбирают 6–8 %. При дефолте «personal» реальная доля компаний выше. Боль из sales-фидбека: «неоднородная плотность задач» — одни разработчики тратят много, другие почти ничего. Личные подписки по 200 минут это не решают, общий пул — решает.</p>
+    </div>
+    <div>
+      <div class="group-label">Упаковка</div>
+      <div class="card" style="border-color:var(--veai);background:var(--veai-soft)">
+        <h3>«Команда» — 2 500 ₽ за место в месяц, от 3 до 10 мест</h3>
+        <p style="margin:0 0 8px;font-size:13px">Общий пул 200 минут на каждое место: 5 мест = 1 000 минут на всех, 10 мест = 2 000. Минуты не сгорают. Цена минуты 12,5 ₽: между «Персональным» (14 ₽) и «Профессиональным» (10 ₽).</p>
+        <ul style="margin:0;padding-left:18px;font-size:13px">
+          <li><b>Один счёт на юрлицо</b>: оплата по счёту, закрывающие документы, реестр РПО № 33199 — бухгалтерия пропускает без вопросов</li>
+          <li><b>Панель админа</b>: кто сколько потратил, добавить / убрать место, лимит на человека</li>
+          <li><b>Приоритетный доступ</b> к моделям и расширенный SLA — как у «Профессионального»</li>
+          <li><b>Общие правила и навыки</b> агента на команду (<code>.veai/rules</code>, <code>.veai/skills</code> в репозитории — уже работает, нужно только назвать)</li>
+          <li>Докупка флекс-минут в общий пул по действующим ценам</li>
+          <li>Годовая оплата −20 %: 2 000 ₽ за место</li>
+          <li>Без VPC, SSO и выделенного менеджера — это граница с Enterprise; от 11 мест — заявка на sales@</li>
+        </ul>
+      </div>
+      <p class="note" style="margin-top:8px">Ориентиры конкурентов из <code>tarifs.md</code>: Cursor Teams $40/место, Claude Team $25, Copilot Business $19, Kilo Teams $15 + кредиты отдельно. 2 500 ₽ ≈ $27 с включёнными минутами — в рынке, плюс оплата МИР и без VPN.</p>
+    </div>
+  </div>
+
+  <div class="group-label" style="margin-top:22px">Прибыль с одной команды в месяц по себестоимости минуты</div>
+  <p class="note">Допущения: пул выбирается на 80 % (консервативно, минуты не сгорают); эквайринг 2,5 %; поддержка и онбординг команды 1 500 ₽/мес независимо от размера. Себестоимость минуты неизвестна — три сценария.</p>
+  <table>
+    <thead><tr><th>Команда</th><th class="num">Выручка</th><th class="num">Минут в расход</th><th class="num">Прибыль при 3 ₽/мин</th><th class="num">при 5 ₽/мин</th><th class="num">при 7 ₽/мин</th></tr></thead>
+    <tbody>
+      <tr><td>3 места (минимум)</td><td class="num">7 500 ₽</td><td class="num">480</td><td class="num">4 370 ₽ · 58 %</td><td class="num">3 410 ₽ · 45 %</td><td class="num">2 450 ₽ · 33 %</td></tr>
+      <tr><td>5 мест (типовая)</td><td class="num">12 500 ₽</td><td class="num">800</td><td class="num">8 290 ₽ · 66 %</td><td class="num">6 690 ₽ · 54 %</td><td class="num">5 090 ₽ · 41 %</td></tr>
+      <tr><td>10 мест (максимум)</td><td class="num">25 000 ₽</td><td class="num">1 600</td><td class="num">18 080 ₽ · 72 %</td><td class="num">14 880 ₽ · 60 %</td><td class="num">11 680 ₽ · 47 %</td></tr>
+      <tr><td style="color:var(--muted)">Для сравнения: 1 «Персональный»</td><td class="num" style="color:var(--muted)">2 800 ₽</td><td class="num" style="color:var(--muted)">160</td><td class="num" style="color:var(--muted)">2 250 ₽ · 80 %</td><td class="num" style="color:var(--muted)">1 930 ₽ · 69 %</td><td class="num" style="color:var(--muted)">1 610 ₽ · 58 %</td></tr>
+    </tbody>
+  </table>
+  <div class="two-col" style="margin-top:14px">
+    <div class="callout ok"><strong>Маржа на место ниже личной подписки, но экономика команды лучше</strong>Команда из 5 при 5 ₽/мин даёт 6 690 ₽ прибыли против 1 930 ₽ с одного персонального: ×3,5 денег за одну сделку и одно решение о покупке. Главное — удержание: компания на счёте с закрывающими уходит реже физлица с карты. При оттоке 5 %/мес (допущение) LTV команды из 5 ≈ 250 тыс. ₽ против 28 тыс. ₽ у персонального — в 9 раз.</div>
+    <div class="callout"><strong>Где риск</strong>Каннибализация: двое с «Профессионального» (20 000 ₽, 2 000 мин) могут перейти на «Команду 3» (7 500 ₽, 600 мин) — но минут втрое меньше, таких будет мало. Невыбранный пул не сгорает и копится как обязательство — как и в личных тарифах сейчас. Скидка стартапам 50 % из <code>tarifs.md</code> не суммируется с командной ценой — применяется большая.</div>
+  </div>
+
+  <div class="group-label" style="margin-top:22px">Сколько это даст выручке, октябрь — январь</div>
+  <table>
+    <thead><tr><th>Источник команд</th><th>Расчёт</th><th class="num">Ноя</th><th class="num">Дек</th><th class="num">Янв</th></tr></thead>
+    <tbody>
+      <tr><td>Перевод платящих из компаний</td><td>~16 платящих (6 % от 260) × 30 % → 5 команд × (12 500 − 2 800)</td><td class="num">+48 тыс. ₽</td><td class="num">+48</td><td class="num">+48</td></tr>
+      <tr><td>Новые команды из входящего потока</td><td>~12 компаний 1–10 в месяц среди 600 регистраций × 15 % → 2 команды/мес × 12 500, накопительно</td><td class="num">+25 тыс. ₽</td><td class="num">+50</td><td class="num">+75</td></tr>
+      <tr class="total"><td>Итого к выручке</td><td></td><td class="num">+73 тыс. ₽</td><td class="num">+98</td><td class="num">+123</td></tr>
+      <tr><td>Прибыль при 5 ₽/мин (54 %)</td><td></td><td class="num">+39 тыс. ₽</td><td class="num">+53</td><td class="num">+66</td></tr>
+    </tbody>
+  </table>
+  <div class="callout" style="margin-top:14px"><strong>С пакетом «Команда» январь по модели даёт 1,31 + 0,12 ≈ 1,43 млн ₽ — ровно +30 % к сентябрю за квартал</strong>При этом сам по себе пакет — не рычаг ×4,8: 2 команды в месяц добавляют по 2 % к выручке. Его ценность в другом: низкий отток, одно решение на 5–10 мест и мост в B2B — команда из 10, выросшая до 11, сама пишет на sales@. Что нужно для запуска: общий пул и панель админа в кабинете (продукт), оплата по счёту для юрлиц (финансы), карточка на /tarifs (сайт), письмо 8 платящим и 33 неплатящим из компаний по анкете (маркетинг).</div>
+</section>
+
+<!-- 8. Цепочка -->
+<section class="section draft" hidden>
+  <h2>8. Триггерная цепочка: от регистрации до постоянного пользователя<span class="tag">инициатива 2</span></h2>
+  <p class="note">Пять переходов, у каждого свой триггер и целевая конверсия. Переходы 2, 3 и 5 сейчас не измеряются в разрезе Veai: в DataLens есть вкладки Account и User Retention с фильтром по платящим и поиском пользователя по email, но срез по шагам цепочки ещё нужно собрать.</p>
+  <div class="two-col" style="margin-bottom:16px">
+    <div class="callout bad"><strong>Привязка карты режет реальных регистрирующихся примерно в 10 раз</strong>Наблюдение продуктовой команды 16.09: без карты платные модели недоступны даже в триале; карта стоит как защита от фрода. Обсуждается замена: план за $10 с безлимитом на бесплатные модели, а бесплатно — только с BYOK-ключом. Пока решения нет, переход «регистрация → первая задача» упирается в этот шаг, и триггерная цепочка должна вести на Community/offline без карты или на ваучер, который тоже работает без карты.</div>
+    <div class="callout ok"><strong>Перед первой покупкой пользователи много ходят по документации</strong>Наблюдение 23.09 по пути нового покупателя. Для цепочки это значит: касания на 10–25-й день должны вести не на тариф, а на конкретные страницы docs под стек из анкеты; оффер показывать после второй сессии и на 20-й день, когда по медиане и принимается решение.</div>
+  </div>
+  <div class="chain">
+    <div class="step"><h4>Регистрация → логин из IDE</h4><div class="from">сейчас 35 %</div><div class="to">48 %</div><p>Письмо через 10 мин + день 1 + день 3. Одно действие: установить и запустить. Гифка debugger.</p></div>
+    <div class="step"><h4>Логин → первая задача решена</h4><div class="from">нет данных</div><div class="to">70 %</div><p>In-app подсказка под стек из анкеты: Java → падающий тест, Python → разбор исключения.</p></div>
+    <div class="step"><h4>Первая задача → 3 сессии за 14 дней</h4><div class="from">нет данных</div><div class="to">50 %</div><p>День 5 и 10: сценарии Run Configurations и Auto Review. Здесь выдаётся купон.</p></div>
+    <div class="step"><h4>3 сессии → первая оплата</h4><div class="from">сейчас 10,7 %</div><div class="to">12 %</div><p>Конец бесплатных минут → оффер. День 20: напоминание, что минуты не сгорают.</p></div>
+    <div class="step"><h4>Оплата → вторая оплата</h4><div class="from">нет данных</div><div class="to">70 %</div><p>День 25: статистика расхода из кабинета. Релизные письма.</p></div>
+  </div>
+
+  <div class="two-col" style="margin-top:20px">
+    <div>
+      <div class="group-label">Эффект в месяц на 600 реальных регистраций</div>
+      <div class="kpis" style="grid-template-columns:1fr 1fr">
+        <div class="kpi"><div class="kpi-label">Дополнительных запусков</div><div class="kpi-value">+79</div><div class="kpi-detail">35 → 48 % от 600</div></div>
+        <div class="kpi good"><div class="kpi-label">Дополнительных платящих</div><div class="kpi-value">+11</div><div class="kpi-detail">8 от активации + 3 от роста доли до 12 %</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="group-label">Процент прибыли цепочки от себестоимости минуты</div>
+      <p class="note">Расчёт на месячную когорту: 79 купонов × 100 мин, 8 платящих, выручка 100 тыс. ₽ за 90 дней. Себестоимость минуты в источниках отсутствует, поэтому три значения.</p>
+      <table>
+        <thead><tr><th class="num">Себест. минуты</th><th class="num">Купоны</th><th class="num">Модели на выручку</th><th class="num">Валовая прибыль</th><th class="num">% прибыли</th></tr></thead>
+        <tbody>
+          <tr><td class="num">3 ₽</td><td class="num">23 700 ₽</td><td class="num">21 400 ₽</td><td class="num">54 900 ₽</td><td class="num" style="color:var(--ok);font-weight:800">55 %</td></tr>
+          <tr><td class="num">5 ₽</td><td class="num">39 500 ₽</td><td class="num">35 700 ₽</td><td class="num">24 800 ₽</td><td class="num" style="color:var(--warn);font-weight:800">25 %</td></tr>
+          <tr><td class="num">7 ₽</td><td class="num">55 300 ₽</td><td class="num">50 000 ₽</td><td class="num">−5 300 ₽</td><td class="num" style="color:var(--bad);font-weight:800">−5 %</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:14px"><strong>Порог окупаемости купона: ~6,5 ₽/мин</strong>Выше этого значения купон на 100 минут не окупается в окне 90 дней и живёт за счёт LTV. Безопасные варианты: купон на 50 минут, или купон только тем, кто дошёл до трёх сессий (~40 из 79 человек, расход вдвое меньше, прибыль при 5 ₽/мин растёт до ~45 %). Купон всегда сгорает через 14 дней, иначе он откладывает первую оплату вместо того, чтобы ускорять.</div>
+</section>
+
+<!-- 9. Замеры каналов -->
+<section class="section draft" hidden>
+  <h2>9. Что уже показали замеры каналов и аналитики<span class="tag ok">факты из чата аналитики, авг–сен 2026</span></h2>
+  <p class="note">Единичные наблюдения, не статистика. Но именно они задают правила трекинга, без которых ни одну инициативу выше не получится оценить.</p>
+  <div class="three-col">
+    <div class="card"><h3>Habr → покупка подтверждена</h3><p style="margin:0;font-size:13px;color:var(--muted)">28.08 — первый маркированный платёж с Habr в новой аналитике. 25.09 — покупатель из Ярославля: пришёл 15.09 со статьи в блоге компании, пользовался CLion, GoLand и шлюзом в Claude Code, 23.09 заплатил 1 000 ₽, 24.09 — автосписание на тариф 10 000 ₽.</p></div>
+    <div class="card"><h3>Короткая ссылка релиза 5.19</h3><p style="margin:0;font-size:13px;color:var(--muted)">28 переходов, 1 доказанная регистрация. Следующая новость опубликована без короткой ссылки и без меток — результат не собрать. Это ориентир конверсии «пост → регистрация» для Telegram-канала: ~3–4 %.</p></div>
+    <div class="card"><h3>Пост в канале OpenIDE, 18.08</h3><p style="margin:0;font-size:13px;color:var(--muted)">Активных пользователей в день поста 70 против меньшего на предыдущей неделе, рост держался ещё два дня. Вывод команды: аудиторию нужно периодически встряхивать публикациями в сторонних каналах.</p></div>
+    <div class="card"><h3>Mindbox как трекер не работает</h3><p style="margin:0;font-size:13px;color:var(--muted)">Трекер Mindbox режется блокировщиками рекламы как любое third-party решение; у части пользователей события регистрации не доходят. На статической странице вебинара не было собственного пикселя — прошлые посетители потеряны. Все касания цепочек считать по собственному трекеру и серверным событиям, Mindbox — только для доставки писем.</p></div>
+    <div class="card"><h3>Правила ссылок для всех инициатив</h3><p style="margin:0;font-size:13px;color:var(--muted)">Одна короткая ссылка — одно размещение, с полем placement (ссылка на пост) и просмотрами на момент размещения. Если цель — наш сайт, достаточно utm_source / utm_medium; одна тема на много постов — общий utm_campaign. Без этого конверсии события уходят в direct, как случилось с вебинаром 28.08.</p></div>
+    <div class="card"><h3>Удержание когорт</h3><p style="margin:0;font-size:13px;color:var(--muted)">Veai: лучшая когорта — неделя 03.08, на 6-й неделе активны 22,5 % (13 из 58). Explyt: когорта 31.08, на 3-й неделе активны 24 % (11 из 46). В DataLens теперь есть классический retention когорт и фильтр по совершившим покупку — LTV платящих можно снять без новых выгрузок.</p></div>
+  </div>
+  <div class="callout" style="margin-top:14px"><strong>Что из этого уже сделано к 01.10</strong>Список 2 779 не запускавших плагин запрошен у продуктовой аналитики (шаг 1а). Пользователям Explyt с регионом Россия, которым платёж теперь не проходит, 28.09 отправлено письмо с предложением перейти на Veai — это дополнительный вход в воронку октября, не учтённый в модели. Открыт поиск пользователя по email в юнит-экономике: путь любого покупателя из инициатив можно проследить вручную.</div>
+</section>
+
+<!-- 10. Дорожная карта -->
+<section class="section">
+  <h2>Дорожная карта: октябрь — январь</h2>
+  <p class="note draft-block" hidden>Четыре месяца с конкретными задачами. Всё, что позже января (ВШЭ-пилот, масштаб блогеров, платный трафик), планируется по итогам январских решений отдельным документом.</p>
+  <div class="timeline">
+    <div class="month"><h4>Октябрь</h4><div class="measure" style="margin:0 0 8px;padding:0 0 8px;border-top:0;border-bottom:1px dashed var(--line);font-size:12px;color:var(--ink)"><b>Приход, цель +30 % к сентябрю = 1 372 488 ₽ (44 274 ₽/день)</b><br>приход за 1/9 = <b>160 460 ₽</b> факт по CRM на 04.10 (цель 398 464 ₽)<br>приход за 9/19 = прогноз <b>442 738 ₽</b><br>приход за 19/26 = прогноз <b>309 917 ₽</b><br>приход за 26/31 = прогноз <b>221 369 ₽</b></div><b style="display:block;margin:0 0 4px;font-size:12px">Блок 1. Anthropic и тарифы</b><ul><li>1. Посевы Anthropic</li><li>2. Лендинг про блокировки</li><li>3. Шортсы про тариф</li><li>4. Акции, промо</li><li>5. Блогеры: подбор и бронь 2–3 тестовых слотов</li><li>6. Хабр с личных аккаунтов</li><li>7. Запущена цепочка на базу 2 779 не запускавших плагин</li><li>8. Обучающее видео</li></ul><b style="display:block;margin:10px 0 4px;font-size:12px">Блок 2. CLI</b><ul><li>9. CLI: получить дату релиза, название, состав; собрать лист закрытой беты (50–100), поставить форму ожидания на /cli</li><li>10. Два вебинара</li><li>11. Конференции (через спикеров запуск механики)</li></ul><b style="display:block;margin:10px 0 4px;font-size:12px">Блок 3. Новый плагин</b><ul><li>12. Новый плагин: запуск</li><li>13. Рейтинги и премии</li><li>14. 2 встречи с Питерской «Вышкой» по программам МОАД и ВБИБ (около 50 чел.)</li><li>15. Сбербанк B2B</li></ul><b style="display:block;margin:10px 0 4px;font-size:12px">Блок 4. Маркетплейс</b><ul><li>16. Маркетплейс</li></ul><div class="budget"><div class="budget-title">Расход на маркетинг</div><ol><li><span>Телеграм-продвижение</span><b>23 500 ₽</b></li><li><span>Блогер № 1</span><b>150 000 ₽</b></li><li><span>Блогеры № 2–5 в совокупности</span><b>50 000 ₽</b></li></ol><div class="budget-total"><span>Итого за месяц</span><b>223 500 ₽</b></div></div></div>
+    <div class="month"><h4>Ноябрь</h4><ul><li>1. Отработка цепочек на существующих пользователей</li><li>2. Новый плагин: запуск</li><li>3. Акции, промо</li><li>4. Маркетплейс</li><li>5. Два вебинара</li><li>6. Марафон на аудиторию 50 человек из Питерской «Вышки» по программам МОАД и ВБИБ</li><li>7. Блогеры: первые публикации по тестовым слотам</li><li>8. Рейтинги и премии</li></ul><div class="budget"><div class="budget-title">Расход на маркетинг</div><ol><li><span>Телеграм-продвижение</span><b>23 500 ₽</b></li><li><span>Блогер № 1</span><b>150 000 ₽</b></li><li><span>Блогеры № 2–5 в совокупности</span><b>50 000 ₽</b></li></ol><div class="budget-total"><span>Итого за месяц</span><b>223 500 ₽</b></div></div></div>
+    <div class="month"><h4>Декабрь</h4><ul><li>CLI-релиз (T0): Хабр + VC + ролик + OpenIDE + письмо базе и Explyt-пользователям из РФ + пресс-релиз</li><li>Блогеры: обзоры CLI в день релиза по 3 слотам, короткие ссылки и реф-ссылки блогера</li><li>Два вебинара, один из них целиком про CLI с живым side-by-side (запись → сайт и Telegram)</li><li>Конференция № 1, открытый микрофон, ~100 регистраций</li><li>Подготовка марафона: механика, призы в минутах, промокод и контрольная группа без него</li><li>Первый пересчёт модели по факту октября–ноября</li></ul><div class="measure">Регистраций CLI за 72 часа · доля дошедших до первой команды · CAC по каждому слоту · доля платящих среди купонных · K-фактор · покупки октябрьских и ноябрьских касаний (лаг ~30 дней)</div><div class="budget"><div class="budget-title">Расход на маркетинг</div><ol><li><span>Телеграм-продвижение</span><b>23 500 ₽</b></li><li><span>Блогер № 1</span><b>150 000 ₽</b></li><li><span>Блогеры № 2–5 в совокупности</span><b>50 000 ₽</b></li></ol><div class="budget-total"><span>Итого за месяц</span><b>223 500 ₽</b></div></div></div>
+    <div class="month"><h4>Январь</h4><ul><li>Марафон: 2–3 недели, ежедневная задача с Veai из терминала (CLI) и из IDE</li><li>CLI T+2: разбор первых недель с цифрами использования; итоги нового плагина и маркетплейса за октябрь — декабрь</li><li>Два вебинара</li><li>Блогеры: решение по масштабу, 4 слота/мес с февраля или стоп</li><li>Решение по платному трафику по брифу СберТаргет (порог CAC из LTV)</li><li>Решение по ВШЭ-пилоту к семестру</li><li>План февраль–апрель отдельным документом</li></ul><div class="measure">Инкремент марафона против контроля · факт октябрь–январь против базового сценария 1,13 / 1,24 / 1,36 / 1,53 млн ₽ и цели +30 % за квартал 1,43 млн · отток команд против физлиц</div><div class="budget"><div class="budget-title">Расход на маркетинг</div><ol><li><span>Телеграм-продвижение</span><b>23 500 ₽</b></li><li><span>Блогер № 1</span><b>150 000 ₽</b></li><li><span>Блогеры № 2–5 в совокупности</span><b>50 000 ₽</b></li></ol><div class="budget-total"><span>Итого за месяц</span><b>223 500 ₽</b></div></div></div>
+  </div>
+</section>
+
+<!-- Октябрь: три блока -->
+<section class="section" id="october-blocks">
+  <h2>Октябрь: четыре блока<span class="tag ok">рамка месяца</span></h2>
+  <p class="note">На октябрь четыре блока, четвёртый — маркетплейс на вторую половину октября и ноябрь. До выхода новых продуктов главная тема — ограничения Anthropic, блокировки и тарифы. Параллельно за две недели готовятся CLI и новый плагин: ссылка на тест в среду, 7 октября, фидбек к 14 октября, публикация плагина на следующей неделе, если критичного нет.</p>
+  <div class="callout draft-block" hidden><strong>Порядок продуктов на созвоне не закрыт</strong>В пятницу спорили, что раньше — CLI или плагин, и не вынесут ли CLI в отдельный бренд. Рабочая рамка созвона: компания VEAI, два продукта, одна лицензия на IDE и CLI, без лишней «платформы». Это нужно утвердить до жёсткого анонса CLI.</div>
+  <div class="card" style="margin-top:16px">
+    <h3>Блок 1. Anthropic и тарифы</h3>
+    <p style="margin:0 0 12px;font-size:13px">Тема до публикации нового плагина: ограничения и блокировки, при этом у VEAI подписками можно пользоваться. Сюда же тарификация и планы.</p>
+    <table>
+      <thead><tr><th style="width:160px">Когда</th><th>Что</th></tr></thead>
+      <tbody>
+        <tr><td><b>Уже сделано</b></td><td>Волна 1 посевов, пост в VI и перепост Java-блогера, нативные комментарии там, где прямая реклама запрещена</td></tr>
+        <tr><td><b>1–9 октября</b></td><td>Волна 2: короткий пост по списку. Реклама поста из VI. Лендинг утвердить. Шортсы про тариф со ссылкой на разбор. Эксклюзивы в СМИ и комментарии по запросам</td></tr>
+        <tr><td><b>Вся тема</b></td><td>Волны посевов и вывод результатов. Волна 1, 1–4 октября: 26 заказов, 160 460 ₽, 24 клиента, 4 новых, 20 повторных, 11 со скидкой</td></tr>
+        <tr><td><b>Продуктовый запрос</b></td><td>Инструмент скидки не купоном. Виктория сама выбирает пользователя и срок: второй месяц Ultra на тех же условиях или подарок новому аккаунту. Иначе блогер не «садится» на подписку. Пример: Андрей, повторные 50% на второй месяц. Команда берёт в работу</td></tr>
+      </tbody>
+    </table>
+    <p style="margin:12px 0 0;font-size:13px">Натив важнее купленного поста: в каналах без прямой рекламы цепочка комментариев, и только с третьего-четвёртого сообщения ссылка.</p>
+    <p style="margin:10px 0 0;font-size:13px">Отдельно от посевов, но в этом же блоке, дыра воронки. Вход 500–600 реальных регистраций, около 3 500 не поставили плагин, около 2 000 поставили, платили когда-либо 241. Люди не складывают шаг 1, шаг 2, шаг 3. Нужны короткие видео «вход 1 / 2 / 3» в каналы и на сайт. Миша в пятницу сказал, что это большая работа, но её всё равно делать.</p>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h3>Блок 2. CLI</h3>
+    <p style="margin:0 0 12px;font-size:13px">Отдельный продукт: агент в терминале, не вместо плагина. Тариф тот же, лицензия работает и в JetBrains IDE, и в CLI. На сайте так же, как у других: два продукта, VEAI в IDE и VEAI в CLI. Всю фактуру отдаёт Серёжа.</p>
+    <table>
+      <thead><tr><th style="width:160px">Когда</th><th>Что</th></tr></thead>
+      <tbody>
+        <tr><td><b>6 октября</b></td><td>Лендинг сбора заявок на CLI. Поставить на завтра созвона</td></tr>
+        <tr><td><b>1–9 октября</b></td><td>Утвердить порядок: CLI первым или вместе с плагином. Утвердить, что это не отдельный бренд</td></tr>
+        <tr><td><b>6–16 октября</b></td><td>Короткие видео: что такое CLI, чем отличается от плагина и VS Code, что в шагах не меняется. Анонс запуска</td></tr>
+        <tr><td><b>Неделя 2</b></td><td>Открытый микрофон по CLI. Голос Серёжи, без лица и без связки с Explyt. После эфира конспект на Хабр: содержание плюс ответы на вопросы</td></tr>
+        <tr><td><b>До конца октября</b></td><td>Вторая волна материалов, если CLI выходит в эти две недели вместе с плагином</td></tr>
+      </tbody>
+    </table>
+    <p class="draft-block" hidden style="margin:12px 0 0;font-size:13px">Лица, которые уже светились на Explyt, на VEAI не ставить. Камера позже: Миша Костицын, Даня или Костя. За неделю Мишу на камеру не успеть, первый эфир голосом делает Серёжа.</p>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h3>Блок 3. Новый плагин</h3>
+    <p style="margin:0 0 12px;font-size:13px">Концептуально то же, фичи частично другие, UI и UX другие. Переход для текущего пользователя — обновление в IDE. Серёжа переснимает видео и скриншоты с четверга, 8 октября. Пока плагин не виден, «суперновые» тексты не писать.</p>
+    <table>
+      <thead><tr><th style="width:160px">Когда</th><th>Что</th></tr></thead>
+      <tbody>
+        <tr><td><b>7 октября</b></td><td>Серёжа присылает ссылку. Виктория пишет в личку амбассадорам из чата, в том числе Максиму, Лоре, Роберту, и говорит Серёже, кому написала. Окно теста — неделя</td></tr>
+        <tr><td><b>8–14 октября</b></td><td>Фидбек сразу, не ждать конца недели. Критичное забирает Серёжа. Параллельно порядок обновлений: скриншоты и видео, документация, маркетплейсы, сайт, затем Telegram и YouTube</td></tr>
+        <tr><td><b>14 октября</b></td><td>Если критичного нет — публикация плагина, обновлённый сайт, новые скриншоты на маркетплейсе, первые посты: как перейти, чем лучше</td></tr>
+        <tr><td><b>Неделя 2</b></td><td>Анонс открытого микрофона на партнёров и остальных. Голос Серёжи, при возможности Миша. Тема: ход 1, ход 2, ход 3 и чем плагин удобнее</td></tr>
+        <tr><td><b>Сразу после эфира</b></td><td>Разбор на Хабр: конспект эфира и ответы на вопросы</td></tr>
+        <tr><td><b>До съёмки</b></td><td>Выловить Мишу Костицына на мини-уроки первого касания. Он занят, без слота материалы по использованию встанут</td></tr>
+      </tbody>
+    </table>
+    <p style="margin:12px 0 0;font-size:13px">Сайт уже ведёт с главной в сборную статью про подписки. Под новый плагин продуктовые страницы надо переписать целиком, вместе с документацией и карточками маркетплейсов. Масштаб и порядок до конца не выбраны, это первый слот недели.</p>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h3>Блок 4. Маркетплейс</h3>
+    <p style="margin:0 0 12px;font-size:13px">Вторая половина октября и ноябрь, после публикации нового плагина. Две части: карточки продуктов на маркетплейсах под новый плагин и CLI и запуск «Маркетплейс» из дорожной карты (октябрь п. 16, ноябрь п. 4). Состав запуска не решён: каталог бандлов MCP + Skills + Rules в один клик или Headless MCP для внешних агентов.</p>
+    <table>
+      <thead><tr><th style="width:160px">Когда</th><th>Что</th></tr></thead>
+      <tbody>
+        <tr><td><b>8–14 октября</b></td><td>Маркетплейсы в порядке обновлений под новый плагин: после скриншотов, видео и документации, перед сайтом</td></tr>
+        <tr><td><b>14 октября</b></td><td>Новые скриншоты на маркетплейсе вместе с публикацией плагина, если критичного нет</td></tr>
+        <tr><td><b>17–23 октября</b></td><td>Карточки маркетплейсов переписать целиком вместе с продуктовыми страницами и документацией. Два продукта как на сайте: VEAI в IDE и VEAI в CLI, лицензия одна</td></tr>
+        <tr><td><b>24–31 октября</b></td><td>«Маркетплейс» из дорожной карты октября: решить, какой маркетплейс и что в составе; без этого запуск остаётся гипотезой</td></tr>
+        <tr><td><b>Ноябрь</b></td><td>«Маркетплейс» из дорожной карты ноября. В модели — удержание и активация внутри подписки: +5 покупателей всплеск, +4/мес постоянно. Итоги вместе с новым плагином — в январе</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3 style="margin:22px 0 8px;font-size:16px">Дорожная карта октября</h3>
+  <table>
+    <thead><tr><th style="width:120px">Неделя</th><th>Anthropic и тарифы</th><th>CLI</th><th>Новый плагин</th><th>Маркетплейс</th></tr></thead>
+    <tbody>
+      <tr><td><b>1–9 октября</b></td><td>Волны посевов, реклама, лендинг, шортсы, СМИ. Запрос на повторную скидку Ultra</td><td>Решение по бренду и порядку запуска. Лендинг сбора заявок 6 октября</td><td>Ссылка 7 октября, амбассадоры, съёмка с 8 октября. Порядок: сайт, доки, маркетплейсы</td><td>—</td></tr>
+      <tr><td><b>10–16 октября</b></td><td>Тема ещё основная, пока продукты не вышли. Короткие видео шагов 1–2–3</td><td>Анонс и открытый микрофон, если CLI первый. Хабр-конспект</td><td>Фидбек к 14 октября. Публикация, сайт, маркетплейс, первые посты. Анонс микрофона</td><td>Новые скриншоты на маркетплейсе с публикацией плагина 14 октября</td></tr>
+      <tr><td><b>17–23 октября</b></td><td>Посевы докрутить под новые продукты: подписка жива, лицензия на IDE и CLI</td><td>Вторая волна материалов и посадка на сайт как второй продукт</td><td>Серия шортсов и продуктовых видео. Микрофон, если не успели на неделе 2</td><td>Карточки маркетплейсов переписать целиком: VEAI в IDE и VEAI в CLI, лицензия одна</td></tr>
+      <tr><td><b>24–31 октября</b></td><td>Вывод результатов волн. Тариф один на два продукта</td><td>Дожим регистрации с лендинга CLI</td><td>Контент «как перейти и чем лучше». Хабр, если эфир был на неделе 3</td><td>Решение, какой маркетплейс и что в составе. Дальше — ноябрь, п. 4 дорожной карты</td></tr>
+    </tbody>
+  </table>
+  <div class="callout bad draft-block" hidden style="margin-top:14px"><strong>Explyt в этот план не мешать</strong>Кате не разбирать процессы VEAI с нуля, лица и каналы Explyt на запуск VEAI не ставить.</div>
+</section>
+
+<!-- Статус недели: 1–9 октября -->
+<section class="section" id="week-2026-10-01">
+  <h2>Первая неделя октября, 1–9 октября<span class="tag ok">статус</span></h2>
+  <p class="note draft-block" hidden>Пункты 1–10 собраны в один блок: посевы про ограничения Anthropic и блокировки. Внутри — что уже вошло и что ещё на этой неделе, плюс вывод результатов по трём волнам.</p>
+  <table>
+    <thead><tr><th class="num">№</th><th>Что входит</th><th>Ссылки на публикации</th><th>Статус</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td><b>Посевы: ограничения Anthropic и блокировки</b></td><td style="font-size:12px"></td><td>В работе</td></tr>
+      <tr><td class="num">1.1</td><td>Волна 1. Посевы у блогеров</td><td style="font-size:12px"><a href="https://t.me/java_tg/4384">t.me/java_tg/4384</a> — пост в «Java Developer» (14 784 подписчика), 03.10, 942 просмотра<br><a href="https://t.me/vladm/1632?comment=10927">t.me/vladm/1632?comment=10927</a> — комментарий 02.10 под постом «Владилен: IT в эпоху AI» (39 286 подписчиков, 5,2 тыс. просмотров поста); ссылки на <a href="https://t.me/veai_devs/213">veai_devs/213</a>, <a href="https://t.me/veai_devs/228">veai_devs/228</a><br><a href="https://www.facebook.com/100005152865687/posts/3613887808792946?comment_id=1937045947267693&amp;reply_comment_id=1400773761650816">facebook.com/…/3613887808792946</a><br><a href="https://t.me/c/3096173975/10933">t.me/c/3096173975/10933</a> — закрытый чат (776), дайджест 03.10<br><a href="https://t.me/c/1135435949/24322">t.me/c/1135435949/24322</a> — закрытый чат<br><a href="https://t.me/chat_1red2black/243415">chat_1red2black/243415</a>, <a href="https://t.me/chat_1red2black/243675">…/243675</a> — органика 29.09</td><td>Сделано</td></tr>
+      <tr><td class="num">1.2</td><td>Большой пост в VI. Перепост блогера Java-комьюнити</td><td style="font-size:12px"><a href="https://t.me/java_tg/4384">t.me/java_tg/4384</a> — перепост<br><a href="https://t.me/frontIDE/17">t.me/frontIDE/17</a> — перепост в «Front&amp;IDE JetBrains»</td><td>Сделано</td></tr>
+      <tr><td class="num">1.3</td><td>Оффер топовым, включая «Уставшего техдира»: Ultra в подарок, 25 000. Двое взяли в работу, один отказ (только за деньги), остальные думают</td><td style="font-size:12px"><b>1. «Уставший техдир»</b>, 17К+ подписчиков, 7К+ просмотров, ERR 39,9 %; 50 000 — готовый текст, 70 000 — текст от автора. Канал Глеба Михеева — разработчика ИИ-Помощника в Сбере и руководителя программного комитета FrontendConf. <a href="https://t.me/tired_glebmikheev">Telegram</a> · <a href="https://www.youtube.com/@tired_glebmikheev">YouTube</a> · <a href="https://tgstat.ru/en/channel/@tired_glebmikheev/stat">TGStat</a> · <a href="https://glebmikheev.ru/ad">условия рекламы</a><br><b>8. «Деплой»</b>, 7,5К+ подписчиков, 2,5К+ просмотров, ERR 33 %; 35К/45К рублей. Канал Ивана Ботанова — лучшего интервьюера отечественного IT, а также руководителя разработки в СберАвто. Ведёт крупный YouTube-канал «Деплой». Интересует нативное размещение. <a href="https://t.me/dev_yttg">Telegram</a> · <a href="https://www.youtube.com/@itdeploy">YouTube</a> · <a href="https://tgstat.ru/en/channel/@dev_yttg/stat">TGStat</a> · <a href="https://teletype.in/@vlad_0045/dev_yttg">условия рекламы</a></td><td>В работе</td></tr>
+      <tr><td class="num">1.4</td><td>Натив: комментарии в «Вайбкодере» про подписки и выгоду</td><td style="font-size:12px"><a href="https://t.me/vibecoderchat/106/185592">t.me/vibecoderchat/106/185592</a> — комментарий в Vibecoder Chat</td><td>Сделано, ты, Ю, Миша</td></tr>
+      <tr><td class="num">1.5</td><td>Эксклюзивы в СМИ: несколько материалов про ограничения Anthropic и блокировки</td><td style="font-size:12px"><a href="https://www.tadviser.ru/a/793811">TAdviser, 05.10</a> — комментарий CTO Veai Владислава Кудинова про Fable 5 / Mythos 5 (цитируемость 1 513)<br><a href="https://www.tadviser.ru/index.php/Продукт:Claude">TAdviser «Продукт: Claude»</a> — хроника блокировок</td><td>На этой неделе</td></tr>
+      <tr><td class="num">1.6</td><td>Комментарии на статьи по запросам на ту же тему</td><td style="font-size:12px"><a href="https://www.comnews.ru/content/247597/2026-09-30/2026-w40/1008/ii-telefone-i-tv-mincifry-pomenyaet-pravila-predustanovki">ComNews, 30.09</a> — «ИИ в телефоне и на ТВ. Минцифры поменяет правила предустановки», CTO Veai (цитируемость 2 000; перепечатки Rambler 114 226, Myseldon 2 713, Slovosti 575, Lifelines 43)<br><a href="https://secpost.ru/fishing-dlya-ii-agentov-349-navykov-dlya-nejro-agentov-soderzhat-moshennicheskie-perenapravleniya">SecPost, 30.09</a> — опасные skill.md навыки ИИ-агентов, CTO Veai (цитируемость 193)</td><td>По входящим запросам</td></tr>
+      <tr><td class="num">1.7</td><td>Волна 2. Старт сегодня, завтра короткий пост по списку, дальше ждём ответы. Пишется эксклюзивная статья для СМИ и готовится блок постов на вторую волну</td><td style="font-size:12px"></td><td>В работе</td></tr>
+      <tr><td class="num">1.8</td><td>Реклама Telegram: пост из VI утвердить и запустить, формат относительно нативный</td><td style="font-size:12px"></td><td>На этой неделе</td></tr>
+      <tr><td class="num">1.9</td><td>Лендинг про блокировки и плюсы подписок. Заготовка есть, утвердить с Ю и Мишей, ссылку поставить в посевы, рекламу и шортсы</td><td style="font-size:12px"><a href="https://vi694.github.io/veai-media/landing-blokirovki/">vi694.github.io/veai-media/landing-blokirovki</a> — временная заготовка, до замены на страницу veai.ru (исходник <a href="landing-blokirovki/index.html">landing-blokirovki/index.html</a>)</td><td>На этой неделе</td></tr>
+      <tr><td class="num">1.10</td><td>Шортсы про тарификацию и её плюсы</td><td style="font-size:12px"><a href="https://veai.ru/blog/company/veai-october-2026-discount">veai.ru/blog/company/veai-october-2026-discount</a> — статья-разбор</td><td>На этой неделе</td></tr>
+      <tr><td class="num">1.11</td><td>Активация: короткое обучающее видео по всем параметрам, включая source. Перекос регистраций и использования плагина</td><td style="font-size:12px"></td><td>Съёмка на этой неделе, Миша</td></tr>
+      <tr><td class="num">1.12</td><td>Большая статья про использование плагина и посев в Telegram</td><td style="font-size:12px"></td><td>На этой неделе</td></tr>
+      <tr class="row-violet"><td class="num">1.13</td><td>Вывод результатов по волне 1. Вывод по волне 1, посевы про ограничения Anthropic и блокировки. Покупки 1–4 октября: 26 заказов на 160 460 ₽ от 24 клиентов.</td><td style="font-size:12px"></td><td>Добавлено</td></tr>
+      <tr><td class="num">1.14</td><td>Вывод результатов по волне 2</td><td style="font-size:12px"></td><td>Добавить</td></tr>
+      <tr><td class="num">1.15</td><td>Вывод результатов по волне 3</td><td style="font-size:12px"></td><td>Добавить</td></tr>
+    </tbody>
+  </table>
+  <p class="note" style="margin-top:18px">Дальше по неделе, вне этого блока:</p>
+  <table>
+    <thead><tr><th class="num">№</th><th>Блок</th><th>Что делаем</th><th>Статус</th></tr></thead>
+    <tbody>
+      <tr><td class="num">2</td><td><b>Новый плагин, тест</b></td><td>Ссылка от Серёжи Поспелого → 5 амбассадоров. Критичные баги — Серёже</td><td>Ждём ссылку</td></tr>
+      <tr><td class="num">3</td><td><b>Материалы по плагину</b></td><td>Посты, шортсы, продуктовые видео, блог, заливка на каналы</td><td>Параллельно с тестом. Юра, Серёжа, ты</td></tr>
+      <tr><td class="num">4</td><td><b>Сайт</b></td><td>Большая переделка под новый плагин</td><td>Эта неделя</td></tr>
+      <tr><td class="num">5</td><td><b>Хабр</b></td><td>Большие статьи с личных аккаунтов</td><td>На этой неделе</td></tr>
+      <tr><td class="num">6</td><td><b>Сбербанк, B2B</b></td><td>Таргетинг и бриф</td><td>В плане</td></tr>
+      <tr><td class="num">7</td><td><b>Вебинар</b></td><td>Спикер Михаил Костицин</td><td>Подготовка</td></tr>
+      <tr><td class="num">8</td><td><b>Посевы в собственные каналы</b></td><td>Информация о: 1. Подкасты 2. Конференции, участие 3. Релиз</td><td>Первая половина октября</td></tr>
+      <tr><td class="num">9</td><td><b>Сайт, ядро</b></td><td>Создание и внедрение ядра сайта: направление «ограничения Anthropic и блокировки»</td><td></td></tr>
+      <tr><td class="num">10</td><td><b>CLI</b></td><td>Лендинг сбора заявок на CLI — 6 октября. Утвердить порядок: CLI первым или вместе с плагином, не отдельный бренд. Короткие видео: что такое CLI, чем отличается от плагина и VS Code. Открытый микрофон по CLI, голос Серёжи, после эфира конспект на Хабр</td><td>Лендинг — 6 октября, порядок — на этой неделе, видео и микрофон — неделя 2</td></tr>
+    </tbody>
+  </table>
+  <h3 style="margin:22px 0 6px;font-size:16px">Вывод по волне 1, посевы про ограничения Anthropic и блокировки</h3>
+  <p class="note">Покупки 1–4 октября: 26 заказов на 160 460 ₽ от 24 клиентов.</p>
+  <div class="two-col">
+    <div class="kpi violet">
+      <div class="kpi-label">Первая неделя · 1–4 октября</div>
+      <table class="kpi-table">
+        <tbody>
+          <tr><td>Заказы</td><td class="num">26</td></tr>
+          <tr><td>Выручка</td><td class="num">160 460 ₽</td></tr>
+          <tr><td>Клиенты</td><td class="num">24</td></tr>
+          <tr><td>Новые, первая оплата</td><td class="num">4</td></tr>
+          <tr><td>Повторные</td><td class="num">20</td></tr>
+          <tr><td>Заказы со скидкой</td><td class="num">11</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="kpi violet">
+      <div class="kpi-label">Вторая неделя · 12–19 октября</div>
+      <table class="kpi-table">
+        <tbody>
+          <tr><td>Заказы</td><td class="num">—</td></tr>
+          <tr><td>Выручка</td><td class="num">—</td></tr>
+          <tr><td>Клиенты</td><td class="num">—</td></tr>
+          <tr><td>Новые, первая оплата</td><td class="num">—</td></tr>
+          <tr><td>Повторные</td><td class="num">—</td></tr>
+          <tr><td>Заказы со скидкой</td><td class="num">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="callout draft-block" hidden>Октябрь короче на день, поэтому прямое сравнение занижает неделю. По сути волна 1 держит повторные оплаты: 20 из 24 клиентов уже платили, новых только 4. Скидка есть в 11 из 26 заказов. Средний чек выше, чем в сентябре: около 6 170 ₽ против 5 570 ₽.</div>
+</section>
+
+<!-- Статус недели: 12–19 октября -->
+<section class="section" id="week-2026-10-12">
+  <h2>Вторая неделя октября, 12–19 октября<span class="tag ok">статус</span></h2>
+  <table>
+    <thead><tr><th class="num">№</th><th>Блок</th><th>Что делаем</th><th>Статус</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td><b>Посевы: ограничения Anthropic и блокировки</b></td><td>Третья волна блогеров и СМИ</td><td></td></tr>
+      <tr><td class="num">2</td><td><b>Новый плагин, тест</b></td><td>Ссылка от Серёжи Поспелого → 5 амбассадоров. Критичные баги — Серёже</td><td>Ждём ссылку</td></tr>
+      <tr><td class="num">3</td><td><b>Материалы по плагину</b></td><td>Посты, шортсы, продуктовые видео, блог, заливка на каналы</td><td>Параллельно с тестом. Юра, Серёжа, ты</td></tr>
+      <tr><td class="num">4</td><td><b>Сайт</b></td><td>Большая переделка под новый плагин</td><td>Эта неделя</td></tr>
+      <tr><td class="num">5</td><td><b>Хабр</b></td><td>Большие статьи с личных аккаунтов</td><td></td></tr>
+      <tr><td class="num">6</td><td><b>Рейтинги и премии</b></td><td></td><td></td></tr>
+      <tr><td class="num">7</td><td><b>Сбор касдевов с B2C</b></td><td></td><td></td></tr>
+      <tr><td class="num">8</td><td><b>Вебинар</b></td><td>Запуск лендинга на регистрацию</td><td></td></tr>
+      <tr><td class="num">9</td><td><b>Сайт, ядро</b></td><td>Создание и внедрение ядра сайта: направление «ограничения Anthropic и блокировки»</td><td></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 11. Допущения -->
+<section class="section draft" hidden>
+  <h2>11. Допущения и открытые вопросы</h2>
+  <div class="two-col">
+    <div>
+      <div class="group-label">На чём построен расчёт</div>
+      <table>
+        <thead><tr><th>Параметр</th><th class="num">Значение</th><th>Источник</th></tr></thead>
+        <tbody>
+          <tr><td>Новых покупателей в месяц (база)</td><td class="num">38</td><td>график «Новые покупатели по месяцам», 29.09; среднее апр–сен 37,5</td></tr>
+          <tr><td>Медиана дней до первой покупки</td><td class="num">24–31</td><td>график продуктовой аналитики, июн–сен</td></tr>
+          <tr><td>Реальные регистрации</td><td class="num">~600 / мес</td><td>4 257 за 7 месяцев</td></tr>
+          <tr><td>Активация (запуск плагина)</td><td class="num">35 %</td><td>таблица когорт</td></tr>
+          <tr><td>Платят среди запустивших, 90 дней</td><td class="num">10,7 %</td><td>158 / 1 478</td></tr>
+          <tr><td>Выручка на платящего, 90 дней</td><td class="num">~12,5 тыс. ₽</td><td>расчёт по таблице IDE</td></tr>
+          <tr><td>Номинал минуты</td><td class="num">14 ₽</td><td>«Персональный»: 2 800 ₽ / 200 мин</td></tr>
+          <tr><td>Активных платящих (для реферала)</td><td class="num">~300</td><td><b>допущение</b>, нужно подтвердить</td></tr>
+          <tr><td>Себестоимость минуты</td><td class="num">3–7 ₽</td><td><b>нет данных</b>; внутри ваучеры оцениваются в $0,1875/мин, что близко к номиналу тарифа, а не к себестоимости</td></tr>
+          <tr><td>Удержание платящих (LTV)</td><td class="num">22,5 % на 6-й нед.</td><td>лучшая когорта Veai 03.08, все пользователи; по платящим — <b>снять из DataLens</b></td></tr>
+          <tr><td>Выручка B2C в месяц</td><td class="num">1,1 млн ₽</td><td>данные пользователя 01.10; <b>уточнить</b>: выручка или прибыль, за какой месяц</td></tr>
+          <tr><td>Отток платящих физлиц / команд</td><td class="num">15 % / 5 %</td><td><b>допущение</b>: 15 % выведено из плато базы, 5 % — отраслевой ориентир для B2B-счетов</td></tr>
+          <tr><td>Компаний 1–10 среди регистраций</td><td class="num">~2 % → 12/мес</td><td>анкета: 18 из ~1 000 ответивших; занижено дефолтом «personal»</td></tr>
+          <tr><td>Конверсия компаний в пакет «Команда»</td><td class="num">15 %</td><td><b>допущение</b>; тёплая аудитория уже в продукте</td></tr>
+          <tr><td>Утилизация пула команды / поддержка</td><td class="num">80 % / 1 500 ₽</td><td><b>допущение</b> для расчёта прибыли раздела 7</td></tr>
+          <tr><td>Регистраций на запуске CLI</td><td class="num">400 / 1 000 / 2 000</td><td><b>допущение</b>: ориентир по релизному всплеску Explyt в июле (134 покупки при релизной волне) и охвату Хабр + VC + Telegram</td></tr>
+          <tr><td>Активация и оплата когорты CLI</td><td class="num">50 % / 10,7 %</td><td>активация выше базовой: аудитория сама ставит инструмент; оплата как у базовой когорты</td></tr>
+          <tr><td>Постоянный вход от CLI после релиза</td><td class="num">+200 рег./мес</td><td><b>допущение</b>; проверить по второму месяцу после релиза</td></tr>
+          <tr><td>Дата релиза CLI</td><td class="num">декабрь</td><td><b>гипотеза для расчёта</b>; при сдвиге на январь столбцы Дек/Янв в разделе 5 сдвигаются на месяц</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="group-label">Что нужно решить, чтобы модель стала планом</div>
+      <div class="card" style="margin-bottom:10px"><h3>1. Метрика принята: новые покупатели в месяц</h3><p style="margin:0;font-size:13px;color:var(--muted)">База 38 (сентябрь) по графику продуктовой аналитики. Цель ×4,8 за полгода — 184 в апреле. Если целью считать накопленную базу платящих, план становится мягче; это решение за вами.</p></div>
+      <div class="card" style="margin-bottom:10px"><h3>2. Себестоимость минуты</h3><p style="margin:0;font-size:13px;color:var(--muted)">Определяет размер купона (100 или 50 минут) и процент прибыли цепочки. Внутренняя оценка ваучеров ($0,1875/мин) — номинал, не себестоимость.</p></div>
+      <div class="card" style="margin-bottom:10px"><h3>3. Карта при триале</h3><p style="margin:0;font-size:13px;color:var(--muted)">Реальные регистрирующиеся отваливаются на привязке карты ~в 10 раз. Обсуждаемый вариант: $10-план с бесплатными моделями без лимита, бесплатно — только BYOK. Пока решения нет, цепочка ведёт на Community/offline и ваучеры.</p></div>
+      <div class="card" style="margin-bottom:10px"><h3>4. LTV платящих</h3><p style="margin:0;font-size:13px;color:var(--muted)">Данные теперь есть в DataLens (фильтр по покупателям на вкладках Account и User Retention). Без снятого LTV нельзя посчитать порог CAC для блогеров и платного трафика — единственных масштабируемых каналов в плане.</p></div>
+      <div class="card" style="margin-bottom:10px"><h3>5. Какой «маркетплейс»</h3><p style="margin:0;font-size:13px;color:var(--muted)">Каталог бандлов MCP + Skills, Headless MCP для внешних агентов или иной продукт. От этого зависит, попадает ли инициатива в B2C-воронку вообще.</p></div>
+      <div class="card" style="margin-bottom:10px"><h3>6. Цель в рублях или в покупателях</h3><p style="margin:0;font-size:13px;color:var(--muted)">Если цель — +30 % к выручке, план должен включать удержание, чек и командный пакет (разделы 6–7), а реалистичный горизонт — +30 % за квартал, не за месяц. Для пакета «Команда» нужны решения продукта (общий пул, панель админа) и финансов (оплата по счёту).</p></div>
+      <div class="card"><h3>7. Три запуска: даты и состав</h3><p style="margin:0;font-size:13px;color:var(--muted)">CLI: дата, название, ОС, работа без открытой IDE, тариф, возможность закрытой беты за месяц. Маркетплейс: каталог бандлов или Headless MCP. Новый плагин: что внутри (SAST / тесты) и платный ли он. Без дат запуски в разделе 5 и дорожная карта остаются гипотезой; ролик снимать только на стабильной сборке.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer draft-block" hidden>Источники: ОСВ по счёту 57.03 за январь — август 2026 (эквайринг Альфа-Банк), таблица когорт регистраций декабрь–июнь (veai, окно 90 дней), графики «Новые покупатели по месяцам» и «Дней от регистрации до первой покупки» (продуктовая аналитика, 29.09.2026), экспорт чата Explyt Visitor Analytics 10.08–01.10.2026 (без персональных данных), анкета сегментации при регистрации, <code>veai_vika/general-veai/GTM-LAUNCH-PLAN.md</code>, <code>veai_vika/veai-referral-program.md</code>, <code>pm-of-veai/research/marketing/tarifs.md</code>, <code>pm-of-veai/research/marketing/extensions-marketplace.md</code>, <code>campaigns/2026-Q3-veai-sbertarget/BRIEF.md</code>, сценарий side-by-side для CLI: <code>side-by-side/prompts/</code> (после записи) · прогнозные значения помечены как допущения и подлежат замене фактом в конце каждого месяца</footer>
+</main>
+<script>
+function toggleDraft(){var b=document.body.classList.toggle('show-draft');document.getElementById('draft-toggle').textContent=b?'Скрыть разделы на перепроверке':'Показать скрытые разделы';}
+</script>
+</body>
+</html>
