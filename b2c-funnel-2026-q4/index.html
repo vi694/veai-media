@@ -121,7 +121,7 @@ body.show-draft .draft-block[hidden]{display:block}
 </header>
 
 <div class="notice" id="draft-notice">
-  <div><b>Показаны юнит-метрики, дорожная карта, блоки октября, матрица каналов и статусы недель.</b> Остальные разделы (воронка, IDE, факт по покупателям, прогноз выручки, инициативы и запуски, рубли, пакет «Команда», цепочка, замеры, допущения) скрыты до перепроверки цифр.</div>
+  <div><b>Показаны два раздела: предварительный прогноз выручки август — январь и дорожная карта.</b> Остальные девять (воронка, IDE, факт по покупателям, инициативы и запуски, рубли, пакет «Команда», цепочка, замеры, допущения) скрыты до перепроверки цифр.</div>
   <button type="button" id="draft-toggle" onclick="toggleDraft()">Показать скрытые разделы</button>
 </div>
 
@@ -234,6 +234,105 @@ body.show-draft .draft-block[hidden]{display:block}
     </tbody>
   </table>
   <p class="note" style="margin-top:10px">Источники: таблица продуктовой аналитики по месяцам (реальные регистрации, активации триала, новые платящие, старты подписок; получена 05.10.2026); выгрузка аккаунтов на 02.10.2026 без ферм и тестовых (5 629 реальных регистраций с 01.01.2026); расходы на маркетинг со слов, 03.10.2026. Стоимость одного нового платящего за те же три месяца: 320 500 ₽ ÷ 89 новых платящих по аналитике ≈ 3 600 ₽ (по выгрузке: ÷ 109 первых покупок ≈ 2 940 ₽). Октябрь на 05.10: 45 реальных регистраций, 23 активации триала, 3 новых платящих, 8 стартов подписок.</p>
+</section>
+
+<section class="section">
+  <h2>Предварительный прогноз выручки: август — январь</h2>
+  <p class="note">Факт: обороты по счёту 57.03 (эквайринг Альфа-Банк, ОСВ за январь — август 2026). Сентябрь — 1,10 млн ₽ по данным пользователя от 01.10, ОСВ за сентябрь ещё не закрыта. Октябрь — январь: расчёт по модели «база платящих × удержание + новые покупатели × чек». Все три сценария и цель +30 % в месяц на одном графике.</p>
+
+  <svg class="chart" viewBox="0 0 760 300" role="img" aria-label="Выручка по месяцам: факт и прогноз">
+    <g stroke="#dce2ea" stroke-width="1">
+      <line x1="50" y1="220" x2="740" y2="220"/><line x1="50" y1="170" x2="740" y2="170"/><line x1="50" y1="120" x2="740" y2="120"/><line x1="50" y1="70" x2="740" y2="70"/><line x1="50" y1="20" x2="740" y2="20"/>
+    </g>
+    <g fill="#5c667a" font-size="11" text-anchor="end">
+      <text x="42" y="224">0</text><text x="42" y="174">0,8</text><text x="42" y="124">1,6</text><text x="42" y="74">2,4</text><text x="42" y="24">3,2</text>
+    </g>
+    <text x="14" y="130" font-size="10" fill="#5c667a" transform="rotate(-90 14 130)">млн ₽</text>
+    <!-- Авг факт -->
+    <rect x="90" y="172" width="40" height="48" fill="#8a94a6" rx="4"/><text x="110" y="165" font-size="11" text-anchor="middle" fill="#172033" font-weight="700">0,76</text>
+    <text x="110" y="245" font-size="12" text-anchor="middle" fill="#172033">Авг</text><text x="110" y="259" font-size="10" text-anchor="middle" fill="#5c667a">факт ОСВ</text>
+    <!-- Сен факт предв. -->
+    <rect x="200" y="151" width="40" height="69" fill="#8a94a6" rx="4" stroke="#5c667a" stroke-dasharray="4 3"/><text x="220" y="144" font-size="11" text-anchor="middle" fill="#172033" font-weight="700">1,10</text>
+    <text x="220" y="245" font-size="12" text-anchor="middle" fill="#172033">Сен</text><text x="220" y="259" font-size="10" text-anchor="middle" fill="#5c667a">предварительно</text>
+    <!-- Окт -->
+    <rect x="284" y="131" width="28" height="89" fill="#b7c3ee" rx="3"/><text x="298" y="125" font-size="10" text-anchor="middle" fill="#5c667a">1,43</text>
+    <rect x="316" y="149" width="28" height="71" fill="#3157d5" rx="3"/><text x="330" y="143" font-size="10" text-anchor="middle" fill="#172033" font-weight="700">1,13</text>
+    <rect x="348" y="149" width="28" height="71" fill="#009778" rx="3"/><text x="362" y="143" font-size="10" text-anchor="middle" fill="#172033">1,13</text>
+    <text x="330" y="245" font-size="12" text-anchor="middle" fill="#172033">Окт</text>
+    <!-- Ноя -->
+    <rect x="394" y="104" width="28" height="116" fill="#b7c3ee" rx="3"/><text x="408" y="98" font-size="10" text-anchor="middle" fill="#5c667a">1,86</text>
+    <rect x="426" y="142" width="28" height="78" fill="#3157d5" rx="3"/><text x="440" y="136" font-size="10" text-anchor="middle" fill="#172033" font-weight="700">1,24</text>
+    <rect x="458" y="142" width="28" height="78" fill="#009778" rx="3"/><text x="472" y="136" font-size="10" text-anchor="middle" fill="#172033">1,24</text>
+    <text x="440" y="245" font-size="12" text-anchor="middle" fill="#172033">Ноя</text>
+    <!-- Дек -->
+    <rect x="504" y="69" width="28" height="151" fill="#b7c3ee" rx="3"/><text x="518" y="63" font-size="10" text-anchor="middle" fill="#5c667a">2,42</text>
+    <rect x="536" y="135" width="28" height="85" fill="#3157d5" rx="3"/><text x="550" y="129" font-size="10" text-anchor="middle" fill="#172033" font-weight="700">1,36</text>
+    <rect x="568" y="124" width="28" height="96" fill="#009778" rx="3"/><text x="582" y="118" font-size="10" text-anchor="middle" fill="#172033">1,53</text>
+    <text x="550" y="245" font-size="12" text-anchor="middle" fill="#172033">Дек</text>
+    <!-- Янв -->
+    <rect x="614" y="24" width="28" height="196" fill="#b7c3ee" rx="3"/><text x="628" y="18" font-size="10" text-anchor="middle" fill="#5c667a">3,14</text>
+    <rect x="646" y="124" width="28" height="96" fill="#3157d5" rx="3"/><text x="660" y="118" font-size="10" text-anchor="middle" fill="#172033" font-weight="700">1,53</text>
+    <rect x="678" y="103" width="28" height="117" fill="#009778" rx="3"/><text x="692" y="97" font-size="10" text-anchor="middle" fill="#172033">1,87</text>
+    <text x="660" y="245" font-size="12" text-anchor="middle" fill="#172033">Янв</text>
+    <text x="395" y="288" font-size="11" text-anchor="middle" fill="#5c667a">выручка по эквайрингу, млн ₽ в месяц · факт и три линии на октябрь — январь</text>
+  </svg>
+  <div class="legend"><span><i style="background:#8a94a6"></i>Факт (ОСВ 57.03); сентябрь пунктиром — не подтверждён ОСВ</span><span><i style="background:#b7c3ee"></i>Цель +30 %/мес от сентября</span><span><i style="background:#3157d5"></i>База: инициативы 1–7 + пакет «Команда»</span><span><i style="background:#009778"></i>База + запуск CLI в декабре</span></div>
+
+  <div class="draft-block" hidden>
+  <div class="group-label" style="margin-top:22px">Прогноз по сценариям, млн ₽</div>
+  <table>
+    <thead><tr><th>Сценарий</th><th class="num">Авг</th><th class="num">Сен</th><th class="num">Окт</th><th class="num">Ноя</th><th class="num">Дек</th><th class="num">Янв</th><th>Что внутри</th></tr></thead>
+    <tbody>
+      <tr><td>Факт / предварительный факт</td><td class="num">0,76</td><td class="num">1,10</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td>ОСВ 57.03; сентябрь со слов, подтвердить</td></tr>
+      <tr><td>Органика: ничего не запускаем</td><td class="num"></td><td class="num"></td><td class="num">1,12</td><td class="num">1,14</td><td class="num">1,16</td><td class="num">1,17</td><td>38 новых/мес, удержание 87,5 %, чек 4 200 ₽</td></tr>
+      <tr><td>Пессимистичный</td><td class="num"></td><td class="num"></td><td class="num">1,12</td><td class="num">1,15</td><td class="num">1,21</td><td class="num">1,37</td><td>инициативы по нижней границе, без пакета «Команда», CLI сдвинулся на январь (400 регистраций)</td></tr>
+      <tr class="total"><td>База: инициативы 1–7 + пакет «Команда»</td><td class="num"></td><td class="num"></td><td class="num">1,13</td><td class="num">1,24</td><td class="num">1,36</td><td class="num">1,53</td><td>новых 40 / 42 / 57 / 73; команды +0,07 / 0,10 / 0,12</td></tr>
+      <tr><td>База + CLI в декабре</td><td class="num"></td><td class="num"></td><td class="num">1,13</td><td class="num">1,24</td><td class="num">1,53</td><td class="num">1,87</td><td>+27 покупателей в декабре и +31 в январе с чеком 6 300 ₽ (×1,5)</td></tr>
+      <tr><td>Цель +30 % в месяц</td><td class="num"></td><td class="num">1,10</td><td class="num">1,43</td><td class="num">1,86</td><td class="num">2,42</td><td class="num">3,14</td><td>сложный процент от сентября</td></tr>
+      <tr><td>Разрыв базы / с CLI к цели</td><td class="num"></td><td class="num"></td><td class="num" style="color:var(--bad)">−0,30</td><td class="num" style="color:var(--bad)">−0,62</td><td class="num" style="color:var(--bad)">−1,06 / −0,89</td><td class="num" style="color:var(--bad)">−1,61 / −1,27</td><td></td></tr>
+      <tr><td>Цель +30 % за квартал</td><td class="num"></td><td class="num">1,10</td><td class="num">1,20</td><td class="num">1,31</td><td class="num">1,43</td><td class="num">1,56</td><td>≈ +9,2 %/мес; база достигает в январе, с CLI — в декабре</td></tr>
+    </tbody>
+  </table>
+
+  <div class="two-col" style="margin-top:14px">
+    <div>
+      <div class="group-label">Факт по эквайрингу: февраль — август 2026 (ОСВ 57.03)</div>
+      <table>
+        <thead><tr><th>Месяц</th><th class="num">Оборот, ₽</th><th class="num">к прошлому месяцу</th><th class="num">Новых покупателей</th></tr></thead>
+        <tbody>
+          <tr><td>Февраль</td><td class="num">42 130</td><td class="num">—</td><td class="num">8</td></tr>
+          <tr><td>Март</td><td class="num">152 753</td><td class="num">×3,6</td><td class="num">18</td></tr>
+          <tr><td>Апрель</td><td class="num">414 422</td><td class="num">×2,7</td><td class="num">39</td></tr>
+          <tr><td>Май</td><td class="num">607 151</td><td class="num">+47 %</td><td class="num">43</td></tr>
+          <tr><td>Июнь</td><td class="num">544 945</td><td class="num">−10 %</td><td class="num">30</td></tr>
+          <tr><td>Июль</td><td class="num">714 602</td><td class="num">+31 %</td><td class="num">41</td></tr>
+          <tr><td>Август</td><td class="num">764 394</td><td class="num">+7 %</td><td class="num">34</td></tr>
+          <tr><td style="color:var(--muted)">Сентябрь (со слов)</td><td class="num" style="color:var(--muted)">~1 100 000</td><td class="num" style="color:var(--muted)">+44 %</td><td class="num" style="color:var(--muted)">38</td></tr>
+          <tr class="total"><td>Итого янв — авг</td><td class="num">3 240 398</td><td class="num"></td><td class="num"></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="callout ok"><strong>Что показывает ОСВ: выручка росла при плоском притоке покупателей</strong>С апреля по август новых покупателей было 30–43 в месяц, а оборот вырос с 414 до 764 тыс. ₽. Значит, база платящих накапливалась: каждый месяц уходило меньше, чем приходило. Из этого ряда удержание платящих оценивается в ≈ 87–88 % в месяц (а не 85 %, как в скрытом разделе про рубли). Предел такого роста при текущем притоке 38 × 4 200 ₽ ≈ 1,25 млн ₽ в месяц: сентябрьские 1,10 млн уже близко к нему, поэтому без новых рычагов рост заканчивается на 1,15–1,2 млн.</div>
+      <div class="callout bad" style="margin-top:10px"><strong>+30 % в месяц к выручке не достигаются ни одним сценарием</strong>К январю нужно 3,14 млн ₽; база даёт 1,53, с запуском CLI 1,87. Разрыв 1,3–1,6 млн ₽ в месяц, это 300–380 дополнительных платящих. Достижимо: +30 % за квартал (1,43 млн) — база выходит на эту цифру в январе, с CLI уже в декабре. Для сложных 30 % нужен масштабируемый вход с CAC ниже LTV ≈ 34 тыс. ₽ (4 200 / 12,5 % оттока).</div>
+      <div class="callout" style="margin-top:10px"><strong>Оговорки по факту</strong>Счёт 57.03 — валовые поступления по картам до комиссии эквайринга, не прибыль; могут включать оплаты юрлиц картой. Сентябрь внести из ОСВ, когда закроется: от него считается вся цель. Рост +44 % авг → сен при +12 % новых покупателей требует проверки: апселл, разовые флекс-покупки или сдвиг платежей на границе месяца.</div>
+    </div>
+  </div>
+
+  </div>
+  <p class="note" style="margin-top:14px">Таблица прогноза по сценариям и факт по эквайрингу (ОСВ 57.03) скрыты до проверки цифр; раскрываются кнопкой «Показать скрытые разделы».</p>
+
+  <div class="group-label" style="margin-top:22px">Новые покупатели, на которых построен прогноз</div>
+  <table>
+    <thead><tr><th>Новых покупателей в месяц</th><th class="num">Авг</th><th class="num">Сен</th><th class="num">Окт</th><th class="num">Ноя</th><th class="num">Дек</th><th class="num">Янв</th><th>Комментарий</th></tr></thead>
+    <tbody>
+      <tr><td>Факт</td><td class="num">34</td><td class="num">38</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td>график продуктовой аналитики, 29.09</td></tr>
+      <tr><td>База: инициативы 1–7</td><td class="num"></td><td class="num"></td><td class="num">40</td><td class="num">42</td><td class="num">57</td><td class="num">73</td><td>лаг покупки 50/50 между месяцем запуска и следующим</td></tr>
+      <tr><td>База + CLI в декабре</td><td class="num"></td><td class="num"></td><td class="num">40</td><td class="num">42</td><td class="num">84</td><td class="num">104</td><td>1 000 регистраций на запуске × 50 % × 10,7 %</td></tr>
+      <tr><td>Цель +30 %/мес</td><td class="num"></td><td class="num">38</td><td class="num">49</td><td class="num">64</td><td class="num">84</td><td class="num">109</td><td>для роста выручки на 30 % нужно 0,425 × база ≈ 111 / 150 / 200 / 265 новых, см. разрыв выше</td></tr>
+    </tbody>
+  </table>
+  <p class="note" style="margin-top:10px">Вклад по инициативам (цепочки, прогон по 2 779, конференции, реферал, блогеры, вебинары, марафон) и расчёт пакета «Команда» и CLI лежат в скрытых разделах и пересматриваются вместе с ними.</p>
 </section>
 
 <!-- 5. Инициативы и запуски -->
